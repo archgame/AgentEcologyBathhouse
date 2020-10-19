@@ -106,7 +106,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
+  m_Speed: 50
   m_Acceleration: 120
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -131,5 +131,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Destination: {fileID: 0}
-  BathTime: 2
+  BathTime: 50
   Status: 0

@@ -46,7 +46,7 @@ public class Guest : MonoBehaviour
                 Status = Action.WALKING;
                 _bathTime = 0;
                 Destination.RemoveGuest(this);
-                _destinations.RemoveAt(0);
+                //_destinations.RemoveAt(0);
 
                 GameObject entrance = GameObject.Find("Entrance");
                 Destination = entrance.GetComponent<Destination>();
