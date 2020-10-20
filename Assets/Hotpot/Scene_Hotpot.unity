@@ -11015,6 +11015,8 @@ GameObject:
   - component: {fileID: 1049500380}
   - component: {fileID: 1049500379}
   - component: {fileID: 1049500378}
+  - component: {fileID: 1049500383}
+  - component: {fileID: 1049500382}
   m_Layer: 0
   m_Name: entrance
   m_TagString: Untagged
@@ -11096,6 +11098,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1049500382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049500377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c030aa7e5810448a367ce49a80d770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Destination: {fileID: 0}
+  BathTime: 2
+  Status: 0
+--- !u!114 &1049500383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049500377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217ed7fb89d5f7444913966ac2900e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GuestPrefab: {fileID: 3195382997371946575, guid: e9d1e80099e8f3f48ab3b2f54c58806a,
+    type: 3}
+  EntranceRate: 0.5
 --- !u!1001 &1050113410
 PrefabInstance:
   m_ObjectHideFlags: 0
