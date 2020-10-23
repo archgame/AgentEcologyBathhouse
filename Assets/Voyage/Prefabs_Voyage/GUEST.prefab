@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3877245280050508838}
   - component: {fileID: 1181074144818369115}
   - component: {fileID: 1707647482508363714}
-  - component: {fileID: 8688715057246114930}
   - component: {fileID: -8048492125897804281}
+  - component: {fileID: 1031142008047307892}
   m_Layer: 0
   m_Name: GUEST
   m_TagString: Untagged
@@ -96,21 +96,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8688715057246114930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7000030500816480098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c030aa7e5810448a367ce49a80d770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Destination: {fileID: 0}
-  BathTime: 2
-  Status: 0
 --- !u!195 &-8048492125897804281
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -133,3 +118,19 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1031142008047307892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7000030500816480098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95a37f5dc1dc9e4bbe20f25fbb4e40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Destination: {fileID: 0}
+  Baths: 3
+  BathTime: 2
+  Status: 0
