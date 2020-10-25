@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GuestManager : MonoBehaviour
 {
+    [HideInInspector]
+
+    public static GuestManager Instance { get; private set; }
+
     public GameObject GuestPrefab; //guest gameobject to be instantiated
 
     public float EntranceRate = 0.5f; //the rate at which guests will enter
@@ -15,9 +19,27 @@ public class GuestManager : MonoBehaviour
     private float _lastEntrance = 0; //time since last entrant
     private int _occupancyLimit = 0; //occupancy limit maximum
 
+    public GameObject fpCamObject;
+    public Fpcam fpCamScript;
+
+    private void Awake()
+    {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
+        fpCamObject = GameObject.FindGameObjectWithTag("First Person Camera");
+        fpCamScript = fpCamObject.GetComponent<Fpcam>();
+
         GameObject[] destinations = GameObject.FindGameObjectsWithTag("Bath");
 
         foreach (GameObject go in destinations)
@@ -26,7 +48,7 @@ public class GuestManager : MonoBehaviour
             _destinations.Add(destination); //adding the destination script to the list
             _occupancyLimit += destination.OccupancyLimit; //increasing the occupancy limit maximum
         }
-        AdmitGuest();
+        AdmitGuest();    
     }
 
     private void AdmitGuest()
@@ -35,23 +57,42 @@ public class GuestManager : MonoBehaviour
         //if (_occupancyLimit <= _guest.Count) return;
         if (_guest.Count >= _occupancyLimit) return;
 
+
+
         foreach (Destination bath in _destinations)
         {
             //if bath is full guard statement
             if (bath.IsFull()) continue; //continue goes to the next line
 
-            //add guest to path
+            //instantiate guest
             GameObject guest = Instantiate(GuestPrefab, transform.position, Quaternion.identity); //adding our gameobject to scene
             _guest.Add(guest.GetComponent<Guest>()); //adding our gameobject guest script to the guest list
             Guest guestScript = guest.GetComponent<Guest>();
-            guestScript.Destination = bath;
-            bath.AddGuest(guestScript);
-            //guest.GetComponent<Guest>().Destination = bath; //setting the player destination
-            //bath.AddGuest(guest.GetComponent<Guest>()); //adding guest to the bath so it is occupied
+            fpCamScript.FollowMe(guestScript);
+            AssignOpenBath(guestScript);
+        }
+    }
 
+    public void AssignOpenBath(Guest guest)
+    {
+        foreach (Destination bath in _destinations)
+        {
+            if (bath.IsFull()) continue;
+
+            Guest guestScript = guest.GetComponent<Guest>();
+            if (guestScript._visited != null)
+            {
+                if (guestScript._visited.Contains(bath))
+                {
+                    continue;
+                }
+            }
+
+            guest.Destination = bath;
+            bath.AddGuest(guest);
+            guestScript._visited.Add(bath);
             break;
         }
-        //break goes to this line
     }
 
     // Update is called once per frame
@@ -76,6 +117,8 @@ public class GuestManager : MonoBehaviour
         {
             _lastEntrance += Time.deltaTime;
         }
+
+        fpCamScript.CamUpdate();
     }
 
     public void ExitGuests()
@@ -85,6 +128,7 @@ public class GuestManager : MonoBehaviour
         {
             Guest guest = _exitedGuests[i];
             _guest.Remove(guest);
+            fpCamScript.EndCamFollow(guest);
             Destroy(guest.gameObject);
         }
         _exitedGuests.Clear();

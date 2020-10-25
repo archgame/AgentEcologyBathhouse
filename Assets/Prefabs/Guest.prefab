@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3195382997371946572}
   - component: {fileID: 3195382997371946568}
   - component: {fileID: 3195382997371946569}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Guest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,5 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Destination: {fileID: 0}
-  BathTime: 50
+  Baths: 5
+  BathTime: 5
   Status: 0
+  _visited: []

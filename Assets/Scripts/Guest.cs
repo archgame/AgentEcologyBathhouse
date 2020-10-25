@@ -10,6 +10,7 @@ public class Guest : MonoBehaviour
     //public global variables
     public Destination Destination; //where the agent is going
 
+    public int Baths = 15; //the number of baths our guest will take
     public float BathTime = 2.0f; //how long the agent stays in
     public Action Status; //our agent's current status
 
@@ -19,6 +20,8 @@ public class Guest : MonoBehaviour
     private NavMeshAgent _agent; //our Nav Mesh Agent Component
     private Conveyance _currentConveyance = null;
     private List<Destination> _destinations = new List<Destination>();
+    private Destination _tempDestination;
+    public List<Destination> _visited = new List<Destination>();
 
     /// <summary>
     /// Called only once right after hitting Play
@@ -43,23 +46,45 @@ public class Guest : MonoBehaviour
             _bathTime += Time.deltaTime; //_bathTime = _bathTime + Time.deltaTime
             if (_bathTime > BathTime)
             {
-                Status = Action.WALKING;
-                _bathTime = 0;
-                Destination.RemoveGuest(this);
-                //_destinations.RemoveAt(0);
+                _tempDestination = Destination;
+                Destination = null;
 
-                GameObject entrance = GameObject.Find("Entrance");
-                Destination = entrance.GetComponent<Destination>();
+                if (Baths == 0)
+                {
+                    GameObject entrance = GameObject.Find("Entrance");
+                    Destination = entrance.GetComponent<Destination>();
+                }
+                else
+                {
+                    GuestManager.Instance.AssignOpenBath(this);
+                    Baths -= 1;
+                    Debug.Log(Baths);
+                }
+                if (Destination == null) return;
+
+                _destinations[0].RemoveGuest(this);
+                _destinations.RemoveAt(0);
+                _bathTime = 0;
+                Status = Action.WALKING;
                 UpdateDestination();
                 FindPath();
             }
-            //++++
-            return; //so it doesn't run any code below
+            return;
         }
+
+
+
 
         //guard statement
         if (Destination == null) return; //return stops the update here until next frame
-        DestinationDistance(); //++++
+
+        if (_agent.enabled)
+        {
+            Vector3 forward = _agent.velocity;
+            forward.y = 0;
+            transform.forward = forward;
+        }
+        DestinationDistance();
     }
 
     private void DestinationDistance()
@@ -160,7 +185,13 @@ public class Guest : MonoBehaviour
             }
         }
 
-        if (_currentConveyance == null) { UpdateDestination(); return; }
+        if (_currentConveyance == null)
+        {
+            _destinations.Clear();
+            _destinations.Add(Destination);
+            UpdateDestination();
+            return;
+        }
 
         //update destinations
         _destinations.Clear();
