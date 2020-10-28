@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3195382997371946573}
   - component: {fileID: 3195382997371946572}
   - component: {fileID: 3195382997371946568}
-  - component: {fileID: 3195382997371946569}
+  - component: {fileID: 464098619310411619}
   m_Layer: 0
   m_Name: Guest
   m_TagString: Untagged
@@ -118,7 +118,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3195382997371946569
+--- !u!114 &464098619310411619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,9 +127,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3195382997371946575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c030aa7e5810448a367ce49a80d770, type: 3}
+  m_Script: {fileID: 11500000, guid: d95a37f5dc1dc9e4bbe20f25fbb4e40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {fileID: 0}
-  BathTime: 15
-  Status: 0
+  Destination: {fileID: 7476150471754451795, guid: 6bb4e2e7bc274bd4aae9597b3255a305,
+    type: 3}
+  Baths: 1
+  BathTime: 2
+  Status: 1
