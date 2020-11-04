@@ -35,6 +35,7 @@ public class GuestManager : MonoBehaviour
     private void Start()
     {
         GameObject[] destinations = GameObject.FindGameObjectsWithTag("Bath");
+        destinations = Shuffle(destinations);
 
         foreach (GameObject go in destinations)
         {
@@ -45,16 +46,31 @@ public class GuestManager : MonoBehaviour
         AdmitGuest();
     }
 
+    private GameObject[] Shuffle(GameObject[] objects)
+    {
+        GameObject tempGO;
+        for (int i = 0; i < objects.Length; i++)
+        {
+            //Debug.Log("i: " + i);
+            int rnd = Random.Range(0, objects.Length);
+            tempGO = objects[rnd];
+            objects[rnd] = objects[i];
+            objects[i] = tempGO;
+        }
+        return objects;
+    }
+
     private void AdmitGuest()
     {
         //guard statement, if bath house is full
         //if (_occupancyLimit <= _guest.Count) return;
-        if (_guest.Count >= _occupancyLimit) return;
+        if (_guest.Count >= _occupancyLimit - 1) return;
 
         //instantiate guest
         GameObject guest = Instantiate(GuestPrefab, transform.position, Quaternion.identity); //adding our gameobject to scene
         _guest.Add(guest.GetComponent<Guest>()); //adding our gameobject guest script to the guest list
         Guest guestScript = guest.GetComponent<Guest>();
+        //List<Destination> visitedBaths = guestScript.VisitedBaths();
         AssignOpenBath(guestScript);
     }
 
@@ -120,5 +136,15 @@ public class GuestManager : MonoBehaviour
     public void GuestExit(Guest guest)
     {
         _exitedGuests.Add(guest);
+    }
+
+    public List<Guest> GuestList()
+    {
+        return _guest;
+    }
+
+    public List<Destination> DestinationList()
+    {
+        return _destinations;
     }
 }
