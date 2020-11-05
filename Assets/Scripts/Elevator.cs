@@ -26,6 +26,7 @@ public class Elevator : Conveyance
 
     public override void SetDestination()
     {
+       
         _waitTime = _maxWait;
 
         _destinations = GetComponentsInChildren<Destination>();
@@ -46,12 +47,16 @@ public class Elevator : Conveyance
     // Update is called once per frame
     private void Update()
     {
+       
         if (_guests.Count == 0) return;
         if (_buttonPressed.Count == 0) return;
+
+        //Debug.Log("start");
 
         //timer until car starts moving
         if (_waitTime <= 0)
         {
+
             CurrentState = State.MOVING;
         }
         else
@@ -104,9 +109,8 @@ public class Elevator : Conveyance
 
         //guard statement if the elevator is moving
         if (CurrentState == State.MOVING) { return; }
-
         //call if the car if it isn't on the guest level
-        if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) > 0.2f) //if Car and guest aren't on same level
+        if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) > 2.2f) //if Car and guest aren't on same level
         {
             Destination destination = GetDestination(guest.transform.position.y);
 
@@ -119,7 +123,6 @@ public class Elevator : Conveyance
 
             return;
         }
-
         //once we reach this point, we can assume the guest is either loading or unloading
         //we are assuming the guests that are unloading are children of the Car GameObject
         if (guest.transform.parent == Car.transform) //if a guest is inside (aka a child of) the Car
@@ -142,22 +145,23 @@ public class Elevator : Conveyance
     public bool UnloadingGuest(Guest guest)
     {
         //at this point we assume the guest is unloading
-
         //switch out the point when begin the unloading process
-        if (guest.transform.position == _riders[guest].transform.position)
+        if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) <0.2f)
         {
+            Debug.Log("unload");
             Destination destination = GetDestination(Car.transform.position.y);
             Vector3 offset = destination.transform.position - Car.transform.position;
             _guests[guest] = guest.transform.position + offset;
         }
 
         //unload the guest (animate the guest exiting
+        Debug.Log("walkDownElevator");
         guest.transform.position = Vector3.MoveTowards(guest.transform.position,
             _guests[guest],
             Time.deltaTime * Speed);
 
         //if the guest hasn't reached the disembark position, return false
-        if (Vector3.Distance(guest.transform.position, _guests[guest]) > 0.01f) return false;
+        if (Vector3.Distance(guest.transform.position, _guests[guest]) > 0.2f) return false;
 
         //assume the guest has made it to the disembark position
         GameObject position = _riders[guest];
@@ -196,7 +200,7 @@ public class Elevator : Conveyance
             Time.deltaTime * Speed);
 
         //if the guest hasn't reached the Car position, we indicate the loading is not finished
-        if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) > 0.01f) return false;
+        if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) > 2.01f) return false;
 
         if (guest.Destination != null) { guest.Destination.RemoveGuest(guest); }
         return true;
@@ -209,6 +213,7 @@ public class Elevator : Conveyance
         //tempDestinations = tempDestinations.OrderBy(x => x.name).ToArray();
         //tempDestinations = tempDestinations.OrderBy(x => Vector3.Distance(x.transform.position, Vector3.zero)).ToArray();
         return tempDestinations[0];
+        
     }
 
     public override Vector3 StartPosition(float y = 0)

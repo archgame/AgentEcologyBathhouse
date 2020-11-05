@@ -94,8 +94,7 @@ public class Guest : MonoBehaviour
 
                 if (Baths == 0) //if guest is done with baths
                 {
-                    GameObject entrance = GameObject.Find("Entrance");
-                    Destination = entrance.GetComponent<Destination>();
+                    Destination = GuestManager.Instance.RandomEntrance();
                 }
                 else //if guest needs new bath assigned
                 {
@@ -139,7 +138,7 @@ public class Guest : MonoBehaviour
     private void DestinationDistance()
     {
         //test agent distance from destination
-        if (Vector3.Distance(transform.position, Destination.transform.position) < 1.1f)
+        if (Vector3.Distance(transform.position, Destination.transform.position) < 3.1f)
         {
             if (Destination.GetComponentInParent<Conveyance>())
             {
