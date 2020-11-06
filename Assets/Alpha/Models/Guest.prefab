@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2239995613394421092}
   - component: {fileID: 8957381935875977713}
   - component: {fileID: 4205170495944573827}
-  - component: {fileID: 782899814537270343}
   - component: {fileID: 6166848413063982806}
+  - component: {fileID: 6461183226030072071}
   m_Layer: 0
   m_Name: Guest
   m_TagString: Untagged
@@ -96,21 +96,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &782899814537270343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5528065322569657281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c030aa7e5810448a367ce49a80d770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Destination: {fileID: 0}
-  BathTime: 2
-  Status: 1
 --- !u!195 &6166848413063982806
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -133,3 +118,26 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6461183226030072071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5528065322569657281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad366f3c12445d54e8719e786c9cbfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 0}
+  Slider: {fileID: 0}
+  Destination: {fileID: 0}
+  Baths: 3
+  BathTime: 2
+  Status: 0
+  _agent: {fileID: 0}
+  _currentConveyance: {fileID: 0}
+  _destinations: []
+  _tempDestination: {fileID: 0}
+  WanderTimer: {x: 2, y: 5}
