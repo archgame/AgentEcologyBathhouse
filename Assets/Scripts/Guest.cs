@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Guest : MonoBehaviour
 {
-    public enum Action { BATHING, WALKING, FOLLOWING, RIDING }
+    [Header("UI")]
+    public Text Text;
 
+    public Slider Slider;
+
+    public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
+
+    [Header("Destination")]
     //public global variables
     public Destination Destination; //where the agent is going
 
@@ -17,11 +24,18 @@ public class Guest : MonoBehaviour
     //private global variables
     private float _bathTime = 0; //how long the agent has been in the bath
 
+    [HideInInspector]
     private NavMeshAgent _agent; //our Nav Mesh Agent Component
+
+    [HideInInspector]
     private Conveyance _currentConveyance = null;
-    private List<Destination> _destinations = new List<Destination>();
-    private Destination _tempDestination;
-    public List<Destination> _visited = new List<Destination>();
+
+    public List<Destination> _destinations = new List<Destination>();
+    public Destination _tempDestination;
+    private List<Destination> _visitedBaths = new List<Destination>();
+    private float _timer = 0;
+    public Vector2 WanderTimer = new Vector2(2, 5);
+    private float _wanderTimer = 2;
 
     /// <summary>
     /// Called only once right after hitting Play
@@ -29,14 +43,43 @@ public class Guest : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        //Status = Action.RANDOM;
+        //Vector3 newPos = RandomNavSphere(transform.position, 100, -1);
+        //UpdateDestination(newPos);
+
         Status = Action.WALKING;
         UpdateDestination();
-        FindPath();
+        FindPath(ref _currentConveyance, ref _destinations);
     }
 
     // Update is called once per frame
     public void GuestUpdate()
     {
+        if (Status == Action.RANDOM)
+        {
+            _timer += Time.deltaTime;
+            if (_timer >= _wanderTimer)
+            {
+                //*/
+                List<Destination> baths = GuestManager.Instance.DestinationList();
+                foreach (Destination bath in baths)
+                {
+                    float distance = Vector3.Distance(bath.transform.position, transform.position);
+                    Debug.Log(distance);
+                    if (distance > 15) continue;
+                    GuestWalkDestination();
+                    return;
+                }
+                //*/
+
+                Vector3 newPos = RandomNavSphere(transform.position, 100, -1);
+                UpdateDestination(newPos);
+                _timer = 0;
+                _wanderTimer = Random.Range(WanderTimer.x, WanderTimer.y);
+                //Debug.Log("Wander Timer: " + _wanderTimer);
+            }
+            return;
+        }
         if (Status == Action.RIDING)
         {
             _currentConveyance.ConveyanceUpdate(this);
@@ -51,40 +94,45 @@ public class Guest : MonoBehaviour
 
                 if (Baths == 0)
                 {
-                    GameObject entrance = GameObject.Find("Entrance");
-                    Destination = entrance.GetComponent<Destination>();
+                    Destination = GuestManager.Instance.RandomEntrance();
                 }
                 else
                 {
-                    GuestManager.Instance.AssignOpenBath(this);
-                    Baths -= 1;
-                    Debug.Log(Baths);
+                    GuestManager.Instance.AssignOpenBath(this, _visitedBaths); //Destination is assigned inside metho
                 }
                 if (Destination == null) return;
 
-                _destinations[0].RemoveGuest(this);
-                _destinations.RemoveAt(0);
-                _bathTime = 0;
-                Status = Action.WALKING;
-                UpdateDestination();
-                FindPath();
+                SetText("Walking");
+                //_tempDestination.RemoveGuest(this); //remove guest from current bath
+                _destinations[0].RemoveGuest(this); //remove guest from current bath
+                _destinations.RemoveAt(0); //remove current bath from destination list
+                _bathTime = 0; //reseting bath time
+                Status = Action.WALKING;  //start walking
+                UpdateDestination(); //update new destination
+                FindPath(ref _currentConveyance, ref _destinations); //finding best path
             }
+
             return;
         }
-
-
-
 
         //guard statement
         if (Destination == null) return; //return stops the update here until next frame
 
-        if (_agent.enabled)
+        //orient gameobject direction
+        if (_agent.enabled && _agent.velocity != Vector3.zero)
         {
             Vector3 forward = _agent.velocity;
             forward.y = 0;
             transform.forward = forward;
         }
-        DestinationDistance();
+        DestinationDistance(); //++++
+    }
+
+    public virtual void GuestWalkDestination()
+    {
+        Status = Action.WALKING;
+        UpdateDestination();
+        FindPath(ref _currentConveyance, ref _destinations);
     }
 
     private void DestinationDistance()
@@ -122,28 +170,56 @@ public class Guest : MonoBehaviour
         _agent.SetDestination(Destination.transform.position);
         _agent.isStopped = false;
     }
+    
+    private void UpdateDestination(Vector3 position)
+    {
+        _agent.SetDestination(position);
+        _agent.isStopped = false;
+    }
 
-    public void NextDestination()
+    public virtual void NextDestination()
     {
         _agent.enabled = true;
         _destinations.RemoveAt(0);
         Destination = _destinations[0];
         Status = Action.WALKING;
-        FindPath(); //this allows multiple conveyances
+        FindPath(ref _currentConveyance, ref _destinations); //this allows multiple conveyances
     }
 
-    public float AgentWalkDistance(Vector3 start, Vector3 end, Color color)
+    public static float AgentWalkDistance(NavMeshAgent agent, Transform trans,
+        Vector3 start, Vector3 end, Color color)
     {
+        //in case they are the same position
+        if (Vector3.Distance(start, end) < 0.01f) return 0;
+
         //move agent to the start position
-        Vector3 initialPosition = transform.position;
-        _agent.Move(start - initialPosition);
+        Vector3 initialPosition = trans.position;
+        agent.enabled = false;
+        trans.position = start;//_agent.Move(start - initialPosition);
+        agent.enabled = true;
 
         //test to see if agent has path or not
         float distance = Mathf.Infinity;
-        NavMeshPath navMeshPath = _agent.path;
-        if (!_agent.CalculatePath(end, navMeshPath)) { _agent.Move(initialPosition - start); return distance; }
+        NavMeshPath navMeshPath = agent.path;
+        if (!agent.CalculatePath(end, navMeshPath))
+        {
+            //reset agent to original position
+            agent.enabled = false;
+            trans.position = initialPosition;//_agent.Move(initialPosition - start);
+            agent.enabled = true;
+            return distance;
+        }
+
+        //check to see if there is a path
         Vector3[] path = navMeshPath.corners;
-        if (path.Length < 2) { _agent.Move(initialPosition - start); return distance; }
+        if (path.Length < 2 || Vector3.Distance(path[path.Length - 1], end) > 2)
+        {
+            //reset agent to original position
+            agent.enabled = false;
+            trans.position = initialPosition;//_agent.Move(initialPosition - start);
+            agent.enabled = true;
+            return distance;
+        }
 
         //get walking path distance
         distance = 0;
@@ -153,51 +229,67 @@ public class Guest : MonoBehaviour
             Debug.DrawLine(path[i - 1], path[i], color); //visualizing the path, not necessary to return
         }
 
-        _agent.Move(initialPosition - start);
+        //reset agent to original position
+        agent.enabled = false;
+        trans.position = initialPosition;//_agent.Move(initialPosition - start);
+        agent.enabled = true;
+
         return distance;
     }
 
-    public void FindPath()
+    public virtual void FindPath(ref Conveyance currentConveyance, ref List<Destination> destinations)
     {
+        //Debug.Break();
+
         //get walking path distance
         Vector3 guestPosition = transform.position;
         Vector3 destinationPosition = Destination.transform.position;
-        float distance = AgentWalkDistance(guestPosition, destinationPosition, Color.magenta);
-        //Debug.Break();
+        float distance = AgentWalkDistance(_agent, transform, guestPosition, destinationPosition, Color.yellow);
 
         //test all conveyances
-        _currentConveyance = null;
+        currentConveyance = null;
         Conveyance[] conveyances = GameObject.FindObjectsOfType<Conveyance>();
         foreach (Conveyance c in conveyances)
         {
-            float distToC = AgentWalkDistance(guestPosition, c.StartPosition(), Color.green);
-            float distC = c.WeightedTravelDistance();
-            float distFromC = AgentWalkDistance(c.EndPosition(), destinationPosition, Color.red);
+            //guard statement, how many people are on the conveyance
 
-            Debug.DrawLine(guestPosition, c.StartPosition(), Color.cyan);
-            Debug.DrawLine(c.StartPosition(), c.EndPosition(), Color.cyan);
-            Debug.DrawLine(c.EndPosition(), destinationPosition, Color.cyan);
+            if (c.IsFull()) continue;
+
+            float distToC = AgentWalkDistance(_agent, transform, guestPosition, c.StartPosition(guestPosition), Color.green);
+            float distC = c.WeightedTravelDistance(guestPosition, destinationPosition);
+            float distFromC = AgentWalkDistance(_agent, transform, c.EndPosition(destinationPosition), destinationPosition, Color.red);
+
+            //Debug.DrawLine(guestPosition, c.StartPosition(), Color.black);
+            Debug.DrawLine(c.StartPosition(guestPosition), c.EndPosition(destinationPosition), Color.cyan);
+            //Debug.DrawLine(c.EndPosition(), destinationPosition, Color.white);
 
             if (distance > distToC + distC + distFromC)
             {
-                _currentConveyance = c;
+                currentConveyance = c;
                 distance = distToC + distC + distFromC;
             }
         }
 
+        //if there are no conveyances, we update the destination list with current destination
         if (_currentConveyance == null)
         {
-            _destinations.Clear();
-            _destinations.Add(Destination);
+            destinations.Clear();
+            destinations.Add(Destination);
             UpdateDestination();
             return;
         }
 
         //update destinations
-        _destinations.Clear();
-        _destinations.Add(_currentConveyance.GetDestination());
-        _destinations.Add(Destination);
-        Destination = _destinations[0];
+        if (_currentConveyance.GetType() == typeof(Vehicle))
+        {
+            Vehicle vehicle = _currentConveyance as Vehicle;
+            vehicle.SetWaiting(this);
+        }
+
+        destinations.Clear();
+        destinations.Add(currentConveyance.GetDestination(guestPosition));
+        destinations.Add(Destination);
+        Destination = destinations[0];
         UpdateDestination();
     }
 
@@ -206,7 +298,57 @@ public class Guest : MonoBehaviour
     /// </summary>
     private void StartBath()
     {
+        Baths--;
+        _visitedBaths.Add(Destination);
         Status = Action.BATHING;
         _agent.isStopped = true;
+        SetText("Bathing");
+    }
+
+    public virtual Destination GetUltimateDestination()
+    {
+        if (_destinations.Count == 0) return null;
+        return _destinations[_destinations.Count - 1];
+    }
+
+    public virtual void SetText(string text)
+    {
+        if (Text == null) return;
+        Text.text = text;
+    }
+
+    public virtual void SetSlider(float i)
+    {
+        if (Slider == null) return;
+        Slider.value = i;
+    }
+
+    public virtual string GetText()
+    {
+        if (Slider == null) return string.Empty;
+        return Text.text;
+    }
+
+    public virtual float GetSliderValue()
+    {
+        if (Slider == null) return Mathf.Infinity;
+        return Slider.value;
+    }
+
+    public virtual List<Destination> VisitedBaths()
+    {
+        return _visitedBaths;
+    }
+
+    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    {
+        //Debug.Break();
+        Vector3 randDirection = Random.insideUnitSphere * dist;
+        randDirection += origin;
+        NavMeshHit navHit;
+        NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
+        Debug.DrawLine(origin, randDirection, Color.blue);
+        Debug.DrawRay(navHit.position, Vector3.up * 3, Color.cyan);
+        return navHit.position;
     }
 }

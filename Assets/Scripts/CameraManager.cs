@@ -22,10 +22,12 @@ public class CameraManager : MonoBehaviour
         _cameras = FindObjectsOfType<CinemachineVirtualCamera>().ToList();
 
         UpdateCamera(_cameras, _currentIndex);
+        //fpCamVC.Priority = 9;
     }
 
     private void UpdateCamera(List<CinemachineVirtualCamera> cameras, int index)
     {
+        //if (fpCamVC.Priority != 9) { fpCamVC.Priority = 9; }
         foreach (CinemachineVirtualCamera camera in cameras)
         {
             camera.Priority = 9;
