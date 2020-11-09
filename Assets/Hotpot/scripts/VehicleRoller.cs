@@ -17,6 +17,8 @@ public class VehicleRoller : Conveyance
     private Vector3 _guestDestination = Vector3.zero;
     private Guest _guest = null;
 
+
+
     [HideInInspector]
     public NavMeshAgent _agent; //our Nav Mesh Agent Component
 
