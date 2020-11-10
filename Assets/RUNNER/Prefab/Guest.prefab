@@ -364,8 +364,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3195382997371946575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.85, y: 0.5, z: 0.73}
-  m_LocalScale: {x: 0.75, y: 1, z: 0.75}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2523843259400399256}
   m_Father: {fileID: 0}
@@ -470,7 +470,7 @@ MonoBehaviour:
   Slider: {fileID: 0}
   Destination: {fileID: 0}
   Baths: 3
-  BathTime: 2
+  BathTime: 10
   Status: 0
   _agent: {fileID: 0}
   _currentConveyance: {fileID: 0}
