@@ -8,7 +8,7 @@ public class Travelator : Conveyance
 
     public override void ConveyanceUpdate(Guest guest)
     {
-        if (!_guests.ContainsKey(guest)) //add guest to dictionary
+        if (!_guests.ContainsKey(guest))
         {
             List<Vector3> vecs = new List<Vector3>();
             foreach (GameObject go in Path)
