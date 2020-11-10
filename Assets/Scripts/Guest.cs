@@ -287,11 +287,20 @@ public class Guest : MonoBehaviour
             vehicle.SetWaiting(this);
         }
 
+        if (_currentConveyance.GetType() == typeof(Scooter))
+        {
+            Scooter scooter = _currentConveyance as Scooter;
+            scooter.SetWaiting(this);
+        }
         destinations.Clear();
         destinations.Add(currentConveyance.GetDestination(guestPosition));
         destinations.Add(Destination);
         Destination = destinations[0];
         UpdateDestination();
+
+      
+
+
     }
 
     /// <summary>
