@@ -106,7 +106,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 50
+  m_Speed: 15
   m_Acceleration: 120
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -130,8 +130,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c030aa7e5810448a367ce49a80d770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Text: {fileID: 0}
+  Slider: {fileID: 0}
   Destination: {fileID: 0}
-  Baths: 5
-  BathTime: 5
+  Baths: 1
+  BathTime: 1
   Status: 0
-  _visited: []
+  HelixFloor: 0
+  _destinations: []
+  _tempDestination: {fileID: 0}
+  WanderTimer: {x: 2, y: 5}

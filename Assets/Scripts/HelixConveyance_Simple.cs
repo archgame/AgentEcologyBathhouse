@@ -2,17 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
 
 [RequireComponent(typeof(SplineInterpolator))]
-public class HelixConveyance : Conveyance
+public class HelixConveyance_Simple : Conveyance
 {
-    public enum SpinDirection { right, left }
-
-    public SpinDirection rotation;
     public GameObject[] StartPoints;
     public GameObject EndPoint;
     public GameObject Box;
@@ -21,15 +17,14 @@ public class HelixConveyance : Conveyance
     public float helixRadius = 4;
     public float Testing = 0;
 
-    private int r;
     private List<List<GameObject>> allPathPts = new List<List<GameObject>>();
     private List<SplineInterpolator> splinePaths = new List<SplineInterpolator>();
     private List<GameObject> overallPts = new List<GameObject>();
     private List<GameObject> _templist = new List<GameObject>();
-    
+
     private float DegreeIncerement = 30;
     private float angleT;
-        
+
     private List<SplineInterpolator> _mSplineInterps;
     private Dictionary<Guest, float> _guests = new Dictionary<Guest, float>();
     private float _period = 0.05f;
@@ -66,14 +61,13 @@ public class HelixConveyance : Conveyance
                 if (_templist[i].transform.position.y < start.transform.position.y)
                 {
                     _templist.Remove(_templist[i]);
+                    i -= 1;
                 }
             }
 
             _templist.Insert(0, start);
             _templist.Add(EndPoint);
-            Debug.Log(_templist.Count);
             allPathPts.Add(_templist);
-            
 
             //setup spline
             interp.Reset();
@@ -84,7 +78,7 @@ public class HelixConveyance : Conveyance
             interp.StartInterpolation(null, false, eWrapMode.ONCE);
             splinePaths.Add(interp);
         }
-        Debug.Log(allPathPts.Count);
+
         return splinePaths;
     }
 
@@ -93,26 +87,16 @@ public class HelixConveyance : Conveyance
     {
         SetDestination();
 
-        if (rotation == SpinDirection.right)
-        {
-            r = -1;
-        }
-
-        else
-        {
-            r = 1;
-        }
-        
         float PointCount = (360 / DegreeIncerement) * helixTurn;
-        float delheight = helixHeight / PointCount;
+        float delheight = 88 / PointCount;
 
         //creates helix empty object points
         for (int i = 0; i < PointCount; i += 1)
         {
             angleT = Mathf.Deg2Rad * i * DegreeIncerement;
             GameObject g = Instantiate(Box, transform);
-            g.transform.localPosition = new Vector3(helixRadius * Mathf.Cos(angleT), delheight * i, r * helixRadius * Mathf.Sin(angleT));
-            
+            g.transform.localPosition = new Vector3(helixRadius * Mathf.Cos(angleT), delheight * i, -helixRadius * Mathf.Sin(angleT));
+
             overallPts.Add(g);
         }
 

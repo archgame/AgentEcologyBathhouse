@@ -20,6 +20,7 @@ public class Guest : MonoBehaviour
     public int Baths = 15; //the number of baths our guest will take
     public float BathTime = 2.0f; //how long the agent stays in
     public Action Status; //our agent's current status
+    public int HelixFloor = 0;
 
     //private global variables
     private float _bathTime = 0; //how long the agent has been in the bath

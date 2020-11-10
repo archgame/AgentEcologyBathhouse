@@ -87,6 +87,7 @@ public class SplineConveyance : Conveyance
         if (!_guests.ContainsKey(guest))
         {
             _guests.Add(guest, 0);
+            Debug.Log("HES ON IT");
             guest.transform.position = Path[0].transform.position;
             return;
         }
