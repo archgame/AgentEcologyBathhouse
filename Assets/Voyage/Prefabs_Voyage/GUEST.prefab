@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1181074144818369115}
   - component: {fileID: 1707647482508363714}
   - component: {fileID: -8048492125897804281}
-  - component: {fileID: 1031142008047307892}
-  m_Layer: 0
+  - component: {fileID: 2023668367147732753}
+  m_Layer: 8
   m_Name: GUEST
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1031142008047307892
+--- !u!114 &2023668367147732753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,10 +127,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7000030500816480098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d95a37f5dc1dc9e4bbe20f25fbb4e40e, type: 3}
+  m_Script: {fileID: 11500000, guid: ad366f3c12445d54e8719e786c9cbfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Text: {fileID: 0}
+  Slider: {fileID: 0}
   Destination: {fileID: 0}
   Baths: 3
   BathTime: 2
   Status: 0
+  _agent: {fileID: 0}
+  _currentConveyance: {fileID: 0}
+  _destinations: []
+  _tempDestination: {fileID: 0}
+  WanderTimer: {x: 2, y: 5}

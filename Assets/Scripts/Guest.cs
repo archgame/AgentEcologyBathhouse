@@ -173,6 +173,7 @@ public class Guest : MonoBehaviour
 
     private void UpdateDestination(Vector3 position)
     {
+        Debug.Log("Yes");
         _agent.SetDestination(position);
         _agent.isStopped = false;
     }
