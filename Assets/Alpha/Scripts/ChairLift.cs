@@ -19,7 +19,7 @@ public class ChairLift : Conveyance
 
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>(); //all guests
     private Dictionary<GameObject, Guest> _positions = new Dictionary<GameObject, Guest>();
-    private Destination[] _destinations;
+    public Destination[] _destinations;
     private Dictionary<Guest, GameObject> _riders = new Dictionary<Guest, GameObject>();
     
 
