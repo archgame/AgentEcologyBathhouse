@@ -116,7 +116,6 @@ public class HelixConveyance_Simple : Conveyance
         if (!_guests.ContainsKey(guest))
         {
             _guests.Add(guest, 0);
-            Debug.Log("HES ON IT");
             guest.transform.position = allPathPts[lvl][0].transform.position;
             return;
         }

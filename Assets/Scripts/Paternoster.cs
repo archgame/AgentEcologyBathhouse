@@ -64,6 +64,8 @@ public class Paternoster : Conveyance
                     //load guest
                     _riders.Add(guest);
                     _carRiders[car] = guest;
+                    Debug.Log(_riders);
+                    Debug.Log(_carRiders);
                     IEnumerator coroutine = LoadPassenger(car, guest);
                     StartCoroutine(coroutine);
                     break; //don't check any more guests
