@@ -5,29 +5,30 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 
-public class Canvas : MonoBehaviour
+public class MetricEncounters : MonoBehaviour
 {
     public static Canvas Instance { get; private set; }
     public Text riskText;
     public Dictionary<Guest, List<Guest>> guestEncounters = new Dictionary<Guest, List<Guest>>();
+    private int risk;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _encountersObj = GetComponentInChildren<>;
+        riskText = GetComponent<Text>();
     }
 
     // Update is called once per frame
-    /*/void Update()
+    void Update()
     {
-        riskText.text = "ENCOUNTERS" + risk;
-
+        risk = GuestManager.Instance.risk;
+        riskText.text = "ENCOUNTERS: " + risk;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             risk--;
         }
-    }/*/
+    }
 
 }  
 
