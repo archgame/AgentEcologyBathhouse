@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 
-public class RiskDisplay : MonoBehaviour
+public class Canvas : MonoBehaviour
 {
-    public static RiskDisplay Instance { get; private set; }
-    public int risk = 5;
+    public static Canvas Instance { get; private set; }
     public Text riskText;
     public Dictionary<Guest, List<Guest>> guestEncounters = new Dictionary<Guest, List<Guest>>();
 
@@ -15,7 +15,7 @@ public class RiskDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _encountersObj = GetComponentInChildren<>
     }
 
     // Update is called once per frame
