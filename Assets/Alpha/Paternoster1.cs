@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Paternoster1 : Conveyance
+public class Paternoster : Conveyance
 {
     public GameObject Cars;
 
@@ -55,8 +55,7 @@ public class Paternoster1 : Conveyance
 
                     //guard statements
                     if (_riders.Contains(guest)) continue; //make sure guest doesn't move between cars
-                    if (Mathf.Abs(car.transform.position.y - guest.transform.position.y) > 2f) continue;
-                    Debug.Log("Reached");
+                    if (Mathf.Abs(car.transform.position.y - guest.transform.position.y) > 0.2f) continue;
 
                     //test guest direction
                     float guestDirection = kvp.Value.y - guest.transform.position.y;
@@ -75,7 +74,7 @@ public class Paternoster1 : Conveyance
             {
                 Guest guest = _carRiders[car];
                 Vector3 UnloadPosition = _guests[guest];
-                if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y) < 0.9f)
+                if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y) < 0.2f)
                 {
                     //unload guest
                     _carRiders[car] = null;

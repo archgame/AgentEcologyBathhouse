@@ -4340,7 +4340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &500629744
 Transform:
   m_ObjectHideFlags: 0
@@ -16925,7 +16925,7 @@ MonoBehaviour:
   - {fileID: 1272020572}
   - {fileID: 609875079}
   Weight: 3
-  Speed: 12
+  Speed: 25
   Car: {fileID: 355230774}
   Positions: {fileID: 554489426}
   Stops:
@@ -16933,6 +16933,7 @@ MonoBehaviour:
   - {fileID: 1272020572}
   _buttonPressed: []
   CurrentState: 1
+  _destinations: []
   _waitTime: 0
 --- !u!4 &2018435911
 Transform:
@@ -18671,7 +18672,7 @@ MonoBehaviour:
   - {fileID: 1974249895}
   - {fileID: 562706061}
   Weight: 3
-  Speed: 12
+  Speed: 25
   Car: {fileID: 1934365729}
   Positions: {fileID: 1761496935}
   Stops:
@@ -18679,6 +18680,7 @@ MonoBehaviour:
   - {fileID: 1974249895}
   _buttonPressed: []
   CurrentState: 1
+  _destinations: []
   _waitTime: 0
 --- !u!1 &1740470504887100576
 GameObject:

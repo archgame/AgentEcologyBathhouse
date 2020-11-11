@@ -18,17 +18,17 @@ public class AgentColorChange : MonoBehaviour
         Debug.Log("Guest Encounter");
         Score += 1;
         MeshRenderer mr = other.GetComponent<MeshRenderer>();
-        if (Score < 2)
+        if (Score == 5)
         {
             mr.material = Alt;
         }
 
-        else if (Score < 50)
+        else if (Score == 10)
         {
             mr.material = Alt1;
         }
 
-        else if (Score < 75)
+        else if (Score == 20)
         {
             mr.material = Alt2;
         }
