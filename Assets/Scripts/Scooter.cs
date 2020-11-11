@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class Scooter : Conveyance
     private int _currentPathIndex = 0;
     private Vector3 _guestDestination = Vector3.zero;
     private Guest _guest = null;
+    public Boolean fallen = false;
 
 
     [HideInInspector]
@@ -50,6 +52,7 @@ public class Scooter : Conveyance
             if (_agent.velocity.sqrMagnitude > Mathf.Epsilon)
             {
                 transform.rotation = Quaternion.LookRotation(_agent.velocity.normalized);
+                _guest.transform.rotation = transform.rotation; //and the guest faces that direction too
             }
 
             //if the vehicle is more than two vehicle widths away from destination return
@@ -61,9 +64,20 @@ public class Scooter : Conveyance
             _guest.transform.parent = null;
             _guest.NextDestination();
             _guest = null;
+            //_agent.enabled = false; //make scooters stop walking around
+                                    
+            //scooter falls over when WAITING
+            if (!fallen)
+            {
+               transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
+               fallen = true;
+            }
+            
 
             Status = Action.WAITING;
-            if (Path.Length <= 2)
+
+            //this has to do with the random walking mechanic
+            /*/if (Path.Length <= 2)
             {
                 Vector3 newPos = Guest.RandomNavSphere(transform.position, 100, -1);
                 UpdateDestination(newPos);
@@ -73,7 +87,7 @@ public class Scooter : Conveyance
             else
             {
                 UpdateDestination(Path[_currentPathIndex].transform.position);
-            }
+            }/*/
 
         }
         }
@@ -88,16 +102,22 @@ public class Scooter : Conveyance
         if (Status != Action.WAITING) return;
 
         if (Vector3.Distance(transform.position, guest.transform.position)
-            > transform.localScale.x + guest.transform.localScale.x + 0.2f) return;
+            > transform.localScale.x + guest.transform.localScale.x + 1f) return;
+        
         // scooter stands up when ready to be used
-        transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
+        if (fallen)
+        {
+            transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
+            fallen = false;
+        }
+        
 
         Status = Action.RIDING;
         _agent.enabled = true;
 
         // position scooter and guest at ground level
         guest.transform.parent = transform;
-        guest.transform.position = transform.position + new Vector3(0, 1f, 0);
+        guest.transform.position = transform.position + Vector3.up;
 
         //guest.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
         //guest.transform.position = transform.position + new Vector3 (1, 0, 0);
@@ -113,8 +133,6 @@ public class Scooter : Conveyance
         _guest = guest;
         _agent.enabled = false;
         Status = Action.WAITING;
-        //scooter falls over when WAITING
-        transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
     }
 
     private void UpdateDestination(Vector3 position)

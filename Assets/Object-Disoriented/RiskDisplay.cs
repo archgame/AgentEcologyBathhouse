@@ -19,7 +19,7 @@ public class RiskDisplay : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*/void Update()
     {
         riskText.text = "ENCOUNTERS" + risk;
 
@@ -27,7 +27,7 @@ public class RiskDisplay : MonoBehaviour
         {
             risk--;
         }
-    }
+    }/*/
 
 }  
 
