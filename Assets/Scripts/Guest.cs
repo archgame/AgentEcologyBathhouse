@@ -40,6 +40,7 @@ public class Guest : MonoBehaviour
     private float _timer = 0;
     public Vector2 WanderTimer = new Vector2(2, 5);
     private float _wanderTimer = 2;
+    internal Vector3 velocity;
 
     /// <summary>
     /// Called only once right after hitting Play
