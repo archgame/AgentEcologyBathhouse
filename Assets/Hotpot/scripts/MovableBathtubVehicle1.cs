@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class MovableBathtub : Conveyance
+public class MovableBathtubVehicle1 : Conveyance
 {
     public GameObject Cars;
 
@@ -47,21 +47,21 @@ public class MovableBathtub : Conveyance
             //check if car is open
             if (_carRiders[car] == null)
             {
-                Debug.Log("loadGuest");
-                float carDirection = _positions[_cars[car]].y - car.transform.position.y;
-
+                //Debug.Log("loadGuest");
+                float carDirection = _positions[_cars[car]].y - car.transform.position.y;//need ro rewrite to adpapt to the same floor,right now it is only zero
                 foreach (KeyValuePair<Guest, Vector3> kvp in _guests)
                 {
                     Guest guest = kvp.Key;
-
+                    //Debug.Log(kvp.Key);
                     //guard statements
                     if (_riders.Contains(guest)) continue; //make sure guest doesn't move between cars
-                    if (Mathf.Abs(car.transform.position.y - guest.transform.position.y) > 0.2f) continue;
-
+                    //Debug.Log("loadGuest");
+                    if (Vector3.Distance(car.transform.position, guest.transform.position)>=(car.transform.localScale.magnitude + 0.2f)) continue;
+                    Debug.Log("loadGuest");
                     //test guest direction
                     float guestDirection = kvp.Value.y - guest.transform.position.y;
                     if (!SameSign(carDirection, guestDirection)) continue; //continue to next guest
-
+                    Debug.Log("loadGuest");
                     //load guest
                     _riders.Add(guest);
                     _carRiders[car] = guest;
