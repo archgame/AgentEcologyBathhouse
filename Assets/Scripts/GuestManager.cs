@@ -6,13 +6,14 @@ public class GuestManager : MonoBehaviour
 {
     [HideInInspector]
     public static GuestManager Instance { get; private set; }
+    public int risk = 0;
 
     public GameObject GuestPrefab; //guest gameobject to be instantiated
     public GameObject EmployeePrefab;
 
     public float EntranceRate = 0.5f; //the rate at which guests will enter
 
-    private List<Guest> _guest = new List<Guest>(); //list of guests
+    public List<Guest> _guest = new List<Guest>(); //list of guests
     private List<Destination> _destinations = new List<Destination>(); //list of destinations
     private List<Guest> _exitedGuests = new List<Guest>(); //guests that will exit
     private GuestEntrance[] _guestEntrances;

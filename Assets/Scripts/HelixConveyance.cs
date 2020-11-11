@@ -71,7 +71,7 @@ public class HelixConveyance : Conveyance
 
             _templist.Insert(0, start);
             _templist.Add(EndPoint);
-            Debug.Log(_templist.Count);
+            //Debug.Log(_templist.Count);
             allPathPts.Add(_templist);
             
 
@@ -84,7 +84,7 @@ public class HelixConveyance : Conveyance
             interp.StartInterpolation(null, false, eWrapMode.ONCE);
             splinePaths.Add(interp);
         }
-        Debug.Log(allPathPts.Count);
+        //Debug.Log(allPathPts.Count);
         return splinePaths;
     }
 
@@ -132,7 +132,6 @@ public class HelixConveyance : Conveyance
         if (!_guests.ContainsKey(guest))
         {
             _guests.Add(guest, 0);
-            Debug.Log("HES ON IT");
             guest.transform.position = allPathPts[lvl][0].transform.position;
             return;
         }

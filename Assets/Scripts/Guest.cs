@@ -11,6 +11,9 @@ public class Guest : MonoBehaviour
 
     public Slider Slider;
 
+    public List<Guest> guestEncounters = new List<Guest>();
+    public List<Guest> totalGuests = new List<Guest>();
+
     public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
 
     [Header("Destination")]
@@ -56,6 +59,29 @@ public class Guest : MonoBehaviour
     // Update is called once per frame
     public void GuestUpdate()
     {
+        for(int i=0; i < GuestManager.Instance._guest.Count; i++)
+        {
+
+            if (Vector3.Distance(transform.position, GuestManager.Instance._guest[i].transform.position) < 2.0f)
+            {
+                //Debug.Log("TooClose");
+
+                if(!guestEncounters.Contains(GuestManager.Instance._guest[i]))
+                {
+                   if(GuestManager.Instance._guest[i].transform.position != transform.position)
+                    {
+                        guestEncounters.Add(GuestManager.Instance._guest[i]);
+                        //Debug.Log("Collision");
+                        GuestManager.Instance.risk += 1;
+                        this.SetSlider(1);
+                    }
+                       
+                }
+            }
+
+
+        }
+
         if (Status == Action.RANDOM)
         {
             _timer += Time.deltaTime;
