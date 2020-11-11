@@ -40,7 +40,6 @@ public class MovableBathtub : Conveyance
 
     private void Update()
     {
-        Debug.Log("Yes");
         for (int i = 0; i < Cars.transform.childCount; i++)
         {
             GameObject car = Cars.transform.GetChild(i).gameObject;
@@ -48,6 +47,7 @@ public class MovableBathtub : Conveyance
             //check if car is open
             if (_carRiders[car] == null)
             {
+                Debug.Log("loadGuest");
                 float carDirection = _positions[_cars[car]].y - car.transform.position.y;
 
                 foreach (KeyValuePair<Guest, Vector3> kvp in _guests)
@@ -141,7 +141,6 @@ public class MovableBathtub : Conveyance
 
     public override void ConveyanceUpdate(Guest guest)
     {
-        Debug.Log("Yes2");
         //guard statement if guest is already added
         if (_guests.ContainsKey(guest)) return;
 

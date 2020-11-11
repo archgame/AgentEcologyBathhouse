@@ -6,13 +6,21 @@ using System.Linq;
 public class PaternosterRoller : Conveyance
 {
     public GameObject Cars;
+    public int MaxLoad;
 
     private Destination[] _destinations;
     private Dictionary<GameObject, int> _cars = new Dictionary<GameObject, int>();
     private List<Vector3> _positions = new List<Vector3>();
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
-    private Dictionary<GameObject, Guest> _carRiders = new Dictionary<GameObject, Guest>(); //keeps track of which cars have riders
+    private Dictionary<GameObject, List<Guest>> _carRiders = new Dictionary<GameObject, List<Guest>>(); //keeps track of which cars have riders
     private List<Guest> _riders = new List<Guest>();
+
+    //car states
+    public enum State { MOVING, WAITING };
+    public State CurrentState = State.WAITING;
+    private float _maxWait = 1.0f;
+    private float _waitTime = 0.0f;
+
 
     public override void SetDestination()
     {
@@ -23,7 +31,12 @@ public class PaternosterRoller : Conveyance
         {
             _cars.Add(Cars.transform.GetChild(i).gameObject, i);
             _positions.Add(Cars.transform.GetChild(i).transform.position);
-            _carRiders.Add(Cars.transform.GetChild(i).gameObject, null);
+            _carRiders.Add(Cars.transform.GetChild(i).gameObject, new List<Guest>());
+        }
+
+        foreach (GameObject car in _cars.Keys)
+        {
+            _carRiders[car] = new List<Guest>();
         }
 
         //set the occupnacy limit for each waiting lobby
@@ -40,70 +53,116 @@ public class PaternosterRoller : Conveyance
 
     private void Update()
     {
+       
+        if (_guests.Count == 0) return;
+        
+        //loading or unloading guests
         for (int i = 0; i < Cars.transform.childCount; i++)
         {
             GameObject car = Cars.transform.GetChild(i).gameObject;
-
-            //check if car is open
-            if (_carRiders[car] == null)
+           
+            //timer until car starts moving
+            if (_waitTime <= 0)
             {
-                float carDirection = _positions[_cars[car]].y - car.transform.position.y;
+                //Debug.Log("move");
+                CurrentState = State.MOVING;
+            }
+            else
+            {
+                _waitTime -= Time.deltaTime;
+                return;
+            }
 
+            //if car is not full
+            if (_carRiders[car].Count< MaxLoad)
+            {
+                float carDirection = _positions[_cars[car]].y - car.transform.position.y;//telling if the car is going up or down
                 foreach (KeyValuePair<Guest, Vector3> kvp in _guests)
                 {
                     Guest guest = kvp.Key;
-                   
+              
                     //guard statements
                     if (_riders.Contains(guest)) continue; //make sure guest doesn't move between cars
+               
+                    if (Mathf.Abs(car.transform.position.y - guest.transform.position.y-car.transform.localScale.y) > 1.2f) continue;
 
-         
-                    if (Mathf.Abs(car.transform.position.y - guest.transform.position.y-car.transform.localScale.y) > 2.2f) continue;
-                    
-                    
-                   
                     //test guest direction
                     float guestDirection = kvp.Value.y - guest.transform.position.y;
                     if (!SameSign(carDirection, guestDirection)) continue; //continue to next guest
 
                     //load guest
                     _riders.Add(guest);
-                    Debug.Log("addguest");
-                    _carRiders[car] = guest;
+                    _carRiders[car].Add(guest);//_carRiders[car] = guest;_need to be changed into guest list##############################################
                     IEnumerator coroutine = LoadPassenger(car, guest);
                     StartCoroutine(coroutine);
-                    break; //don't check any more guests
+                    if (_carRiders[car].Count >= MaxLoad)
+                    {
+                        break;//if exceed maximum load, don't check any more guests
+                    }
+
+                    else { continue; }//not exceeding maximun load, continue loading guests
+                     
                 }
             }
+            
             //check if guest has arrived at level
             else
             {
-                Guest guest = _carRiders[car];
-                Vector3 UnloadPosition = _guests[guest];
-                if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y) < 0.2f)
+                //Debug.Log(_carRiders[car].Count);
+                if (_carRiders[car] == null) { continue; }
+                for (int j = 0; j < _carRiders[car].Count; j++)
                 {
-                    //unload guest
-                    _carRiders[car] = null;
-                    IEnumerator coroutine = UnloadPassenger(car, guest);
-                    StartCoroutine(coroutine);
-                }
-            }
+                    if (j > _guests.Count) { continue; }
+                    
+                    Guest guest = _carRiders[car][j];//get the item from the list!!!!!!!!!!!!!#################################################
+                    Vector3 UnloadPosition = _guests[guest];
+                    if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y - car.transform.localScale.y) < 0.2f)
+                    {
+                        //unload guest
+                        //Debug.Log("unloadGuest");
+                        _carRiders[car].Remove(guest);
+                        IEnumerator coroutine = UnloadPassenger(car, guest);
+                        StartCoroutine(coroutine);
+                    }
 
-            //animate cars
-            //when the car reaches the position, we increase the index to the next position
-            if (car.transform.position == _positions[_cars[car]])
-            {
-                int p = _cars[car] + 1;
-                if (p >= _positions.Count) { p = 0; }
-                _cars[car] = p;
+                }
+               
             }
 
             //move car
-            //int j = _cars[car];
-            Vector3 newPos = Vector3.MoveTowards(car.transform.position,
-                _positions[_cars[car]], //_positions[j]
-                Speed * Time.deltaTime);
-            car.transform.position = newPos;
+            if (CurrentState == State.MOVING)
+            {
+                int q = _cars[car] + 1;
+                if (q >= _positions.Count) { q = 0; }
+                float CarSpeed = Mathf.Abs(Vector3.Distance(_positions[_cars[car]], _positions[q])) / 6f;
+
+                //when the car reaches the position, we increase the index to the next position
+                if (Mathf.Abs(Vector3.Distance(car.transform.position , _positions[_cars[car]]))<=0.02f)
+                {
+                    int p = _cars[car] + 1;
+                    if (p >= _positions.Count) { p = 0; }
+                    _cars[car] = p;
+                    //Debug.Log(p);
+                }
+
+               
+                Vector3 newPos = Vector3.MoveTowards(car.transform.position,
+                _positions[_cars[car]], 
+                CarSpeed * Time.deltaTime);
+                car.transform.position = newPos;
+                Debug.DrawLine(car.transform.position, _positions[_cars[car]]);
+
+            }
+            if (Mathf.Abs(Vector3.Distance(car.transform.position, _positions[_cars[car]])) <= 0.02f)
+            {
+                _waitTime = _maxWait;
+                CurrentState = State.WAITING;
+            }
+            //return;
+
         }
+        
+       
     }
 
     private IEnumerator LoadPassenger(GameObject car, Guest guest)
@@ -140,6 +199,9 @@ public class PaternosterRoller : Conveyance
         _guests.Remove(guest);
         guest.transform.parent = null;
         guest.NextDestination();
+        //Debug.Log("unloadGuest");
+        //Debug.Log(_carRiders[car].Count);
+
         yield break;
     }
 
@@ -148,9 +210,9 @@ public class PaternosterRoller : Conveyance
         //guard statement if guest is already added
         if (_guests.ContainsKey(guest)) return;
 
-        Destination destination = guest.GetUltimateDestination();
-        destination = GetDestination(destination.transform.position);
-        _guests.Add(guest, destination.transform.position);
+        Destination destination = guest.GetUltimateDestination();//bath
+        destination = GetDestination(destination.transform.position);//floor
+        _guests.Add(guest, destination.transform.position);//add floor as destination
     }
 
     public override Destination GetDestination(Vector3 vec)
