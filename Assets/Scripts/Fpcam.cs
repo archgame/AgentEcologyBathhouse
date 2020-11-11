@@ -42,7 +42,7 @@ public class Fpcam : MonoBehaviour
     {
         if (storyteller != null)
         {
-            transform.position = storyteller.transform.position;
+            transform.position = storyteller.transform.position + (0.5f * Vector3.up) + (1f * storyteller.transform.forward);
             transform.rotation = storyteller.transform.rotation;
             return;
         }
