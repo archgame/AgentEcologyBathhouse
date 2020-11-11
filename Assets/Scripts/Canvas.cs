@@ -15,7 +15,7 @@ public class Canvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _encountersObj = GetComponentInChildren<>
+        //_encountersObj = GetComponentInChildren<>;
     }
 
     // Update is called once per frame
