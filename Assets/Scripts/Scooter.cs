@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Destination))]
@@ -17,16 +19,18 @@ public class Scooter : Conveyance
     private Vector3 _guestDestination = Vector3.zero;
     private Guest _guest = null;
 
+
     [HideInInspector]
     public NavMeshAgent _agent; //our Nav Mesh Agent Component
 
     private Destination _dest;
 
+
     public override void SetDestination()
     {
         _dest = GetComponent<Destination>();
         _agent = GetComponent<NavMeshAgent>();
-        Status = Action.WALKING;
+        Status = Action.WAITING;
         Vector3 newPos = Guest.RandomNavSphere(transform.position, 100, -1);
         UpdateDestination(newPos);
         if (Path.Length == 0) return;
@@ -37,33 +41,17 @@ public class Scooter : Conveyance
     // Update is called once per frame
     private void Update()
     {
-        if (Status == Action.WAITING) return;
-        if (Status == Action.WALKING)
-        {
-            //random walk scenario
-            if (Path.Length == 0)
-            {
-                _timer += Time.deltaTime;
-                if (_timer < _wanderTimer) return;
 
-                Vector3 newPos = Guest.RandomNavSphere(transform.position, 100, -1);
-                UpdateDestination(newPos);
-                _timer = 0;//reset timer
-                _wanderTimer = Random.Range(WanderTimer.x, WanderTimer.y);
-                return;
-            }
-            //follow path scenario
-            else
-            {
-                if (Vector3.Distance(transform.position, Path[_currentPathIndex].transform.position) > 0.2f) return;
 
-                _currentPathIndex++;
-                if (_currentPathIndex >= Path.Length) { _currentPathIndex = 0; }
-                UpdateDestination(Path[_currentPathIndex].transform.position);
-            }
-        }
         if (Status == Action.RIDING)
         {
+           
+            //make scooter face forward relative to velocity
+            if (_agent.velocity.sqrMagnitude > Mathf.Epsilon)
+            {
+                transform.rotation = Quaternion.LookRotation(_agent.velocity.normalized);
+            }
+
             //if the vehicle is more than two vehicle widths away from destination return
             if (Vector3.Distance(transform.position, _guestDestination) > transform.localScale.x * 2) return;
 
@@ -74,20 +62,26 @@ public class Scooter : Conveyance
             _guest.NextDestination();
             _guest = null;
 
-            Status = Action.WALKING;
-            if (Path.Length == 0)
+            Status = Action.WAITING;
+            if (Path.Length <= 2)
             {
                 Vector3 newPos = Guest.RandomNavSphere(transform.position, 100, -1);
                 UpdateDestination(newPos);
                 _timer = 0;
-                _wanderTimer = Random.Range(WanderTimer.x, WanderTimer.y);
+                _wanderTimer = Random.Range(0, 0);
             }
             else
             {
                 UpdateDestination(Path[_currentPathIndex].transform.position);
             }
+
         }
-    }
+        }
+
+
+
+
+
 
     public override void ConveyanceUpdate(Guest guest)
     {
@@ -95,14 +89,23 @@ public class Scooter : Conveyance
 
         if (Vector3.Distance(transform.position, guest.transform.position)
             > transform.localScale.x + guest.transform.localScale.x + 0.2f) return;
+        // scooter stands up when ready to be used
+        transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
 
         Status = Action.RIDING;
         _agent.enabled = true;
-        guest.transform.position = transform.position;
+
+        // position scooter and guest at ground level
         guest.transform.parent = transform;
+        guest.transform.position = transform.position + new Vector3(0, 1f, 0);
+
+        //guest.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
+        //guest.transform.position = transform.position + new Vector3 (1, 0, 0);
         _guestDestination = guest.GetUltimateDestination().transform.position;
         UpdateDestination(_guestDestination);
     }
+
+
 
     public void SetWaiting(Guest guest)
     {
@@ -110,6 +113,8 @@ public class Scooter : Conveyance
         _guest = guest;
         _agent.enabled = false;
         Status = Action.WAITING;
+        //scooter falls over when WAITING
+        transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
     }
 
     private void UpdateDestination(Vector3 position)
