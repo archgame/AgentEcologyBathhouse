@@ -15512,12 +15512,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1676863351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01a6d11fe66a9004aa3a3c8a27230d90, type: 3}
+  m_Script: {fileID: 11500000, guid: f89f0ebcdf66d3841ba1b05ff012b5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skateboard: {fileID: 6735747889256100210, guid: 0a5026bae9b101547a45fa167e6b220e,
+  skateboard: {fileID: 6814356795104979672, guid: 0a5026bae9b101547a45fa167e6b220e,
     type: 3}
-  position: {x: 95, y: 0, z: -95}
+  totalnumber: 20
+  speed: 1
+  delay: 0
 --- !u!4 &1676863353
 Transform:
   m_ObjectHideFlags: 0
@@ -15526,7 +15528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676863351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 95, y: 0, z: -95}
+  m_LocalPosition: {x: 98.58, y: 0, z: -90.04}
   m_LocalScale: {x: 0.5, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
