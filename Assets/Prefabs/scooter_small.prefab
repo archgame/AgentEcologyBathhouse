@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2899691483430995313}
   - component: {fileID: 5042743625537158548}
   m_Layer: 0
-  m_Name: Scooter_Small
+  m_Name: scooter_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3033667219593020291, guid: 06e04ad4bae13a94f85885d8dc2bd2a9, type: 3}
+  - {fileID: 2100000, guid: 52c91d0fa93ec5642aeb2fa00ff99698, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,4 +134,5 @@ MonoBehaviour:
   Speed: 10
   Status: 0
   WanderTimer: {x: 2, y: 5}
+  fallen: 0
   _agent: {fileID: 0}
