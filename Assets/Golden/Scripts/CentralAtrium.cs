@@ -26,7 +26,7 @@ public class CentralAtrium : MonoBehaviour
     {
         if (!other.GetComponent<Guest>()) return;
         MeshRenderer mr = other.GetComponent<MeshRenderer>();
-        mr.material = Main;
+        mr.material = Alt;
 
         Guest guest = other.GetComponent<Guest>();
         guest.SetText("Outside Atrium");
