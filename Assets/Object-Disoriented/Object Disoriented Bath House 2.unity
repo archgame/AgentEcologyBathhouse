@@ -1936,7 +1936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &247413791
 Transform:
   m_ObjectHideFlags: 0
@@ -3395,7 +3395,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riskText: {fileID: 0}
-  risk: 0
 --- !u!1001 &438195977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9813,6 +9812,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   risk: 0
+  PercentSick: 10
+  healthycount: 0
+  sickcount: 0
+  contamcount: 0
+  safeExit: 0
   GuestPrefab: {fileID: 3195382997371946575, guid: e9d1e80099e8f3f48ab3b2f54c58806a,
     type: 3}
   EmployeePrefab: {fileID: 0}
@@ -9997,7 +10001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riskText: {fileID: 0}
-  risk: 5
 --- !u!1001 &1192687143
 PrefabInstance:
   m_ObjectHideFlags: 0

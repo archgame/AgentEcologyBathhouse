@@ -15,6 +15,7 @@ public class Guest : MonoBehaviour
     public List<Guest> totalGuests = new List<Guest>();
 
     public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
+    public enum Feeling { Healthy, Sick, Contaminated}
 
     [Header("Destination")]
     //public global variables
@@ -23,6 +24,7 @@ public class Guest : MonoBehaviour
     public int Baths = 15; //the number of baths our guest will take
     public float BathTime = 2.0f; //how long the agent stays in
     public Action Status; //our agent's current status
+    public Feeling Health;
     public int HelixFloor = 0;
 
     //private global variables
@@ -41,16 +43,32 @@ public class Guest : MonoBehaviour
     public Vector2 WanderTimer = new Vector2(2, 5);
     private float _wanderTimer = 2;
     internal Vector3 velocity;
+    private Renderer GuestCol;
 
     /// <summary>
     /// Called only once right after hitting Play
     /// </summary>
     private void Start()
     {
+        int sickchance = Random.Range(0, 100);
+        if (sickchance < GuestManager.Instance.PercentSick)
+        {
+            Health = Feeling.Sick;
+            GuestManager.Instance.sickcount += 1;
+        }
+        else
+        {
+            Health = Feeling.Healthy;
+            GuestManager.Instance.healthycount += 1;
+        }
+
+
+
         _agent = GetComponent<NavMeshAgent>();
         //Status = Action.RANDOM;
         //Vector3 newPos = RandomNavSphere(transform.position, 100, -1);
         //UpdateDestination(newPos);
+        GuestCol = GetComponent<Renderer>();
 
         Status = Action.WALKING;
         UpdateDestination();
@@ -69,12 +87,22 @@ public class Guest : MonoBehaviour
 
                 if(!guestEncounters.Contains(GuestManager.Instance._guest[i]))
                 {
-                   if(GuestManager.Instance._guest[i].transform.position != transform.position)
+                    if (GuestManager.Instance._guest[i].transform.position != transform.position)
                     {
-                        guestEncounters.Add(GuestManager.Instance._guest[i]);
-                        //Debug.Log("Collision");
-                        GuestManager.Instance.risk += 1;
-                        this.SetSlider(1);
+                        if (GuestManager.Instance._guest[i].Health != Feeling.Healthy)
+                        {
+                            if (Health == Feeling.Healthy)
+                            {
+                                guestEncounters.Add(GuestManager.Instance._guest[i]);
+                                //Debug.Log("Collision");
+                                GuestManager.Instance.risk += 1;
+                                this.SetSlider(1);
+                                GuestManager.Instance.healthycount -= 1;
+                                GuestManager.Instance.sickcount += 1;
+                                Health = Feeling.Contaminated;
+                            }
+                        }
+
                     }
                        
                 }
@@ -143,6 +171,19 @@ public class Guest : MonoBehaviour
             return;
         }
 
+        if (Health == Feeling.Healthy)
+        {
+            GuestCol.material.color = Color.green;
+        }
+        if (Health == Feeling.Sick)
+        {
+            GuestCol.material.color = Color.red;
+        }
+        if (Health == Feeling.Contaminated)
+        {
+            GuestCol.material.color = Color.yellow;
+        }
+
         //guard statement
         if (Destination == null) return; //return stops the update here until next frame
 
@@ -154,6 +195,13 @@ public class Guest : MonoBehaviour
             transform.forward = forward;
         }
         DestinationDistance(); //++++
+
+        /*/
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GuestCol.material.color = Color.green;
+        }
+        /*/
     }
 
     public virtual void GuestWalkDestination()

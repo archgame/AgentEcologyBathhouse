@@ -29,6 +29,5 @@ public class MetricEncounters : MonoBehaviour
             risk--;
         }
     }
-
 }  
 

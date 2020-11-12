@@ -7,6 +7,12 @@ public class GuestManager : MonoBehaviour
     [HideInInspector]
     public static GuestManager Instance { get; private set; }
     public int risk = 0;
+    public float PercentSick = 0;
+
+    public int healthycount = 0;
+    public int sickcount = 0;
+    public int contamcount = 0;
+    public int safeExit = 0;
 
     public GameObject GuestPrefab; //guest gameobject to be instantiated
     public GameObject EmployeePrefab;
@@ -146,6 +152,19 @@ public class GuestManager : MonoBehaviour
             Guest guest = _exitedGuests[i];
             _guest.Remove(guest);
             fpCamScript.EndCamFollow(guest);
+            if (guest.Health == Guest.Feeling.Healthy)
+            {
+                healthycount -= 1;
+                safeExit += 1;
+            }
+            if (guest.Health == Guest.Feeling.Sick)
+            {
+                sickcount -= 1;
+            }
+            if (guest.Health == Guest.Feeling.Contaminated)
+            {
+                contamcount -= 1;
+            }
             Destroy(guest.gameObject);
         }
         _exitedGuests.Clear();
