@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VIPMetric : MonoBehaviour
+public class TimeMetric : MonoBehaviour
 {
     [Header("Controls")]
     [Range(0, 30)]
-    
-    public float ScreenSlider = 0;
 
-  
+    public float ScreenSlider = 0;
+    float time;
+
     public string ScreenText = "";
 
     //private float _vipguest;
@@ -19,7 +19,7 @@ public class VIPMetric : MonoBehaviour
     //public List<Guest> guests = GuestManager.Instance.GuestList(); //this gives you a list of all the guests
 
     [Header("UI")]
-    public Text Text;
+    public Text GuestText;
 
     public Slider Slider;
 
@@ -42,29 +42,43 @@ public class VIPMetric : MonoBehaviour
         //        guest.SetText(GuestText);
         // }
 
-        List<Guest> guests = GuestManager.Instance.GuestList(); //this gives you a list of all the guests
+
+        time += Time.deltaTime;
+        float time_round = Mathf.Round(time * 10.0f) * 0.1f;
+       
+        GuestText.text = ("Time Elapsed: " + (time_round) + " s");
+        Slider.value = time_round;
 
 
-        //int guestAtriumCount = 0;
-        //foreach (Guest guest in guests)
-        //{
-        //    Renderer rend = guest.GetComponent<Renderer>();
-        //    if (rend.material.color != Color.white) continue;
-         //   guestAtriumCount++;
+
+        //List<Guest> guests = GuestManager.Instance.GuestList(); //this gives you a list of all the guests
+
+
+
+        // int guestAtriumCount = 0;
+        // foreach (Guest guest in guests)
+        // {
+        //     Renderer rend = guest.GetComponent<Renderer>();
+        //     if (rend.material.color != Color.white) continue;
+        //    guestAtriumCount++;
         //}
 
-        //Text.text = guestAtriumCount.ToString();
+        //Slider.value = guestAtriumCount;
+        //GuestText.text = guestAtriumCount.ToString();
 
-        int guestCount = 0;
-        foreach (Guest guest in guests)
-        {
-            Renderer rend = guest.GetComponent<Renderer>();
-            if (rend.material.color != Color.red) continue;
-            guestCount++;
-        }
-        
-        Text.text = guestCount.ToString();
-        Slider.value = guestCount;
+
+
+
+
+        //int guestCount = 0;
+        //foreach (Guest guest in guests)
+        //{
+        //   Renderer rend = guest.GetComponent<Renderer>();
+        //   if (rend.material.color != Color.red) continue;
+        //   guestCount++;
+        //}
+
+        // Slider.value = guestCount;
 
 
 
