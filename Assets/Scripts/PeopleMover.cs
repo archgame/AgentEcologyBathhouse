@@ -88,7 +88,7 @@ public class PeopleMover : Conveyance
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("1");
         _destinations = GetComponentsInChildren<Destination>();
 
         SplineInterpolator interp = transform.GetComponent<SplineInterpolator>();
@@ -102,7 +102,7 @@ public class PeopleMover : Conveyance
 
         railpath = SetupSpline(pathpoints);
         int NodeCount = railpath.GetNodeCount();
-
+        Debug.Log("2");
         for (int i = 0; i < CapCount; i += 1)
         {
             GameObject f = Instantiate(Cap, transform);
@@ -117,6 +117,7 @@ public class PeopleMover : Conveyance
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("3");
         for (int i = 0; i < CapCount; i++)
         {
             GameObject car = caplist[i];
@@ -127,28 +128,29 @@ public class PeopleMover : Conveyance
                 //Debug.Log("Car is empty");
                 //float carDirection = _positions[i].y - car.transform.position.y;
                 //float carDirection = railpath.GetHermiteAtTime(cappos[i - 0]).y - railpath.GetHermiteAtTime(cappos[i]).y;
-
+                Debug.Log("4");
                 foreach (KeyValuePair<Guest, Vector3> kvp in _guests)
                 {
                     Guest guest = kvp.Key;
 
                     //guard statements
                     if (_riders.Contains(guest)) continue; //make sure guest doesn't move between cars
-                    if (Mathf.Abs(car.transform.position.y - guest.transform.position.y) > 0.1f)
+                    if (Vector3.Distance(car.transform.position, guest.transform.position) > 4.1f)
                     {
                         continue;
                     }
-
+                    Debug.Log("5");
                     //test guest direction
                     float guestDirection = kvp.Value.y - guest.transform.position.y;
                     //if (!SameSign(carDirection, guestDirection)) continue; //continue to next guest
-
+                    Debug.Log("6");
                     //load guest
                     _riders.Add(guest);
                     _capRiders[car] = guest;
                     Debug.Log("time to load");
                     IEnumerator coroutine = LoadPassenger(car, guest);
                     StartCoroutine(coroutine);
+                    Debug.Log("check 2");
                     break; //don't check any more guests
                 }
             }
@@ -157,7 +159,8 @@ public class PeopleMover : Conveyance
             {
                 Guest guest = _capRiders[car];
                 Vector3 UnloadPosition = _guests[guest];
-                if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y) < 0.2f)
+                // if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y) < 0.2f)
+                if (Vector3.Distance(UnloadPosition, guest.transform.position) < 4.1f)
                 {
                     //unload guest
                     _capRiders[car] = null;
@@ -172,7 +175,10 @@ public class PeopleMover : Conveyance
         {
             cappos[j] += Time.deltaTime * Speed;
             Vector3 position = railpath.GetHermiteAtTime(cappos[j]);
+            Vector3 forward = position - caplist[j].transform.position;
+            caplist[j].transform.forward = new Vector3(forward.x,0,forward.z);
             caplist[j].transform.position = position;
+            
 
             int nodeCount = railpath.GetNodeCount(); //+++
             if (nodeCount % 2 != 0) { nodeCount--; } //+++
@@ -189,9 +195,9 @@ public class PeopleMover : Conveyance
         bool loading = true;
         while (loading)
         {
-            guest.transform.position = Vector3.MoveTowards(guest.transform.position, car.transform.position, Time.deltaTime * Speed * 8);
+            guest.transform.position = Vector3.MoveTowards(guest.transform.position, car.transform.position - new Vector3 (0f,1.75f,0f) + (0.2f * car.transform.forward), Time.deltaTime * Speed * 20);
 
-            if (Vector3.Distance(guest.transform.position, car.transform.position) < 0.01f) { loading = false; }
+            if (Vector3.Distance(guest.transform.position, car.transform.position - new Vector3 (0f, 1.75f, 0f) + (0.2f * car.transform.forward)) < 0.01f) { loading = false; }
             yield return new WaitForEndOfFrame();
         }
 
