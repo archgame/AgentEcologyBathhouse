@@ -27,7 +27,7 @@ public class GuestManager : MonoBehaviour
     private GuestEntrance[] _guestEntrances;
 
     private float _lastEntrance = 0; //time since last entrant
-    private int _occupancyLimit = 0; //occupancy limit maximum
+    public int _occupancyLimit = 0; //occupancy limit maximum
 
     private GameObject fpCamObject;
     private Fpcam fpCamScript;

@@ -56,7 +56,7 @@ public class Scooter : Conveyance
             }
 
             //if the vehicle is more than two vehicle widths away from destination return
-            if (Vector3.Distance(transform.position, _guestDestination) > transform.localScale.x * 2) return;
+            if (Vector3.Distance(transform.position, _guestDestination) > (transform.localScale.x * 2) + 2) return;
 
             //after this the vehicle has arrived at the destination
 
@@ -69,7 +69,8 @@ public class Scooter : Conveyance
             //scooter falls over when WAITING
             if (!fallen)
             {
-               transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
+               Debug.Log("falling");
+               //transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
                fallen = true;
             }
             
@@ -90,7 +91,7 @@ public class Scooter : Conveyance
             }/*/
 
         }
-        }
+    }
 
 
 
@@ -107,7 +108,8 @@ public class Scooter : Conveyance
         // scooter stands up when ready to be used
         if (fallen)
         {
-            transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
+            Debug.Log("pickup");
+            //transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
             fallen = false;
         }
         
@@ -116,8 +118,9 @@ public class Scooter : Conveyance
         _agent.enabled = true;
 
         // position scooter and guest at ground level
-        guest.transform.parent = transform;
         guest.transform.position = transform.position + Vector3.up;
+        guest.transform.parent = transform;
+        
 
         //guest.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
         //guest.transform.position = transform.position + new Vector3 (1, 0, 0);

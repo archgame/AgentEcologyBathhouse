@@ -117,7 +117,7 @@ public class PeopleMover : Conveyance
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("3");
+        //Debug.Log("3");
         for (int i = 0; i < CapCount; i++)
         {
             GameObject car = caplist[i];
@@ -128,7 +128,7 @@ public class PeopleMover : Conveyance
                 //Debug.Log("Car is empty");
                 //float carDirection = _positions[i].y - car.transform.position.y;
                 //float carDirection = railpath.GetHermiteAtTime(cappos[i - 0]).y - railpath.GetHermiteAtTime(cappos[i]).y;
-                Debug.Log("4");
+                //Debug.Log("4");
                 foreach (KeyValuePair<Guest, Vector3> kvp in _guests)
                 {
                     Guest guest = kvp.Key;

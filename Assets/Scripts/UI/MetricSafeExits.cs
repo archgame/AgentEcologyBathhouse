@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -31,6 +32,12 @@ public class MetricSafeExits : MonoBehaviour
         else
         { exitpercent = Mathf.Floor(100 * ((float)safeexitcount / (float)exitcount)); }
         riskText.text = "SAFE EXITS: " + safeexitcount + " (" + exitpercent + "%)";
+
+        if(exitcount == 5)
+        {
+            Debug.Log(exitpercent);
+            //Debug.Break();
+        }
     }
 }
 
