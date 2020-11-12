@@ -488,7 +488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6656536958137854565}
-  - component: {fileID: 1547730599639238348}
+  - component: {fileID: 4459230735226121967}
   m_Layer: 0
   m_Name: DoubleRail
   m_TagString: Untagged
@@ -514,7 +514,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1547730599639238348
+--- !u!114 &4459230735226121967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6656536958137854566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05475d9c390c3fa4c92945d41f43073f, type: 3}
+  m_Script: {fileID: 11500000, guid: 184b8749092b76c4a8a98aeabea40402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Path:
@@ -537,7 +537,7 @@ MonoBehaviour:
   - {fileID: 4005390066207876638}
   - {fileID: 3662869166386840927}
   Weight: 3
-  Speed: 8
+  Speed: 4
   TCars: {fileID: 2002142081362950312}
 --- !u!1 &6792340291039157594
 GameObject:
@@ -641,7 +641,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 60af3ce444173ba4fbf5fec92247021a, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -720,7 +720,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 60af3ce444173ba4fbf5fec92247021a, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
