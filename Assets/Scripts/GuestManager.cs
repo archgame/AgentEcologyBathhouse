@@ -9,10 +9,12 @@ public class GuestManager : MonoBehaviour
     public int risk = 0;
     public float PercentSick = 0;
 
+    public int totalcount;
     public int healthycount = 0;
     public int sickcount = 0;
     public int contamcount = 0;
     public int safeExit = 0;
+    public int exitCount = 0;
 
     public GameObject GuestPrefab; //guest gameobject to be instantiated
     public GameObject EmployeePrefab;
@@ -142,6 +144,8 @@ public class GuestManager : MonoBehaviour
         }
 
         fpCamScript.CamUpdate();
+
+        totalcount = _guest.Count;
     }
 
     public void ExitGuests()
@@ -165,6 +169,7 @@ public class GuestManager : MonoBehaviour
             {
                 contamcount -= 1;
             }
+            exitCount += 1;
             Destroy(guest.gameObject);
         }
         _exitedGuests.Clear();

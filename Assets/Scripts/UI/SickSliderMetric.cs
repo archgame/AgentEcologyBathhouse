@@ -10,7 +10,9 @@ public class SickSliderMetric : MonoBehaviour
     public static Canvas Instance { get; private set; }
     public Slider sickSlider;
     public Dictionary<Guest, List<Guest>> guestEncounters = new Dictionary<Guest, List<Guest>>();
-    private float sickNumber = 0f;
+    public int sickcount;
+    public int totalcount;
+    public float sickpercent;
 
 
     // Start is called before the first frame update
@@ -22,7 +24,13 @@ public class SickSliderMetric : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sickSlider.value = sickNumber;
+        sickcount = GuestManager.Instance.sickcount;
+        totalcount = GuestManager.Instance.totalcount;
+        if (totalcount == 0) 
+            {sickpercent = 0;}
+        else 
+            {sickpercent = ((float)sickcount / (float)totalcount);}
+        sickSlider.value = sickpercent;
     }
 
 }

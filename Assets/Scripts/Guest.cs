@@ -98,7 +98,7 @@ public class Guest : MonoBehaviour
                                 GuestManager.Instance.risk += 1;
                                 this.SetSlider(1);
                                 GuestManager.Instance.healthycount -= 1;
-                                GuestManager.Instance.sickcount += 1;
+                                GuestManager.Instance.contamcount += 1;
                                 Health = Feeling.Contaminated;
                             }
                         }

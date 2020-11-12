@@ -10,7 +10,9 @@ public class ContaminatedSliderMetric : MonoBehaviour
     public static Canvas Instance { get; private set; }
     public Slider contaminatedSlider;
     public Dictionary<Guest, List<Guest>> guestEncounters = new Dictionary<Guest, List<Guest>>();
-    private float contaminatedNumber = 0.5f;
+    public int contamcount;
+    public int totalcount;
+    public float contampercent;
 
 
     // Start is called before the first frame update
@@ -22,7 +24,13 @@ public class ContaminatedSliderMetric : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        contaminatedSlider.value = contaminatedNumber;
+        contamcount = GuestManager.Instance.contamcount;
+        totalcount = GuestManager.Instance.totalcount;
+        if (totalcount == 0)
+        { contampercent = 0; }
+        else
+        { contampercent = ((float)contamcount / (float)totalcount); }
+        contaminatedSlider.value = contampercent;
     }
 
 }
