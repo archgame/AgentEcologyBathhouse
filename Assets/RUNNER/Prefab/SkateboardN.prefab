@@ -90,11 +90,19 @@ GameObject:
   - component: {fileID: 3924267937653111017}
   - component: {fileID: 1875462602619009151}
   - component: {fileID: 7913198253404664317}
+<<<<<<< Updated upstream
   - component: {fileID: -6180491817623153505}
   - component: {fileID: 2147350699885142989}
   - component: {fileID: 13130938843351782}
   - component: {fileID: 2508740674794472247}
   - component: {fileID: 5658077050789594394}
+=======
+  - component: {fileID: 635010302760014296}
+  - component: {fileID: 2147350699885142989}
+  - component: {fileID: 13130938843351782}
+  - component: {fileID: 2508740674794472247}
+  - component: {fileID: 77630619153193575}
+>>>>>>> Stashed changes
   m_Layer: 8
   m_Name: Skateboard
   m_TagString: Untagged
@@ -166,11 +174,19 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
+<<<<<<< Updated upstream
   m_Radius: 0.6
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-6180491817623153505
+=======
+  m_Radius: 0.75
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &635010302760014296
+>>>>>>> Stashed changes
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +255,11 @@ MonoBehaviour:
   Status: 0
   WanderTimer: {x: 2, y: 5}
   _agent: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!114 &5658077050789594394
+=======
+--- !u!114 &77630619153193575
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,7 +268,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6814356795104979672}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: b6efeaaf903f7404b96556cbb785d956, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 365e7dd4867e7254eb413be8c608faab, type: 3}
+>>>>>>> Stashed changes
   m_Name: 
   m_EditorClassIdentifier: 
   Main: {fileID: 2100000, guid: 439edbb0bf3b14b458f81489f22b52aa, type: 2}
