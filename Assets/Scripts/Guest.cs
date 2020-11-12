@@ -154,7 +154,7 @@ public class Guest : MonoBehaviour
             }
             else if (Destination.tag == "Entrance")
             {
-                Destination.gameObject.GetComponent<GuestManager>().GuestExit(this);
+                GuestManager.Instance.GuestExit(this);
                 //GuestManager manager = Destination.gameObject.GetComponent<GuestManager>();
                 //manager.GuestExit(this);
                 return;
