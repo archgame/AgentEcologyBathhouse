@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class SuspendedRailway : Conveyance
 {
@@ -10,7 +11,9 @@ public class SuspendedRailway : Conveyance
     public List<float> _buttonPressed = new List<float>();
     public enum State { MOVING, WAITING };
     public State CurrentState = State.WAITING;
-    private Destination[] _destinations;
+    public Destination[] _destinations;
+    
+    
     //info of all guests' position
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
     //info of guests in the car
@@ -18,6 +21,7 @@ public class SuspendedRailway : Conveyance
     private Dictionary<Guest, GameObject> _riders = new Dictionary<Guest, GameObject>();
     private float _maxWait = 1.0f;
     private float _waitTime = 0.0f;
+
 
     public override void SetDestination()
     {
@@ -201,6 +205,8 @@ public class SuspendedRailway : Conveyance
             _riders[guest].transform.position,
             Time.deltaTime * Speed);
 
+        guest.transform.parent = Car.transform;
+
         //if the guest hasn't reached the Car position, we indicate the loading is not finished
         if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) > 2.01f) return false;
         if (guest.Destination != null) { guest.Destination.RemoveGuest(guest); }
@@ -211,7 +217,9 @@ public class SuspendedRailway : Conveyance
     public override Destination GetDestination(Vector3 vec)
     {
         Destination[] tempDestinations = _destinations;
-        tempDestinations = tempDestinations.OrderBy(go => Mathf.Abs(go.transform.position.x - vec.x)).ToArray();
+        //tempDestinations = tempDestinations.OrderBy(go => Mathf.Abs(go.transform.position.x - vec.x)).ToArray();
+        tempDestinations = tempDestinations.OrderBy(go => Vector3.Distance(vec, go.transform.position)).ToArray();
+
         return tempDestinations[0];
     }
 
