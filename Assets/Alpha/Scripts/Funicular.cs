@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class ChairLift : Conveyance
+public class Funicular : Conveyance
 {
     public GameObject Car;
     public GameObject Positions;
@@ -23,7 +23,7 @@ public class ChairLift : Conveyance
     private Dictionary<Guest, GameObject> _riders = new Dictionary<Guest, GameObject>();
     
 
-    private float _maxWait = 2.0f;
+    private float _maxWait = 3.0f;
     public float _waitTime = 0.0f;
 
 
@@ -103,10 +103,10 @@ public class ChairLift : Conveyance
 
         
         //call if the car if it isn't on the guest level
-        if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 1.9f) 
+        if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 2.9f) 
         //If car is not in the destination floor, Note:At least more than 0.2f than the 'potitions' Y
         {
-            if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 4f)// and if car is next to guest, then load
+            if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 7f)// and if car is next to guest, then load
             {
                 if (!LoadingGuest(guest))
                 {
