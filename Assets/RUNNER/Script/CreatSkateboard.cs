@@ -22,7 +22,7 @@ public class CreatSkateboard : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(time);
+        
         if (time >= totalnumber / speed)
         {
             CancelInvoke();
