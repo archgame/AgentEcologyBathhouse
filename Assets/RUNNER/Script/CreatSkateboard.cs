@@ -1,36 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
-
-
 
 public class CreatSkateboard : MonoBehaviour
 
 {
     public GameObject skateboard;
-    public Vector3 position;
-
-
+    public int totalnumber;
+    public float speed;
+    public float delay;
+    float time = 0;
+        
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("AddSkateboard", 0f, 2f);
-        
+        InvokeRepeating("AddSkateboard", delay, 1/ speed);
+        InvokeRepeating("AddTime", delay, 1 / speed);
+
 
     }
     private void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+        Debug.Log(time);
+        if (time >= totalnumber / speed)
         {
             CancelInvoke();
         }
     }
-    
+
     void AddSkateboard()
     {
-        GameObject.Instantiate(skateboard, position, Quaternion.identity);
+        GameObject.Instantiate(skateboard, this.transform.position, Quaternion.identity);
     }
-    
+    void AddTime()
+    {
+        time += 1 / speed;
+    }
+
 }
-    
