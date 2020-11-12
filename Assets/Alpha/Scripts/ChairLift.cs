@@ -103,8 +103,8 @@ public class ChairLift : Conveyance
 
         
         //call if the car if it isn't on the guest level
-        if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 1.9f) 
-        //If car is not in the destination floor, Note:At least more than 0.2f than the 'potitions' Y
+        if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 1.8f) 
+        //If car is not in the destination floor
         {
             if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 4f)// and if car is next to guest, then load
             {
