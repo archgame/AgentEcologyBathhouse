@@ -9,7 +9,7 @@ public class ChairLift : Conveyance
     public GameObject Car;
     public GameObject Positions;
     public GameObject[] Stops;
-    public List<float> _buttonPressed = new List<float>();
+    
 
 
     public enum State { MOVING, WAITING };
@@ -19,7 +19,7 @@ public class ChairLift : Conveyance
 
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>(); //all guests
     private Dictionary<GameObject, Guest> _positions = new Dictionary<GameObject, Guest>();
-    private Destination[] _destinations;
+    public Destination[] _destinations;
     private Dictionary<Guest, GameObject> _riders = new Dictionary<Guest, GameObject>();
     
 
@@ -103,14 +103,14 @@ public class ChairLift : Conveyance
 
         
         //call if the car if it isn't on the guest level
-        if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 0.9f) 
-        //If car is not in the destination floor
+        if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 1.9f) 
+        //If car is not in the destination floor, Note:At least more than 0.2f than the 'potitions' Y
         {
-            if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 0.9f)// and if car is next to guest, then load
+            if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 4f)// and if car is next to guest, then load
             {
                 if (!LoadingGuest(guest))
                 {
-                    _waitTime = _maxWait; //if the guest isn't done loading
+                    //if the guest isn't done loading
                 }
             }
         }
@@ -120,7 +120,7 @@ public class ChairLift : Conveyance
             
             if (!UnloadingGuest(guest))
             {
-                _waitTime = _maxWait; //if the guest isn't done loading
+                 //if the guest isn't done loading
             }
         }
 
