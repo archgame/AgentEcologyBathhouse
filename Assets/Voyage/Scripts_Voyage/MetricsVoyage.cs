@@ -41,8 +41,8 @@ public class MetricsVoyage : MonoBehaviour
                 vehicleGuest++;
                 guest.GetComponent<Renderer>().material.color = new Color(255, 0, 0);//VEHICLE GUEST RED 
             }
-           
-                if (guest.GetText() != GuestText)
+
+            if (guest.GetText() != GuestText)
                 guest.SetText(GuestText);
         }
 
@@ -57,10 +57,12 @@ public class MetricsVoyage : MonoBehaviour
             if (guest._currentConveyance.GetType() == typeof(Vehicle))
             {
                 if (guest.GetSliderValue() != GuestSlider)
-                {   guest.SetSlider(GuestSlider);
+                {
+                    guest.SetSlider(GuestSlider);
                     guest.Slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = new Color(255, 0, 0);
                 }
-            }else
+            }
+            else
             {
                 if (guest.GetSliderValue() != GuestWalking)
                 {
@@ -73,9 +75,9 @@ public class MetricsVoyage : MonoBehaviour
         //Update Screen UI
         if (Slider == null) { Debug.Log("null Slider"); }
 
-            if (Slider.value != ScreenSlider)
-            { Slider.value = ScreenSlider; }
-            if (Text.text != ScreenText)
-            { Text.text = ScreenText; }
+        if (Slider.value != ScreenSlider)
+        { Slider.value = ScreenSlider; }
+        if (Text.text != ScreenText)
+        { Text.text = ScreenText; }
     }
 }

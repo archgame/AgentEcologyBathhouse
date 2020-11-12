@@ -2,33 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using System;
 
-public class SuspendedRailway : Conveyance
+public class ElevatorRunner : Conveyance
 {
     public GameObject Car;
     public GameObject Positions;
     public List<float> _buttonPressed = new List<float>();
+
     public enum State { MOVING, WAITING };
+
     public State CurrentState = State.WAITING;
-    public Destination[] _destinations;
-    
-    
-    //info of all guests' position
-    private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
-    //info of guests in the car
+
+    private Destination[] _destinations;
+    private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>(); //all guests
+
+    //vvv guests that are in the car
     private Dictionary<GameObject, Guest> _positions = new Dictionary<GameObject, Guest>();
+
     private Dictionary<Guest, GameObject> _riders = new Dictionary<Guest, GameObject>();
+
     private float _maxWait = 1.0f;
     private float _waitTime = 0.0f;
-
 
     public override void SetDestination()
     {
 
         _waitTime = _maxWait;
 
-        _destinations = GetComponentsInChildren<Destination>();
+        _destinations = GetComponentsInChildren<Destination>();//level x
 
         //create the positions dictionary
         for (int i = 0; i < Positions.transform.childCount; i++)
@@ -46,12 +47,16 @@ public class SuspendedRailway : Conveyance
     // Update is called once per frame
     private void Update()
     {
+
         if (_guests.Count == 0) return;
         if (_buttonPressed.Count == 0) return;
+
         //Debug.Log("start");
+
         //timer until car starts moving
         if (_waitTime <= 0)
         {
+
             CurrentState = State.MOVING;
         }
         else
@@ -69,9 +74,9 @@ public class SuspendedRailway : Conveyance
         }
 
         //move to next destination
-        float nextX = _buttonPressed[0];
+        float nextY = _buttonPressed[0];
         Vector3 CarPosition = Car.transform.position;
-        Vector3 NextPosition = new Vector3(nextX, CarPosition.y, CarPosition.z);
+        Vector3 NextPosition = new Vector3(CarPosition.x, nextY, CarPosition.z);
         Car.transform.position = Vector3.MoveTowards(CarPosition, NextPosition, Time.deltaTime * Speed);
 
         if (Vector3.Distance(CarPosition, NextPosition) > 2.01f) return;
@@ -91,49 +96,38 @@ public class SuspendedRailway : Conveyance
         if (!_guests.ContainsKey(guest))
         {
             Destination destination = guest.GetUltimateDestination(); //getting the guest's final destination
-            destination = GetDestination(destination.transform.position); //converting into car's direction on x axis
+            destination = GetDestination(destination.transform.position); //converting into elevator stop floor
             _guests.Add(guest, destination.transform.position);
 
             //add button press
-            if (!_buttonPressed.Contains(destination.transform.position.x))
+            if (!_buttonPressed.Contains(destination.transform.position.y))
             {
-                _buttonPressed.Add(destination.transform.position.x);
+                _buttonPressed.Add(destination.transform.position.y);
                 _buttonPressed.Sort();
             }
         }
 
         //guard statement if the elevator is moving
         if (CurrentState == State.MOVING) { return; }
-
-        //tell guests to walk along with the car
-        /*CurrentState = State.MOVING;
-        _guests.enabled = true;
-        guest.transform.position = transform.position;
-        guest.transform.parent = transform;
-        _guestDestination = guest.GetUltimateDestination().transform.position;
-        UpdateDestination(_guestDestination);
-        */
-
-        //call the car if it isn't on the point near the guest
-        if (Mathf.Abs(Car.transform.position.x - guest.transform.position.x) > 2.2f) //if Car's and guest's position on x axis aren't approximately equal
+        //call if the car if it isn't on the guest level
+        if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) > 2.2f) //if Car and guest aren't on same level
         {
             Destination destination = GetDestination(guest.transform.position);
 
             //add button press
-            if (!_buttonPressed.Contains(destination.transform.position.x))
+            if (!_buttonPressed.Contains(destination.transform.position.y))
             {
-                _buttonPressed.Add(destination.transform.position.x);
+                _buttonPressed.Add(destination.transform.position.y);
                 _buttonPressed.Sort();
             }
 
             return;
         }
-
         //once we reach this point, we can assume the guest is either loading or unloading
         //we are assuming the guests that are unloading are children of the Car GameObject
-        if (guest.transform.parent == Car.transform) //if a guest is inside (as a child of) the Car
+        if (guest.transform.parent == Car.transform) //if a guest is inside (aka a child of) the Car
         {
-            if (Car.transform.position.x != _guests[guest].x) return; //is the guest at the end point it wants to head for
+            if (Car.transform.position.y != _guests[guest].y) return; //is the guest at the correct floor
             if (!UnloadingGuest(guest))
             {
                 _waitTime = _maxWait; //if the guest isn't done unloading
@@ -205,25 +199,23 @@ public class SuspendedRailway : Conveyance
             _riders[guest].transform.position,
             Time.deltaTime * Speed);
 
-        guest.transform.parent = Car.transform;
-
         //if the guest hasn't reached the Car position, we indicate the loading is not finished
         if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) > 2.01f) return false;
+
         if (guest.Destination != null) { guest.Destination.RemoveGuest(guest); }
         return true;
     }
 
-    //to update new info of destination
     public override Destination GetDestination(Vector3 vec)
     {
         Destination[] tempDestinations = _destinations;
-        //tempDestinations = tempDestinations.OrderBy(go => Mathf.Abs(go.transform.position.x - vec.x)).ToArray();
-        tempDestinations = tempDestinations.OrderBy(go => Vector3.Distance(vec, go.transform.position)).ToArray();
-
+        tempDestinations = tempDestinations.OrderBy(go => Mathf.Abs(go.transform.position.y - vec.y)).ToArray();
+        //tempDestinations = tempDestinations.OrderBy(x => x.name).ToArray();
+        //tempDestinations = tempDestinations.OrderBy(x => Vector3.Distance(x.transform.position, Vector3.zero)).ToArray();
         return tempDestinations[0];
+
     }
 
-    //to update new info of start position of car
     public override Vector3 StartPosition(Vector3 vec)
     {
         if (_destinations.Length == 0) { return Vector3.zero; }
@@ -231,7 +223,6 @@ public class SuspendedRailway : Conveyance
         return destination.transform.position;
     }
 
-    //to update new info of end position of car
     public override Vector3 EndPosition(Vector3 vec)
     {
         if (_destinations.Length == 0) { return Vector3.zero; }
