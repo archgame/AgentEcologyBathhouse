@@ -10518,8 +10518,9 @@ MonoBehaviour:
   GuestPrefab: {fileID: 3195382997371946575, guid: e9d1e80099e8f3f48ab3b2f54c58806a,
     type: 3}
   EmployeePrefab: {fileID: 0}
-  EntranceRate: 0.5
+  EntranceRate: 1
   _guest: []
+  _occupancyLimit: 0
 --- !u!114 &1175274580
 MonoBehaviour:
   m_ObjectHideFlags: 0

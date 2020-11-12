@@ -26,6 +26,8 @@ public class HelixConveyance : Conveyance
     private List<SplineInterpolator> splinePaths = new List<SplineInterpolator>();
     private List<GameObject> overallPts = new List<GameObject>();
     private List<GameObject> _templist = new List<GameObject>();
+    private GameObject fpCamObject;
+    private Fpcam fpCamScript; 
     
     private float DegreeIncerement = 30;
     private float angleT;
@@ -91,6 +93,9 @@ public class HelixConveyance : Conveyance
     // Start is called before the first frame update
     private void Start()
     {
+        fpCamObject = GameObject.FindGameObjectWithTag("First Person Camera");
+        fpCamScript = fpCamObject.GetComponent<Fpcam>();
+
         SetDestination();
 
         if (rotation == SpinDirection.right)

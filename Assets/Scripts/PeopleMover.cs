@@ -195,9 +195,9 @@ public class PeopleMover : Conveyance
         bool loading = true;
         while (loading)
         {
-            guest.transform.position = Vector3.MoveTowards(guest.transform.position, car.transform.position - new Vector3 (0f,1.75f,0f) + (0.2f * car.transform.forward), Time.deltaTime * Speed * 20);
+            guest.transform.position = Vector3.MoveTowards(guest.transform.position, car.transform.position - new Vector3 (0f,1.75f,0f) + (0.0f * car.transform.forward), Time.deltaTime * Speed * 20);
 
-            if (Vector3.Distance(guest.transform.position, car.transform.position - new Vector3 (0f, 1.75f, 0f) + (0.2f * car.transform.forward)) < 0.01f) { loading = false; }
+            if (Vector3.Distance(guest.transform.position, car.transform.position - new Vector3 (0f, 1.75f, 0f) + (0.0f * car.transform.forward)) < 0.01f) { loading = false; }
             yield return new WaitForEndOfFrame();
         }
 
