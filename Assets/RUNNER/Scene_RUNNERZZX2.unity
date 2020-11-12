@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: ed48afa3f2894604cbabd682db51da3a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a8369cabe0e7a4e4689b2ece3b9e58ef, type: 2}
 --- !u!1001 &6432868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1220,7 +1220,7 @@ PrefabInstance:
     - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -1487,7 +1487,7 @@ PrefabInstance:
     - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -1873,7 +1873,7 @@ MonoBehaviour:
     type: 3}
   totalnumber: 20
   speed: 0.5
-  delay: 10
+  delay: 0
 --- !u!4 &143609132
 Transform:
   m_ObjectHideFlags: 0
@@ -3014,7 +3014,7 @@ PrefabInstance:
     - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -3315,7 +3315,7 @@ MonoBehaviour:
     type: 3}
   totalnumber: 20
   speed: 0.5
-  delay: 10
+  delay: 0
 --- !u!4 &271836418
 Transform:
   m_ObjectHideFlags: 0
@@ -3634,6 +3634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Travelator (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -3964,7 +3969,7 @@ MonoBehaviour:
     type: 3}
   totalnumber: 20
   speed: 0.5
-  delay: 10
+  delay: 0
 --- !u!4 &380673854
 Transform:
   m_ObjectHideFlags: 0
@@ -5486,7 +5491,7 @@ MonoBehaviour:
     type: 3}
   totalnumber: 20
   speed: 0.5
-  delay: 10
+  delay: 0
 --- !u!4 &540772138
 Transform:
   m_ObjectHideFlags: 0
@@ -8739,6 +8744,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Travelator (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: Speed
@@ -10068,6 +10078,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Travelator (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: Speed
@@ -11049,7 +11064,7 @@ PrefabInstance:
     - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -12855,7 +12870,7 @@ PrefabInstance:
     - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -14104,7 +14119,7 @@ PrefabInstance:
     - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -14909,7 +14924,7 @@ MonoBehaviour:
     type: 3}
   totalnumber: 20
   speed: 0.5
-  delay: 10
+  delay: 0
 --- !u!4 &1520303904
 Transform:
   m_ObjectHideFlags: 0
@@ -16966,6 +16981,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Travelator (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: Speed
@@ -17073,7 +17093,7 @@ PrefabInstance:
     - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -18333,7 +18353,7 @@ PrefabInstance:
     - target: {fileID: 1946642193930422164, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306853304119554674, guid: 777807ede13e09d468c4a288d692e8a4,
         type: 3}
@@ -18765,7 +18785,7 @@ MonoBehaviour:
     type: 3}
   totalnumber: 20
   speed: 0.5
-  delay: 10
+  delay: 0
 --- !u!4 &1880936539
 Transform:
   m_ObjectHideFlags: 0
@@ -21719,7 +21739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1248599749220287074
 Transform:
   m_ObjectHideFlags: 0
