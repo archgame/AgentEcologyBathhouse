@@ -201,6 +201,7 @@ public class PeopleMover : Conveyance
             yield return new WaitForEndOfFrame();
         }
 
+        guest.transform.forward = car.transform.forward;
         guest.transform.parent = car.transform;
         yield break;
     }

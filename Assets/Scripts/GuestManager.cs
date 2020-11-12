@@ -123,6 +123,8 @@ public class GuestManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        fpCamScript.CamUpdate();
+
         //call guest update on each guest, the manager controls the guests
         foreach (Guest guest in _guest)
         {
@@ -142,8 +144,6 @@ public class GuestManager : MonoBehaviour
         {
             _lastEntrance += Time.deltaTime;
         }
-
-        fpCamScript.CamUpdate();
 
         totalcount = _guest.Count;
     }
