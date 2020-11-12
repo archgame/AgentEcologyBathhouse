@@ -33,13 +33,14 @@ public class MetricsVoyage : MonoBehaviour
         List<Guest> guests = GuestManager.Instance.GuestList();
         foreach (Guest guest in guests)
         {
-            guest.GetComponent<Renderer>().material.color = new Color(0, 0, 255);//DEFULT(WALK) TO BLUE
+            guest.GetComponent<Renderer>().sharedMaterial.color = new Color(0, 0, 255);//DEFULT(WALK) TO BLUE
+            Debug.Log(guest.name);
 
             if (guest._currentConveyance.GetType() == typeof(Vehicle))
             //?? if (guest._currentState == State.RIDING)
             {
                 vehicleGuest++;
-                guest.GetComponent<Renderer>().material.color = new Color(255, 0, 0);//VEHICLE GUEST RED 
+                guest.GetComponent<Renderer>().sharedMaterial.color = new Color(255, 0, 0);//VEHICLE GUEST RED 
             }
 
             if (guest.GetText() != GuestText)
@@ -48,8 +49,8 @@ public class MetricsVoyage : MonoBehaviour
 
         //SET SCREENSLIDER COUNT
         ScreenSlider = vehicleGuest / guests.Count;
-        GuestSlider = ScreenSlider;
-        GuestWalking = 1 - GuestSlider;
+        //GuestSlider = ScreenSlider;
+        //GuestWalking = 1 - GuestSlider;
 
         foreach (Guest guest in guests)
         {
