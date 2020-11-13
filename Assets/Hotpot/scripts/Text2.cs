@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Textchange : MonoBehaviour
+public class Text2 : MonoBehaviour
 {
-    public static int scoreValue = 0;
+    public static int scoreValue2 = 0;
 
-    Text score;
-   
-  
+    Text score2;
+
+
     void Start()
     {
-        score = GetComponent<Text>();
+        score2 = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        score.text = "Atrium number: " + scoreValue;
+        score2.text = "Double height number: " + scoreValue2;
     }
 }
+ 

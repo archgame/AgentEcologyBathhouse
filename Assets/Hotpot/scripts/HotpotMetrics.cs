@@ -38,7 +38,7 @@ public class HotpotMetrics : MonoBehaviour
         List<Guest> guests = GuestManager.Instance.GuestList();
         foreach (Guest guest in guests)
         {
-            //Debug.Log("hello");
+            Yellownumber = 0;
             if (guest.GetSliderValue() != GuestSlider)
                 guest.SetSlider(GuestSlider);
             
@@ -47,11 +47,14 @@ public class HotpotMetrics : MonoBehaviour
             
             
 
-            if (guest.GetComponent<Renderer>().material == Yellow)
-            
+            if (guest.GetComponent<Renderer>().material == Yellow) 
+            {
                 Yellownumber++;
                 Debug.Log("hello");
                 Debug.Log(Yellownumber);
+            }
+            
+                
 
           //  if (guest.GetComponent<Renderer>().material = Green)
              //   Greennumber++;

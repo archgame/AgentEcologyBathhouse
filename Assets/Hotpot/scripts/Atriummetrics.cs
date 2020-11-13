@@ -20,8 +20,10 @@ public class Atriummetrics : MonoBehaviour
         Guest guest = other.GetComponent<Guest>();
        
         centercirculation++;
+        Textchange.scoreValue++;
+
         //Debug.Log(centercirculation);
-        
+
         MeshRenderer mr = other.GetComponent<MeshRenderer>();
         mr.material = Alt;
         guest.SetText("I am in atrium");
