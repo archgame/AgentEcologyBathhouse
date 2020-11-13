@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.447196, g: 0.4971174, b: 0.5751646, a: 1}
+  m_IndirectSpecularColor: {r: 0.4471956, g: 0.49711686, b: 0.57516384, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,8 +131,9 @@ GameObject:
   m_Component:
   - component: {fileID: 19575360}
   - component: {fileID: 19575359}
+  - component: {fileID: 19575361}
   m_Layer: 0
-  m_Name: CM vcam5
+  m_Name: CM vcam6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +160,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 27.7
+    FieldOfView: 75
     OrthographicSize: 92
     NearClipPlane: 0.45
     FarClipPlane: 253
@@ -180,14 +181,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19575358}
-  m_LocalRotation: {x: -0.014646751, y: 0.38255003, z: 0.002433433, w: -0.92381555}
-  m_LocalPosition: {x: -15, y: 10, z: 11}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -90, y: 15, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1905388791}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 1.4440001, y: 315, z: -0.90000004}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &19575361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19575358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d9fa9b3ed7bd44eb292765db409ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 10
+  panLimit: {x: 200, y: 200, z: 200}
 --- !u!1001 &28379080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,6 +215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (154)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -373,6 +393,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (169)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -448,6 +473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -528,6 +558,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -603,6 +638,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (102)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,6 +752,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (100)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -787,6 +832,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -862,6 +912,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (123)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -937,6 +992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1012,6 +1072,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1087,6 +1152,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (136)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1162,6 +1232,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (122)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1237,6 +1312,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (173)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1312,6 +1392,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1392,6 +1477,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1505,6 +1595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (112)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1580,6 +1675,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (126)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1655,6 +1755,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (99)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1730,6 +1835,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (118)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1793,6 +1903,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 178766837}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &186746697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186746698}
+  m_Layer: 5
+  m_Name: Fill Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &186746698
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186746697}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1604252215}
+  m_Father: {fileID: 1562266259}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: -5, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &195332198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1805,6 +1951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1880,6 +2031,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2049,6 +2205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (111)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2124,6 +2285,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (184)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2199,6 +2365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2274,6 +2445,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2349,6 +2525,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2424,6 +2605,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2537,7 +2723,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7e065e1fb8839c47a1ad89a40c3bf2b, type: 2}
+  - {fileID: 2100000, guid: f447014e9702492458d88ae7e71b38e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2578,6 +2764,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (129)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2653,6 +2844,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (162)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2728,6 +2924,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (115)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2803,6 +3004,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (142)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2878,6 +3084,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2958,6 +3169,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3033,6 +3249,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (120)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3108,6 +3329,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (191)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3183,6 +3409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3258,6 +3489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3333,6 +3569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3408,6 +3649,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3542,6 +3788,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3617,6 +3868,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3692,6 +3948,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (95)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3767,6 +4028,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (151)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3842,6 +4108,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (187)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3960,6 +4231,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4078,6 +4354,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (172)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4183,6 +4464,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (165)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4258,6 +4544,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (103)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4333,6 +4624,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4408,6 +4704,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (105)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4483,6 +4784,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (135)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4558,6 +4864,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (146)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4688,6 +4999,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (180)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4763,6 +5079,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (163)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4843,6 +5164,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4918,6 +5244,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (183)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5030,6 +5361,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5105,6 +5441,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (121)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5180,6 +5521,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5255,6 +5601,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (193)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5364,6 +5715,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5439,6 +5795,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (139)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5514,6 +5875,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (150)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5589,6 +5955,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (166)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5664,7 +6035,7 @@ GameObject:
   - component: {fileID: 659180635}
   - component: {fileID: 659180637}
   m_Layer: 0
-  m_Name: CM vcam3
+  m_Name: CM vcam4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5712,14 +6083,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659180634}
-  m_LocalRotation: {x: 0.009906339, y: 0.7070374, z: 0.009906339, w: -0.7070374}
-  m_LocalPosition: {x: 118, y: 28, z: 90}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 73, y: 28, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440380738}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: -1.605, y: 270, z: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &659180637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5830,7 +6201,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cbaff11ee3696ad49a5308867375988f, type: 2}
+  - {fileID: 2100000, guid: 1c82fdb2a31c27643bee83dac1a5ae7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5914,6 +6285,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (130)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5989,6 +6365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6069,6 +6450,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6227,6 +6613,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6334,6 +6725,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (167)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6409,6 +6805,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (140)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6576,6 +6977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (161)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6656,6 +7062,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6736,6 +7147,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6816,6 +7232,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6891,6 +7312,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (171)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6966,6 +7392,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7059,6 +7490,79 @@ Transform:
   m_Father: {fileID: 981749392}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &775755672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 775755673}
+  - component: {fileID: 775755675}
+  - component: {fileID: 775755674}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &775755673
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775755672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1796235501}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.76948}
+  m_AnchorMax: {x: 0.18, y: 1}
+  m_AnchoredPosition: {x: 245, y: -127.5}
+  m_SizeDelta: {x: 2655, y: 1662}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &775755674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775755672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &775755675
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775755672}
+  m_CullTransparentMesh: 0
 --- !u!1001 &778425701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7071,6 +7575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (125)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7198,7 +7707,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f447014e9702492458d88ae7e71b38e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7239,6 +7748,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (107)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7314,6 +7828,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7389,6 +7908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7464,6 +7988,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (113)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7557,6 +8086,88 @@ Transform:
   m_Father: {fileID: 981749392}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &797322392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 797322395}
+  - component: {fileID: 797322394}
+  - component: {fileID: 797322393}
+  m_Layer: 0
+  m_Name: CM vcam1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &797322393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797322392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d9fa9b3ed7bd44eb292765db409ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 10
+  panLimit: {x: 200, y: 200, z: 200}
+--- !u!114 &797322394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797322392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 10
+  m_StandbyUpdate: 2
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 0}
+  m_Lens:
+    FieldOfView: 27.7
+    OrthographicSize: 134.26357
+    NearClipPlane: 2.01
+    FarClipPlane: 1000
+    Dutch: 0
+    LensShift: {x: 0, y: 0}
+  m_Transitions:
+    m_BlendHint: 0
+    m_InheritPosition: 0
+    m_OnCameraLive:
+      m_PersistentCalls:
+        m_Calls: []
+  m_LegacyBlendHint: 0
+  m_ComponentOwner: {fileID: 2078247285}
+--- !u!4 &797322395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797322392}
+  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
+  m_LocalPosition: {x: -191.5, y: 13.6, z: 192.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2078247285}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!1001 &806898449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7569,6 +8180,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (190)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7649,6 +8265,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7950,7 +8571,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 837e0576202082c44acb32e15eb6af6c, type: 2}
+  - {fileID: 2100000, guid: 299d88ff213d51b48be38f42000236ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7991,6 +8612,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (145)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8066,6 +8692,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (174)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8141,6 +8772,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8216,6 +8852,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8279,6 +8920,83 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 898530874}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &901163929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 901163930}
+  - component: {fileID: 901163932}
+  - component: {fileID: 901163931}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &901163930
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901163929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1796235501}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -859.8, y: 463.4}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &901163931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901163929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Efficiency
+--- !u!222 &901163932
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901163929}
+  m_CullTransparentMesh: 0
 --- !u!1001 &903479285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8291,6 +9009,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8366,6 +9089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (134)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8471,6 +9199,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (192)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8546,6 +9279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (108)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8621,6 +9359,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (182)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8696,7 +9439,7 @@ GameObject:
   - component: {fileID: 962334658}
   - component: {fileID: 962334657}
   m_Layer: 0
-  m_Name: CM vcam4
+  m_Name: CM vcam5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8715,7 +9458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panSpeed: 10
-  panLimit: {x: 150, y: 150, z: 150}
+  panLimit: {x: 200, y: 200, z: 200}
 --- !u!114 &962334658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8758,14 +9501,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962334656}
-  m_LocalRotation: {x: -0.005359761, y: 0.92378896, z: 0.012939609, w: 0.3826459}
+  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268343}
   m_LocalPosition: {x: -191.5, y: 13.6, z: 192.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2020689797}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: -1.605, y: 135, z: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -8779,6 +9522,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8804,7 +9548,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.69803923, g: 0.62352943, b: 0.627451, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -8817,9 +9561,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 285
-  field of view: 27.7
+  near clip plane: 2.01
+  far clip plane: 1000
+  field of view: 37
   orthographic: 0
   orthographic size: 57.1
   m_Depth: 90.16
@@ -8844,8 +9588,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: -0.70655733, z: 0, w: 0.7076558}
-  m_LocalPosition: {x: 64, y: 16, z: 90}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -217.8, y: 18, z: 91.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8897,7 +9641,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196e86e9290b3dc46a152d11817a1ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowCamera: {fileID: 19575359}
+  FollowCamera: {fileID: 797322394}
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d9fa9b3ed7bd44eb292765db409ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 10
+  panLimit: {x: 200, y: 200, z: 200}
 --- !u!1 &981749391
 GameObject:
   m_ObjectHideFlags: 0
@@ -8946,6 +9704,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (98)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9021,6 +9784,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (189)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9133,6 +9901,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (91)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9208,6 +9981,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (90)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9288,6 +10066,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9363,7 +10146,7 @@ GameObject:
   - component: {fileID: 1033704209}
   - component: {fileID: 1033704211}
   m_Layer: 0
-  m_Name: CM vcam1
+  m_Name: CM vcam2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9411,14 +10194,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033704208}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -184, y: 18, z: -2}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -217.8, y: 18, z: 91.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 198199895}
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1033704211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9432,7 +10215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panSpeed: 10
-  panLimit: {x: 150, y: 150, z: 150}
+  panLimit: {x: 200, y: 200, z: 200}
 --- !u!1001 &1042182038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9445,6 +10228,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9520,6 +10308,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9595,6 +10388,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9670,6 +10468,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9745,6 +10548,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (114)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9825,6 +10633,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9900,6 +10713,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (176)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9980,6 +10798,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10115,6 +10938,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10190,6 +11018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (185)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10265,6 +11098,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10340,6 +11178,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (97)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10415,6 +11258,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (109)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10490,6 +11338,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (156)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10565,6 +11418,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (179)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10640,6 +11498,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10703,6 +11566,72 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1234602624}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1236920194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236920197}
+  - component: {fileID: 1236920196}
+  - component: {fileID: 1236920195}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1236920195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236920194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1236920196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236920194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1236920197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236920194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1261104331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10715,6 +11644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10790,12 +11724,12 @@ GameObject:
   - component: {fileID: 1274558347}
   - component: {fileID: 1274558349}
   m_Layer: 0
-  m_Name: CM vcam2
+  m_Name: CM vcam3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1274558347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10817,7 +11751,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 27.7
+    FieldOfView: 49
     OrthographicSize: 16.2
     NearClipPlane: 0.3
     FarClipPlane: 285
@@ -10838,14 +11772,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274558346}
-  m_LocalRotation: {x: 0, y: -0.70655733, z: 0, w: 0.7076558}
-  m_LocalPosition: {x: 64, y: 16, z: 90}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -229, y: 20.8, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435672782}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: -89.911, z: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1274558349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10859,7 +11793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panSpeed: 10
-  panLimit: {x: 150, y: 150, z: 150}
+  panLimit: {x: 350, y: 350, z: 350}
 --- !u!1001 &1282324004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10877,6 +11811,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10952,6 +11891,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (160)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11027,6 +11971,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (164)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11090,6 +12039,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1293617667}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1312103371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1312103372}
+  m_Layer: 5
+  m_Name: Handle Slide Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1312103372
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312103371}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1401636623}
+  m_Father: {fileID: 1562266259}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1321426689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11102,6 +12087,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11165,6 +12155,83 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1321426689}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1337889661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337889662}
+  - component: {fileID: 1337889664}
+  - component: {fileID: 1337889663}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1337889662
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337889661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1796235501}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -859.096, y: 508.9}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1337889663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337889661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: ALPHA BATH HOUSE
+--- !u!222 &1337889664
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337889661}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1346156519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11177,6 +12244,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (141)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11339,6 +12411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11414,6 +12491,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (106)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11663,6 +12745,79 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1401636622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401636623}
+  - component: {fileID: 1401636625}
+  - component: {fileID: 1401636624}
+  m_Layer: 5
+  m_Name: Handle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1401636623
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401636622}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1312103372}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1401636624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401636622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1401636625
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401636622}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1401730228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11680,6 +12835,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11755,6 +12915,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (168)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11830,6 +12995,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (131)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11905,6 +13075,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (175)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11985,6 +13160,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12060,6 +13240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12140,6 +13325,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12203,6 +13393,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1451107837}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1454482036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454482037}
+  - component: {fileID: 1454482039}
+  - component: {fileID: 1454482038}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1454482037
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454482036}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1562266259}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1454482038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454482036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1454482039
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454482036}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1455025655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12215,6 +13478,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (77)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12290,6 +13558,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (188)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12365,6 +13638,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12440,6 +13718,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12515,6 +13798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12590,6 +13878,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (159)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12665,6 +13958,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (101)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12740,6 +14038,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (93)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12815,6 +14118,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (132)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12890,6 +14198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12953,6 +14266,95 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1536736671}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1562266258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1562266259}
+  - component: {fileID: 1562266260}
+  m_Layer: 5
+  m_Name: Slider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1562266259
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562266258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1454482037}
+  - {fileID: 186746698}
+  - {fileID: 1312103372}
+  m_Father: {fileID: 1796235501}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -859.8, y: 453}
+  m_SizeDelta: {x: 160, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1562266260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562266258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1401636624}
+  m_FillRect: {fileID: 1604252215}
+  m_HandleRect: {fileID: 1401636623}
+  m_Direction: 0
+  m_MinValue: 0
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1575674454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12965,6 +14367,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (181)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13077,6 +14484,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (127)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13157,6 +14569,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13232,6 +14649,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (124)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13312,6 +14734,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13375,6 +14802,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1604201308}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1604252214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1604252215}
+  - component: {fileID: 1604252217}
+  - component: {fileID: 1604252216}
+  m_Layer: 5
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1604252215
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604252214}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 186746698}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1604252216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604252214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.8301887, g: 0.31719476, b: 0.31719476, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1604252217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604252214}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1606745806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13387,6 +14887,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13462,6 +14967,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13537,6 +15047,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (147)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13612,6 +15127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13687,6 +15207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13762,6 +15287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (110)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13837,6 +15367,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (170)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13912,6 +15447,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13992,6 +15532,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14067,6 +15612,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14142,6 +15692,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (94)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14217,6 +15772,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (82)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14292,6 +15852,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14367,6 +15932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14442,6 +16012,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (87)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14577,6 +16152,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14652,6 +16232,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (149)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14807,6 +16392,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14882,6 +16472,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (119)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14957,6 +16552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (117)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15032,6 +16632,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (143)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15142,6 +16747,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15217,6 +16827,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (138)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15292,6 +16907,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (157)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15367,6 +16987,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15442,6 +17067,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (152)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15517,6 +17147,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15580,6 +17215,108 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1791314169}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1796235497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796235501}
+  - component: {fileID: 1796235500}
+  - component: {fileID: 1796235499}
+  - component: {fileID: 1796235498}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1796235498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796235497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1796235499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796235497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &1796235500
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796235497}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1796235501
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796235497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 775755673}
+  - {fileID: 1337889662}
+  - {fileID: 1562266259}
+  - {fileID: 901163930}
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1810638529
 GameObject:
   m_ObjectHideFlags: 0
@@ -15636,6 +17373,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (137)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15741,6 +17483,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15816,6 +17563,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (96)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15891,6 +17643,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (178)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15966,6 +17723,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16041,6 +17803,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16116,6 +17883,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (155)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16234,6 +18006,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (177)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16309,6 +18086,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16384,6 +18166,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16459,6 +18246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (85)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16534,6 +18326,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (104)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16661,7 +18458,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f447014e9702492458d88ae7e71b38e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16702,6 +18499,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16777,6 +18579,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16852,6 +18659,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (128)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16932,6 +18744,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17007,6 +18824,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17082,6 +18904,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17157,6 +18984,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (144)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17275,6 +19107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (89)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17405,6 +19242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (88)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17480,6 +19322,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (80)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17555,6 +19402,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (153)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17685,6 +19537,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (133)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17765,6 +19622,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17883,6 +19745,49 @@ Transform:
   m_Father: {fileID: 148156085}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2078247284
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2078247285}
+  - component: {fileID: 2078247286}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2078247285
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078247284}
+  m_LocalRotation: {x: 0.07871879, y: -0.8657555, z: 0.14416045, w: -0.47274578}
+  m_LocalPosition: {x: -152.19844, y: -5.315441, z: 177.62572}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 797322395}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2078247286
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078247284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2095819927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17895,6 +19800,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (148)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17975,6 +19885,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Bath
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18050,6 +19965,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (158)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18125,6 +20045,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (186)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18200,6 +20125,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bath (92)
       objectReference: {fileID: 0}
+    - target: {fileID: 2319303939603971042, guid: 31464df3c77518141b3811bf17ab4791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9046514639c141428daefe06db0a7f4, type: 2}
     - target: {fileID: 3788079503296169572, guid: 31464df3c77518141b3811bf17ab4791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18289,7 +20219,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 505852a153b83be4f9472e6143185772, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18328,7 +20258,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d6c46576aad73438b30867786e3ea5, type: 2}
+  - {fileID: 2100000, guid: 6b5aa4907ec976e4a81f0655acc1df2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18422,7 +20352,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 505852a153b83be4f9472e6143185772, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18548,7 +20478,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7e065e1fb8839c47a1ad89a40c3bf2b, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18641,7 +20571,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d6c46576aad73438b30867786e3ea5, type: 2}
+  - {fileID: 2100000, guid: 6b5aa4907ec976e4a81f0655acc1df2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18749,7 +20679,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 505852a153b83be4f9472e6143185772, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18788,7 +20718,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7e065e1fb8839c47a1ad89a40c3bf2b, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18859,7 +20789,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d6c46576aad73438b30867786e3ea5, type: 2}
+  - {fileID: 2100000, guid: 6b5aa4907ec976e4a81f0655acc1df2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18945,7 +20875,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d6c46576aad73438b30867786e3ea5, type: 2}
+  - {fileID: 2100000, guid: 6b5aa4907ec976e4a81f0655acc1df2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19050,7 +20980,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 505852a153b83be4f9472e6143185772, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19089,7 +21019,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d6c46576aad73438b30867786e3ea5, type: 2}
+  - {fileID: 2100000, guid: 6b5aa4907ec976e4a81f0655acc1df2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19146,7 +21076,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7e065e1fb8839c47a1ad89a40c3bf2b, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19263,11 +21193,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2906197005100892785, guid: 67adf991d0fb075429d97f903c8e31b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f447014e9702492458d88ae7e71b38e6, type: 2}
+    - target: {fileID: 2906197005282957694, guid: 67adf991d0fb075429d97f903c8e31b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f447014e9702492458d88ae7e71b38e6, type: 2}
     - target: {fileID: 4570859285446621823, guid: 67adf991d0fb075429d97f903c8e31b2,
         type: 3}
       propertyPath: m_Name
       value: 1110ChairLift_Bot
       objectReference: {fileID: 0}
+    - target: {fileID: 6189678752442841866, guid: 67adf991d0fb075429d97f903c8e31b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f447014e9702492458d88ae7e71b38e6, type: 2}
+    - target: {fileID: 6872599424554371682, guid: 67adf991d0fb075429d97f903c8e31b2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 299d88ff213d51b48be38f42000236ce, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67adf991d0fb075429d97f903c8e31b2, type: 3}
 --- !u!33 &2947083517722438907
@@ -19304,7 +21254,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7e065e1fb8839c47a1ad89a40c3bf2b, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19343,7 +21293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7e065e1fb8839c47a1ad89a40c3bf2b, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19421,7 +21371,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 505852a153b83be4f9472e6143185772, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19504,7 +21454,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7e065e1fb8839c47a1ad89a40c3bf2b, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19652,7 +21602,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d6c46576aad73438b30867786e3ea5, type: 2}
+  - {fileID: 2100000, guid: 6b5aa4907ec976e4a81f0655acc1df2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20003,7 +21953,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 505852a153b83be4f9472e6143185772, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20042,7 +21992,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d6c46576aad73438b30867786e3ea5, type: 2}
+  - {fileID: 2100000, guid: 6b5aa4907ec976e4a81f0655acc1df2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20533,7 +22483,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d6c46576aad73438b30867786e3ea5, type: 2}
+  - {fileID: 2100000, guid: 6b5aa4907ec976e4a81f0655acc1df2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20906,7 +22856,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 505852a153b83be4f9472e6143185772, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21053,7 +23003,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7e065e1fb8839c47a1ad89a40c3bf2b, type: 2}
+  - {fileID: 2100000, guid: 7fce149af4b3b1a48b20525acd253a81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
