@@ -14,7 +14,7 @@ public class Doubleheight : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (!other.GetComponent<Guest>()) return;
-        Debug.Log("Guest in double height");
+        //Debug.Log("Guest in double height");
 
 
         Guest guest = other.GetComponent<Guest>();

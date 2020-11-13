@@ -14,19 +14,20 @@ public class Atriummetrics : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (!other.GetComponent<Guest>()) return;
-        Debug.Log("Guest in atrium");
+        //Debug.Log("Guest in atrium");
 
 
         Guest guest = other.GetComponent<Guest>();
        
         centercirculation++;
         //Debug.Log(centercirculation);
+        
         MeshRenderer mr = other.GetComponent<MeshRenderer>();
         mr.material = Alt;
         guest.SetText("I am in atrium");
         //Debug.Log(" ");
         //guest.SetSlider();
-
+        
     }
 
 

@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class HotpotMetrics : MonoBehaviour
 {
+    public int Greennumber = 0;
+    public int Yellownumber = 0;
+    public Material Green;
+    public Material Yellow;
+
     [Header("Controls")]
     [Range(0, 1)]
     public float ScreenSlider = 0;
@@ -28,23 +33,46 @@ public class HotpotMetrics : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        
         //UpdateGuestUI
         List<Guest> guests = GuestManager.Instance.GuestList();
         foreach (Guest guest in guests)
         {
+            //Debug.Log("hello");
             if (guest.GetSliderValue() != GuestSlider)
                 guest.SetSlider(GuestSlider);
+            
             if (guest.GetText() != GuestText)
                 guest.SetText(GuestText);
-            Debug.Log("Text1");
+            
+            
+
+            if (guest.GetComponent<Renderer>().material == Yellow)
+            
+                Yellownumber++;
+                Debug.Log("hello");
+                Debug.Log(Yellownumber);
+
+            if (guest.GetComponent<Renderer>().material == Green)
+                Greennumber++;
+
+            //Debug.Log(Greennumber);
+
+
+
+            //Yellownumber++;
+            //Debug.Log(Yellownumber);
         }
 
+        ScreenSlider = Greennumber / guests.Count;
+
+        Slider.value = Yellownumber;
+        Text.text = Yellownumber.ToString();
         //Update Screen UI
-        if (Slider == null) { Debug.Log("null Slider"); }
-        if (Slider.value != ScreenSlider)
-            Slider.value = ScreenSlider;
-        if (Text.text != ScreenText)
-            Text.text = ScreenText;
-            Debug.Log("Text2");
+        //if (Slider == null) { Debug.Log("null Slider"); }
+       // if (Slider.value != ScreenSlider)
+        // Slider.value = ScreenSlider;
+        //if (Text.text != ScreenText)
+          //Text.text = ScreenText;
     }
 }
