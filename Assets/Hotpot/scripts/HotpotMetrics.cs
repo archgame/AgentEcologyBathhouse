@@ -53,8 +53,8 @@ public class HotpotMetrics : MonoBehaviour
                 Debug.Log("hello");
                 Debug.Log(Yellownumber);
 
-            if (guest.GetComponent<Renderer>().material == Green)
-                Greennumber++;
+          //  if (guest.GetComponent<Renderer>().material = Green)
+             //   Greennumber++;
 
             //Debug.Log(Greennumber);
 
