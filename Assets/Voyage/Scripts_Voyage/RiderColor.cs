@@ -8,17 +8,19 @@ public class RiderColor : MonoBehaviour
     public Material Alt;
 
 
-    public void OnTriggerEnter(Collider guest)
+    public void OnTriggerEnter(Collider other)
     {
-        if (!guest.GetComponent<Guest>()) return;
-        MeshRenderer mr = guest.GetComponent<MeshRenderer>();
+        if (!other.GetComponent<Guest>()) return;
+        if (other.GetComponent<Vehicle>()) return;
+        MeshRenderer mr = other.GetComponent<MeshRenderer>();
         mr.material = Alt;
     }
 
-    public void OnTriggerExit(Collider guest)
+    public void OnTriggerExit(Collider other)
     {
-        if (!guest.GetComponent<Guest>()) return;
-        MeshRenderer mr = guest.GetComponent<MeshRenderer>();
+        if (!other.GetComponent<Guest>()) return;
+        if (other.GetComponent<Vehicle>()) return;
+        MeshRenderer mr = other.GetComponent<MeshRenderer>();
         mr.material = Main;
     }
 }

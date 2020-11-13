@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class MetricsGTR : MonoBehaviour
 {
-    
+    public Material Main;
+    public Material Alt;
 
     [Header("Controls")]
     [Range(0, 1)]
     public float ScreenSlider = 0;
-    
     public string ScreenText = "";
     
 
@@ -31,6 +31,7 @@ public class MetricsGTR : MonoBehaviour
     {
         //UpdateSlider
         int vehicleGuest = 0;
+        
         List<Guest> guests = GuestManager.Instance.GuestList();
 
         foreach (Guest guest in guests)
@@ -46,10 +47,26 @@ public class MetricsGTR : MonoBehaviour
                 //guest.GetComponent<Renderer>().material.color = new Color(255, 0, 0);//VEHICLE GUEST RED 
             }
             */
-            if (guest._currentConveyance.GetType() == typeof(Vehicle)) { vehicleGuest++; }
+
+            if (guest._currentConveyance.GetType() == typeof(Vehicle))
+            {
+                if (!guest.GetComponent<Guest>()) return;
+                MeshRenderer mr = guest.GetComponent<MeshRenderer>();
+
+                mr.material = Alt;
+
+                vehicleGuest++;
+            }
+            else 
+            {
+                if (!guest.GetComponent<Guest>()) return;
+                MeshRenderer mr = guest.GetComponent<MeshRenderer>();
+                mr.material = Main;
+            }
+
          }
         Slider.value = vehicleGuest / guests.Count;
-         
+        GuestText.text = vehicleGuest.ToString();
 
         //Slider.value = 1 - vehicleGuest / guests.Count;
         //float usingVehiclePercentage = vehicleGuest / guests.Count;
