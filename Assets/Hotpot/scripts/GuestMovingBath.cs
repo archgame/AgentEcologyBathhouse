@@ -289,7 +289,9 @@ public class GuestMovingBath : Guest
         Status = Action.BATHRIDING;
         _agent.enabled = true;
         _agent.transform.position = go.transform.position;
-        _agent.transform.parent = go.transform;
+        //_agent.transform.parent = go.transform;
+        _agent.isStopped = true;
+        _agent.transform.SetParent(go.transform, true);
         Debug.Log(_agent.transform.parent);
         SetText("BathRiding");
     }
