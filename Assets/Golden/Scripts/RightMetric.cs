@@ -59,7 +59,7 @@ public class RightMetric : MonoBehaviour
         foreach (Guest guest in guests)
         {
             Renderer rend = guest.GetComponent<Renderer>();
-            if (rend.material.color != Color.red) continue;
+            if (rend.material.color != Color.yellow) continue;
             guestCount++;
         }
 

@@ -59,7 +59,7 @@ public class VIPMetric : MonoBehaviour
         foreach (Guest guest in guests)
         {
             Renderer rend = guest.GetComponent<Renderer>();
-            if (rend.material.color != Color.cyan) continue;
+            if (rend.material.color != Color.red) continue;
             guestCount++;
         }
         
