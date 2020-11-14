@@ -35,6 +35,9 @@ public class MovableBathtubVehicle1 : MonoBehaviour
 
             //animate cars
             //when the car reaches the position, we increase the index to the next position
+            //Debug.Log(tub.name); 
+            //Debug.Log("_tubs[tub]: "+_tubs[tub]); 
+            //Debug.Log("_positions.Count: "+_positions.Count);
             if (tub.transform.position == _positions[_tubs[tub]])
             {
                 int p = _tubs[tub] + 1;

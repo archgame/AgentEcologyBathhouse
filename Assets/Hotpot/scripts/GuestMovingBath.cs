@@ -93,8 +93,9 @@ public class GuestMovingBath : Guest
         }
         if (Status == Action.BATHRIDING)
         {
+            //Debug.Log("BathRide");
             _bathTime += Time.deltaTime; //_bathTime = _bathTime + Time.deltaTime
-            if (_bathTime > BathTime)
+            if (_bathTime > BathTime+3f)
             {
                 _tempDestination = Destination;
                 Destination = null;
@@ -145,7 +146,7 @@ public class GuestMovingBath : Guest
     private void DestinationDistance()
     {
         //test agent distance from destination
-        
+        UpdateDestination();
         if (Vector3.Distance(transform.position, Destination.transform.position) < 2.1f)
         {
             if (Destination.GetComponentInParent<Conveyance>())
@@ -164,11 +165,14 @@ public class GuestMovingBath : Guest
                     return;
                 }
 
-                Debug.Log(Destination.name);
+                //Debug.Log(Destination.name);
                 if (Destination.GetType() == typeof(DestinationMovingBath))
                 {
-                    //Debug.Log("MovingBath");
-                    GameObject go = Destination.transform.parent.gameObject;
+                    UpdateDestination();
+                    GameObject go = Destination.transform.gameObject;
+                    _agent.transform.position = go.transform.position;
+                    _agent.transform.parent = go.transform;
+                    //Debug.Log(go);
                     StartMovingBath(go);
                     return;
                 }
@@ -283,8 +287,12 @@ public class GuestMovingBath : Guest
         Baths--;
         _visitedBaths.Add(Destination);
         Status = Action.BATHRIDING;
+        _agent.enabled = true;
         _agent.transform.position = go.transform.position;
-        _agent.transform.parent = go.transform;
+        //_agent.transform.parent = go.transform;
+        _agent.isStopped = true;
+        _agent.transform.SetParent(go.transform, true);
+        Debug.Log(_agent.transform.parent);
         SetText("BathRiding");
     }
 

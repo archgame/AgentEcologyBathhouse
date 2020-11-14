@@ -14,19 +14,20 @@ public class Doubleheight : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (!other.GetComponent<Guest>()) return;
-    
-
+        //Debug.Log("Guest in double height");
+        Text2.scoreValue2++;
 
         Guest guest = other.GetComponent<Guest>();
         if (guest.Status == Guest.Action.BATHING) { other.GetComponent<Guest>().GuestWalkDestination(); }
         guestnumber++;
-    
+        
+        //Debug.Log(guestnumber);
         MeshRenderer mr = other.GetComponent<MeshRenderer>();
         mr.material = Alt;
-        guest.SetText("VIP BATHING!");
-   
-        guest.SetSlider(guestnumber);
-
+        guest.SetText("in double height!");
+        //Debug.Log(" ");
+        guest.SetSlider(1);
+        
     }
 
     
@@ -34,6 +35,7 @@ public class Doubleheight : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         if (!other.GetComponent<Guest>()) return;
-
+        Guest guest = other.GetComponent<Guest>();
+        guest.SetText("out of double height!");
     }
 }
