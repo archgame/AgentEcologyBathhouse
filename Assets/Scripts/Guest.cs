@@ -11,7 +11,7 @@ public class Guest : MonoBehaviour
 
     public Slider Slider;
 
-    public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM, BATHRIDING }
+    public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
 
     [Header("Destination")]
     //public global variables
@@ -173,7 +173,6 @@ public class Guest : MonoBehaviour
 
     private void UpdateDestination(Vector3 position)
     {
-        Debug.Log("Yes");
         _agent.SetDestination(position);
         _agent.isStopped = false;
     }
@@ -252,15 +251,16 @@ public class Guest : MonoBehaviour
         Conveyance[] conveyances = GameObject.FindObjectsOfType<Conveyance>();
         foreach (Conveyance c in conveyances)
         {
-            //guard statement, how many people are on the conveyance
-            if (c.IsFull()) continue;
+            //guard statement,
+            if (c.IsFull()) continue; //how many people are on the conveyance
+            if (!c.IsConveyanceActive()) continue; //is conveyance active
 
-            float distToC = AgentWalkDistance(_agent, transform, guestPosition, c.StartPosition(guestPosition), Color.green);
-            float distC = c.WeightedTravelDistance(guestPosition, destinationPosition);
-            float distFromC = AgentWalkDistance(_agent, transform, c.EndPosition(destinationPosition), destinationPosition, Color.red);
+            float distToC = AgentWalkDistance(_agent, transform, guestPosition, c.StartPosition(guestPosition, this), Color.green);
+            float distC = c.WeightedTravelDistance(guestPosition, destinationPosition, this);
+            float distFromC = AgentWalkDistance(_agent, transform, c.EndPosition(destinationPosition, this), destinationPosition, Color.red);
 
             //Debug.DrawLine(guestPosition, c.StartPosition(), Color.black);
-            Debug.DrawLine(c.StartPosition(guestPosition), c.EndPosition(destinationPosition), Color.cyan);
+            Debug.DrawLine(c.StartPosition(guestPosition, this), c.EndPosition(destinationPosition, this), Color.cyan);
             //Debug.DrawLine(c.EndPosition(), destinationPosition, Color.white);
 
             if (distance > distToC + distC + distFromC)
@@ -287,7 +287,7 @@ public class Guest : MonoBehaviour
         }
 
         destinations.Clear();
-        destinations.Add(currentConveyance.GetDestination(guestPosition));
+        destinations.Add(currentConveyance.GetDestination(guestPosition, this));
         destinations.Add(Destination);
         Destination = destinations[0];
         UpdateDestination();
