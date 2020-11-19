@@ -41,9 +41,6 @@ public class EnergyCount : MonoBehaviour
                 
             }
 
-            //else {if In.Contains(guest) {In.Remove(guest);}
-
-
             Score = In.Count;
 
             if (Score == 2)
