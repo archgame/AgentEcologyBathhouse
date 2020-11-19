@@ -193,6 +193,7 @@ public class SuspendedRailway : Conveyance
 
                 _positions[go] = guest;
                 _riders.Add(guest, go);
+
                 break;
             }
         }
@@ -208,7 +209,7 @@ public class SuspendedRailway : Conveyance
         guest.transform.parent = Car.transform;
 
         //if the guest hasn't reached the Car position, we indicate the loading is not finished
-        if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) > 2.01f) return false;
+        if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) > 1.01f) return false;
         if (guest.Destination != null) { guest.Destination.RemoveGuest(guest); }
         return true;
     }
