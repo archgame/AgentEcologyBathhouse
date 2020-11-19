@@ -106,7 +106,7 @@ public class Funicular : Conveyance
         if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 2.9f) 
         //If car is not in the destination floor, Note:At least more than 0.2f than the 'potitions' Y
         {
-            if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 6f)// and if car is next to guest, then load
+            if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 7f)// and if car is next to guest, then load
             {
                 if (!LoadingGuest(guest))
                 {
