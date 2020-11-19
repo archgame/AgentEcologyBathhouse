@@ -11,7 +11,7 @@ public class Guest : MonoBehaviour
 
     public Slider Slider;
 
-    public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
+    public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM, BATHRIDING }
 
     [Header("Destination")]
     //public global variables
@@ -154,7 +154,7 @@ public class Guest : MonoBehaviour
             }
             else if (Destination.tag == "Entrance")
             {
-                GuestManager.Instance.GuestExit(this);
+                Destination.gameObject.GetComponent<GuestManager>().GuestExit(this);
                 //GuestManager manager = Destination.gameObject.GetComponent<GuestManager>();
                 //manager.GuestExit(this);
                 return;
