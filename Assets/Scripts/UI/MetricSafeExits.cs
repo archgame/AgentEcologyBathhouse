@@ -35,7 +35,7 @@ public class MetricSafeExits : MonoBehaviour
 
         if(exitcount == 5)
         {
-            Debug.Log(exitpercent);
+            //Debug.Log(exitpercent);
             //Debug.Break();
         }
     }

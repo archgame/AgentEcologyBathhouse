@@ -88,7 +88,7 @@ public class PeopleMover : Conveyance
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("1");
+        //Debug.Log("1");
         _destinations = GetComponentsInChildren<Destination>();
 
         SplineInterpolator interp = transform.GetComponent<SplineInterpolator>();
@@ -102,7 +102,7 @@ public class PeopleMover : Conveyance
 
         railpath = SetupSpline(pathpoints);
         int NodeCount = railpath.GetNodeCount();
-        Debug.Log("2");
+        //Debug.Log("2");
         for (int i = 0; i < CapCount; i += 1)
         {
             GameObject f = Instantiate(Cap, transform);
@@ -139,18 +139,18 @@ public class PeopleMover : Conveyance
                     {
                         continue;
                     }
-                    Debug.Log("5");
+                    //Debug.Log("5");
                     //test guest direction
                     float guestDirection = kvp.Value.y - guest.transform.position.y;
                     //if (!SameSign(carDirection, guestDirection)) continue; //continue to next guest
-                    Debug.Log("6");
+                    //Debug.Log("6");
                     //load guest
                     _riders.Add(guest);
                     _capRiders[car] = guest;
-                    Debug.Log("time to load");
+                    //Debug.Log("time to load");
                     IEnumerator coroutine = LoadPassenger(car, guest);
                     StartCoroutine(coroutine);
-                    Debug.Log("check 2");
+                    //Debug.Log("check 2");
                     break; //don't check any more guests
                 }
             }
@@ -191,7 +191,7 @@ public class PeopleMover : Conveyance
 
     private IEnumerator LoadPassenger(GameObject car, Guest guest)
     {
-        Debug.Log("passenger loading!");
+        //Debug.Log("passenger loading!");
         bool loading = true;
         while (loading)
         {

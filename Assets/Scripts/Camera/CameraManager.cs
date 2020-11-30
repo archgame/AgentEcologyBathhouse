@@ -6,9 +6,9 @@ using System.Linq;
 
 public class CameraManager : MonoBehaviour
 {
-    public GameObject fpCamObject;
-    public CinemachineVirtualCamera fpCamVC;
-    public Fpcam fpCamScript;
+    private GameObject fpCamObject;
+    private CinemachineVirtualCamera fpCamVC;
+    private Fpcam fpCamScript;
     private List<CinemachineVirtualCamera> _cameras;
     private int _currentIndex = 0;
 

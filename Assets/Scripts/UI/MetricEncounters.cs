@@ -23,11 +23,7 @@ public class MetricEncounters : MonoBehaviour
     void Update()
     {
         risk = GuestManager.Instance.risk;
-        riskText.text = "ENCOUNTERS: " + risk;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            risk--;
-        }
+        riskText.text = "ENCOUNTERS: " + risk.ToString();
     }
 }  
 
