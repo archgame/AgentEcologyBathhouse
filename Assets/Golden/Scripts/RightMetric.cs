@@ -63,6 +63,11 @@ public class RightMetric : MonoBehaviour
             guestCount++;
         }
 
+       // new Color(255, 0, 255);
+//public Material VehicleWalkway;
+    //VehicleWalkway.color;
+
+
         Text.text = guestCount.ToString();
         Slider.value = guestCount;
 
