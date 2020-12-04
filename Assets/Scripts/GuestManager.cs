@@ -15,6 +15,7 @@ public class GuestManager : MonoBehaviour
     public int contamcount = 0;
     public int safeExit = 0;
     public int exitCount = 0;
+    public int neutralExit = 0;
 
     public GameObject GuestPrefab; //guest gameobject to be instantiated
     public GameObject EmployeePrefab;
@@ -166,6 +167,7 @@ public class GuestManager : MonoBehaviour
             if (guest.Health == Guest.Feeling.Sick)
             {
                 sickcount -= 1;
+                neutralExit += 1;
             }
             if (guest.Health == Guest.Feeling.Contaminated)
             {
