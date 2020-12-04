@@ -13,6 +13,7 @@ public class MetricSafeExits : MonoBehaviour
     public Dictionary<Guest, List<Guest>> guestEncounters = new Dictionary<Guest, List<Guest>>();
     public int safeexitcount;
     public int exitcount;
+    public int neutralcount;
     public float exitpercent;
 
 
@@ -27,10 +28,11 @@ public class MetricSafeExits : MonoBehaviour
     {
         safeexitcount = GuestManager.Instance.safeExit;
         exitcount = GuestManager.Instance.exitCount;
+        neutralcount = GuestManager.Instance.neutralExit;
         if (exitcount == 0)
         { exitpercent = 0; }
         else
-        { exitpercent = Mathf.Floor(100 * ((float)safeexitcount / (float)exitcount)); }
+        { exitpercent = Mathf.Floor(100 * ((float)safeexitcount / (((float)exitcount) - (float)neutralcount))); }
         riskText.text = "SAFE EXITS: " + safeexitcount + " (" + exitpercent + "%)";
 
         if(exitcount == 5)

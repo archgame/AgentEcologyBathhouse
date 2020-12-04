@@ -23,7 +23,7 @@ public class MetricEncounters : MonoBehaviour
     void Update()
     {
         risk = GuestManager.Instance.risk;
-        riskText.text = "ENCOUNTERS: " + risk.ToString();
+        riskText.text = "CONTAMINATIONS: " + risk.ToString();
     }
 }  
 
