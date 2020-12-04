@@ -15,7 +15,7 @@ public class Guest : MonoBehaviour
     public List<Guest> totalGuests = new List<Guest>();
 
     public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
-    public enum Feeling { Healthy, Sick, Contaminated}
+    public enum Feeling { Healthy, Sick, Contaminated }
 
     [Header("Destination")]
     //public global variables
@@ -44,6 +44,9 @@ public class Guest : MonoBehaviour
     private float _wanderTimer = 2;
     internal Vector3 velocity;
     private Renderer GuestCol;
+    //variables for assigning susceptibility and then interaction count before sick
+    private int _susceptibility = 0;
+    private int _interactioncounter = 0;
 
     /// <summary>
     /// Called only once right after hitting Play
@@ -60,6 +63,8 @@ public class Guest : MonoBehaviour
         {
             Health = Feeling.Healthy;
             GuestManager.Instance.healthycount += 1;
+            //if healthy, assign susceptibility variable
+            _susceptibility = Random.Range(25, 200);
         }
 
 
@@ -78,33 +83,45 @@ public class Guest : MonoBehaviour
     // Update is called once per frame
     public void GuestUpdate()
     {
-        for(int i=0; i < GuestManager.Instance._guest.Count; i++)
+        for (int i = 0; i < GuestManager.Instance._guest.Count; i++)
         {
 
             if (Vector3.Distance(transform.position, GuestManager.Instance._guest[i].transform.position) < 2.0f)
             {
                 //Debug.Log("TooClose");
 
-                if(!guestEncounters.Contains(GuestManager.Instance._guest[i]))
+                if (!guestEncounters.Contains(GuestManager.Instance._guest[i]))
                 {
                     if (GuestManager.Instance._guest[i].transform.position != transform.position)
                     {
                         if (GuestManager.Instance._guest[i].Health != Feeling.Healthy)
                         {
-                            if (Health == Feeling.Healthy)
+                            //if (Health == Feeling.Healthy)
+                            _interactioncounter += 1;
+
+                            if (_interactioncounter >= _susceptibility)
                             {
-                                guestEncounters.Add(GuestManager.Instance._guest[i]);
-                                //Debug.Log("Collision");
-                                GuestManager.Instance.risk += 1;
-                                this.SetSlider(1);
-                                GuestManager.Instance.healthycount -= 1;
-                                GuestManager.Instance.contamcount += 1;
-                                Health = Feeling.Contaminated;
+
+                                if (Health == Feeling.Healthy)
+                                {
+                                    Health = Feeling.Contaminated;
+                                    guestEncounters.Add(GuestManager.Instance._guest[i]);
+                                    //Debug.Log("Collision");
+                                    GuestManager.Instance.risk += 1;
+                                    this.SetSlider(1);
+                                    GuestManager.Instance.healthycount -= 1;
+                                    GuestManager.Instance.contamcount += 1;
+                                }
+                                else
+                                {
+                                    return;
+                                }
                             }
+
                         }
 
                     }
-                       
+
                 }
             }
 
@@ -246,7 +263,7 @@ public class Guest : MonoBehaviour
         _agent.SetDestination(Destination.transform.position);
         _agent.isStopped = false;
     }
-    
+
     private void UpdateDestination(Vector3 position)
     {
         _agent.SetDestination(position);
@@ -373,7 +390,7 @@ public class Guest : MonoBehaviour
         Destination = destinations[0];
         UpdateDestination();
 
-      
+
 
 
     }
