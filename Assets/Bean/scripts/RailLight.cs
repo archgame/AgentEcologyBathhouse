@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoleLight : MonoBehaviour
+public class RailLight : MonoBehaviour
 {
     public Material materialOrigin;
     public Material materialLight;
     public enum Action { Normal, Popular }
     public Action Status;
-    
+
     private void Start()
     {
         Status = Action.Normal;
@@ -50,12 +50,12 @@ public class PoleLight : MonoBehaviour
             railCount++;
         }
 
-        if (poleCount > liftCount & poleCount > railCount)
+        if (railCount > liftCount & railCount > poleCount)
         {
             LightOn();
         }
         else
-        { 
+        {
             LightOff();
         }
 

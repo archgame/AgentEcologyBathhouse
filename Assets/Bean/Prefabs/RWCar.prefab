@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2833671279666695836}
   - component: {fileID: 7763584566170054835}
   - component: {fileID: 8838278933814238008}
+  - component: {fileID: 3614513585951503273}
   m_Layer: 0
   m_Name: RWCar
   m_TagString: Untagged
@@ -125,3 +126,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &3614513585951503273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768398929891271819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186d211f22318f4458ec86982baded79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialOrigin: {fileID: 2100000, guid: ec235a0955c483a4282943776bfc2b45, type: 2}
+  materialLight: {fileID: 2100000, guid: 135c9ba5272de0c4c9e49a3411bbc2c1, type: 2}
+  Status: 0
