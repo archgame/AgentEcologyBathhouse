@@ -8,6 +8,8 @@ public class Conveyance : MonoBehaviour
     public float Weight = 3.0f;
     public float Speed = 4.0f;
 
+    public bool IsActive = true;
+
     private Destination _destination;
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
 
@@ -89,5 +91,20 @@ public class Conveyance : MonoBehaviour
     public virtual bool IsFull()
     {
         return false;
+    }
+
+    public void Deactivate()
+    {
+        IsActive = false;
+    }
+
+    public void Activate()
+    {
+        IsActive = true;
+    }
+
+    public bool IsConveyanceActive()
+    {
+        return IsActive;
     }
 }
