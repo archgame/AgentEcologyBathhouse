@@ -86,11 +86,11 @@ public class GoldenGuestManager : MonoBehaviour
 
     private void AdmitEmployee()
     {
-        Debug.Log("1");
+       // Debug.Log("1");
         if (_guest.Count % 6 != 0) return;
-        Debug.Log("2");
+       // Debug.Log("2");
         if (_guest.Count/6 <= _employee.Count) return;
-        Debug.Log("3");
+       // Debug.Log("3");
 
         //instantiate guest
         int randomIndex = Random.Range(0, _employeeEntrances.Length);
