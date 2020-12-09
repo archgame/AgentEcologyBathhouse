@@ -26,6 +26,7 @@ public class ObstacleManager : MonoBehaviour
 
             GameObject obstacle = Instantiate(ObstaclePrefab, position, Quaternion.identity); //adding our gameobject to scene
             _obstacles.Add(obstacle);
+            return;
         }
 
         ClickRemoveObstacle();

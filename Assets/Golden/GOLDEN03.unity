@@ -22318,6 +22318,7 @@ GameObject:
   - component: {fileID: 1133318886}
   - component: {fileID: 1133318885}
   - component: {fileID: 1133318884}
+  - component: {fileID: 1133318888}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -22332,7 +22333,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133318883}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56470952ace6e1e49bae0e0986db8a35, type: 3}
   m_Name: 
@@ -22405,6 +22406,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 9.8, y: -194.7, z: 0}
+--- !u!114 &1133318888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133318883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f540ee549bcdf74b8509b6771e228e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BathPrefab: {fileID: 7677885324084820311, guid: 26e9adad577607841b4542dbd0d136fe,
+    type: 3}
 --- !u!1001 &1134434230
 PrefabInstance:
   m_ObjectHideFlags: 0
