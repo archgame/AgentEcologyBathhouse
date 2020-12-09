@@ -24,6 +24,7 @@ public class Destination : MonoBehaviour
         _occupants.Remove(guest);
     }
 
+
     public virtual bool IsFull()
     {
         if (OccupancyLimit == 0) return false; //if there is no occupancy limit, it is never full

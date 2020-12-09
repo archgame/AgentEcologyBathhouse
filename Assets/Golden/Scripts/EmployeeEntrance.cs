@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoldenGuest : MonoBehaviour
+public class EmployeeEntrance : Destination
 {
     // Start is called before the first frame update
     void Start()
