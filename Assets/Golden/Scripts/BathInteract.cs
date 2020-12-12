@@ -7,6 +7,8 @@ public class BathInteract : MonoBehaviour
     public GameObject BathPrefab;
     //public int ObstacleLimit;
 
+    public Material vipmaterial;
+
     private List<GameObject> _baths = new List<GameObject>();
 
     // Update is called once per frame
@@ -41,12 +43,18 @@ public class BathInteract : MonoBehaviour
         RaycastHit hit;
         if (!Physics.Raycast(ray.origin, ray.direction * 1000, out hit)) return false; //was something hit?
         if (hit.transform.gameObject.tag!= "Bath") return false; //was hit on the layer?
-        
+        Debug.Log("1");
         GameObject go = hit.transform.gameObject;
+        Debug.Log("2: " + go.name);
 
-        go.transform.tag.Replace("Bath", "BathV");
-        
-        Renderer rend = go.GetComponent<Renderer>();
+        //go.transform.tag.Replace("Bath", "BathV");
+        go.transform.tag = "BathV";
+        Debug.Log("3");
+
+        Renderer rend = go.GetComponent<MeshRenderer>();
+        Debug.Log("4");
+        rend.material = vipmaterial;
+
         //rend.material.SetColor = Color.green;
         //vec = hit.point;
         return true;

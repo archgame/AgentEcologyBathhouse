@@ -42,7 +42,7 @@ public class GuestMetric : MonoBehaviour
         //        guest.SetText(GuestText);
         // }
 
-        List<Guest> guests = GuestManager.Instance.GuestList(); //this gives you a list of all the guests
+        List<Guest> guests = GoldenGuestManager.Instance.GuestList(); //this gives you a list of all the guests
 
 
         int guestAtriumCount = 0;

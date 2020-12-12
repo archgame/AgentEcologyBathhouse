@@ -99,16 +99,17 @@ public class GoldenGuestManager : MonoBehaviour
         _employee.Add(guest.GetComponent<VIPGuest>()); //adding our gameobject guest script to the guest list
         VIPGuest guestScript = guest.GetComponent<VIPGuest>();
         //List<Destination> visitedBaths = guestScript.VisitedBaths();
-        AssignOpenBath(guestScript);
+        AssignOpenBath(guestScript, "VIP");
 
     }
 
-    public virtual void AssignOpenBath(Guest guest, List<Destination> visited = null)
+    public virtual void AssignOpenBath(Guest guest, string type = "",List<Destination> visited = null)
     {
         foreach (Destination bath in _destinations)
         {
             //if bath is full guard statement
             if (bath.IsFull()) continue; //continue goes to the next line
+            if(type == "VIP") { if(bath.tag != "BathV") { continue; } }
 
             //make sure bath hasn't already been visited
             if (visited != null)

@@ -1977,7 +1977,7 @@ Transform:
   - {fileID: 282731207}
   - {fileID: 1926509221}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &69271071
 PrefabInstance:
@@ -9444,7 +9444,7 @@ Transform:
   - {fileID: 1963647586}
   - {fileID: 322187335}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &390845199
 PrefabInstance:
@@ -25655,7 +25655,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1027011029 stripped
 Transform:
@@ -33931,53 +33931,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1891784605}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1381886713
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1381886715}
-  - component: {fileID: 1381886714}
-  m_Layer: 0
-  m_Name: TimeMetric
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1381886714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381886713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f98050d63c26bb4c9a9c4bae0aa6f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScreenSlider: 0
-  ScreenText: 
-  GuestText: {fileID: 459126921}
-  Slider: {fileID: 702557087}
---- !u!4 &1381886715
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381886713}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.476562, y: 45.648438, z: -51.86328}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1382026944
 GameObject:
   m_ObjectHideFlags: 0
@@ -35861,7 +35814,7 @@ Transform:
   - {fileID: 295236035}
   - {fileID: 699519346}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1498277108 stripped
 Transform:
@@ -38603,7 +38556,7 @@ Transform:
   - {fileID: 574110171}
   - {fileID: 339683346}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625132430
 GameObject:
@@ -40032,7 +39985,7 @@ Transform:
   - {fileID: 1147280235}
   - {fileID: 1447527583}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1693062548 stripped
 Transform:
@@ -40147,7 +40100,7 @@ Transform:
   - {fileID: 180492801}
   - {fileID: 255778516}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1698025469
 PrefabInstance:
@@ -51920,7 +51873,7 @@ Transform:
   - {fileID: 5656348782114583439}
   - {fileID: 6396317070060070326}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &419909872148235962
 MeshRenderer:
@@ -52111,7 +52064,7 @@ Transform:
   - {fileID: 1525460169}
   - {fileID: 143211709}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &559820871011372816
 MeshFilter:
@@ -55406,7 +55359,7 @@ Transform:
   - {fileID: 2085873022}
   - {fileID: 87306725}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5218340560352894759
 GameObject:
@@ -56864,7 +56817,7 @@ Transform:
   - {fileID: 1869293477}
   - {fileID: 82089840}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &7066692308315549652
 MeshRenderer:
