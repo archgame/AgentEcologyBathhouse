@@ -7,6 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Destination))]
 public class Vehicle : Conveyance
 {
+    /*/
     public enum Action { WALKING, RIDING, WAITING, SEARCHING }
 
     public Action Status;
@@ -152,5 +153,5 @@ public class Vehicle : Conveyance
     {
         if (_guest == null) return false;
         return true;
-    }
+    }/*/
 }

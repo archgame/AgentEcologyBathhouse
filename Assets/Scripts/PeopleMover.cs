@@ -6,6 +6,8 @@ using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SplineInterpolator))]
 public class PeopleMover : Conveyance
@@ -27,34 +29,34 @@ public class PeopleMover : Conveyance
         -40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.381149f,-40.161518f,-39.799117f,-39.298591f,-38.664963f,-37.903538f,-37.019843f,-36.019579f,-34.908603f,-33.692931f,-32.378752f,-30.972459f,-29.480695f,-27.910412f,-26.268927f,-24.564005f,-22.803933f,-20.997596f,-19.154558f,-17.285133f,-15.403603f,-13.521805f,-11.640006f,-9.758208f,-7.876409f,-5.99461f,-4.112812f,-2.231013f,-0.349215f,1.337522f,1.113302f,-0.701139f,-2.582938f,-4.464737f,-6.346535f,-8.228334f,-10.110132f,-11.991931f,-13.87373f,-15.755528f,-17.643335f,-19.530401f,-21.395311f,-23.229379f,-25.024489f,-26.772961f,-28.467445f,-30.101089f,-31.667352f,-33.159961f,-34.572989f,-35.900735f,-37.1377f,-38.278624f,-39.318419f,-40.252175f,-41.075211f,-41.782987f,-42.371219f,-42.835983f,-43.173423f,-43.380269f,-43.453752f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-42.89632f,-41.32551f,-39.392379f,-37.900492f,-37.453878f,-37.453878f,-37.453878f,-37.453878f,-37.453878f,-37.453878f,-37.453878f,-37.453878f,-37.453878f,-37.425748f,-37.228652f,-36.844936f,-36.278126f,-35.533426f,-34.61768f,-33.539304f,-32.308195f,-30.935672f,-29.434334f,-27.817992f,-26.101479f,-24.30057f,-22.431807f,-20.512359f,-18.559859f,-16.592236f,-14.622846f,-12.653456f,-10.684066f,-8.714676f,-6.745286f,-4.775896f,-2.806506f,-0.837116f,1.039816f,1.386025f,-0.252521f,-2.13432f,-4.016119f,-5.897917f,-7.779716f,-9.661514f,-11.543313f,-13.425112f,-15.30691f,-17.188563f,-19.059056f,-20.903702f,-22.712166f,-24.474837f,-26.182798f,-27.827737f,-29.401858f,-30.897832f,-32.308681f,-33.627751f,-34.848637f,-35.965141f,-36.971239f,-37.861064f,-38.628906f,-39.269232f,-39.776722f,-40.146338f,-40.373412f,-40.453768f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-41.474443f,-43.205934f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.433887f,-43.293436f,-43.021003f,-42.619487f,-42.092557f,-41.444105f,-40.67819f,-39.799266f,-38.811943f,-37.721003f,-36.531453f,-35.248468f,-33.877419f,-32.42391f,-30.893747f,-29.293021f,-27.628155f,-25.90581f,-24.133098f,-22.317548f,-20.467013f,-18.589928f,-16.697273f,-14.815474f,-12.933676f,-11.051877f,-9.170078f,-7.28828f,-5.406481f,-3.524682f,-1.642884f,0.247281f,1.534723f,0.604211f,-1.289269f,-3.171067f,-5.052866f,-6.934664f,-8.816463f,-10.698262f,-12.58006f,-14.461859f,-16.343657f,-18.221633f,-20.079214f,-21.905153f,-23.689529f,-25.423125f,-27.097358f,-28.704215f,-30.236165f,-31.686076f,-33.04717f,-34.312926f,-35.477062f,-36.533473f,-37.476225f,-38.299542f,-38.997804f,-39.565588f,-39.99772f,-40.289354f,-40.436075f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.453878f,-40.396365f,-40.194022f,-39.847033f,-39.357308f,-38.727544f,-37.961208f,-37.062518f,-36.036418f,-34.888557f,-33.625249f,-32.253455f,-30.780719f,-29.215148f,-27.565374f,-25.840457f,-24.049892f,-22.203548f,-20.311581f,-18.384412f,-16.432633f,-14.466998f,-12.49765f,-10.528259f,-8.558873f,-6.589483f,-4.620094f,-2.650706f,-0.681316f,1.288073f,3.257459f,5.226847f,7.196236f,9.165625f,11.135007f,13.104395f,15.073785f,17.043201f,19.010683f,20.967133f,22.90179f,24.803998f,26.663291f,28.469434f,30.212487f,31.882853f,33.471341f,34.969206f,36.368205f,37.660639f,38.839393f,39.89797f,40.830557f,41.632015f,42.297934f,42.824648f,43.209258f,43.449647f,43.544491f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.546122f,43.517475f,43.353121f,43.043755f,42.591077f,41.997583f,41.266535f,40.401961f,39.408614f,38.29197f,37.058167f,35.714f,34.266865f,32.724726f,31.096084f,29.389888f,27.615532f,25.782794f,23.901746f,21.982749f,20.036363f,18.073303f,16.104202f,14.134812f,12.165422f,10.196032f,8.226642f,6.257252f,4.287862f,2.318472f,0.349082f,-1.546191f,-3.427989f,-5.309788f,-7.191587f,-9.073385f,-10.955184f,-12.836982f,-14.718781f,-16.60058f,-18.49292f,-20.37113f,-22.223242f,-24.040787f,-25.815887f,-27.540994f,-29.208984f,-30.813162f,-32.347102f,-33.804695f,-35.180118f,-36.467761f,-37.66224f,-38.75837f,-39.751136f,-40.635743f,-41.407575f,-42.062166f,-42.595434f,-43.00349f,-43.282631f,-43.42993f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.453878f,-43.258771f,-41.571347f,-40.453878f
     };
 
-    private SplineInterpolator railpath;
+    private SplineInterpolator railpath; //spline of our outline
 
-    public int CapCount = 100;
+    public int CapCount = 100; //number of caps for guests
 
     //object inputs
-    public GameObject Cap;
+    public GameObject Cap; 
     public GameObject ctlptraw;
-    private List<GameObject> pathpoints = new List<GameObject>();
+    private List<GameObject> pathpoints = new List<GameObject>();                                   //list of points in the path
 
-    private Dictionary<int, float> cappos = new Dictionary<int, float>();
-    private List<GameObject> caplist = new List<GameObject>();
-    private Dictionary<GameObject, int> _caps = new Dictionary<GameObject, int>();
-    private List<Vector3> _positions = new List<Vector3>();
-    private Dictionary<GameObject, Guest> _capRiders = new Dictionary<GameObject, Guest>();
-    private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
-    private List<Guest> _riders = new List<Guest>();
+    private Dictionary<int, float> cappos = new Dictionary<int, float>();                           //tells the parameter of each point
+    private List<GameObject> caplist = new List<GameObject>();                                      //list of caps on the rail
+    private Dictionary<GameObject, int> tempcaps = new Dictionary<GameObject, int>();               //temporary list of caps
+    private List<Vector3> _positions = new List<Vector3>();                                         //list of cap positions
+    private Dictionary<GameObject, Guest> _capRiders = new Dictionary<GameObject, Guest>();         //links caps to riders
+    private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();                  //list of all guests and final destination position
+    private List<Guest> _riders = new List<Guest>();                                                //list of all guests riding the conveyance
 
 
     private Destination[] _destinations;
 
     public override void SetDestination()
     {
-        _destinations = GetComponentsInChildren<Destination>();
+        _destinations = GetComponentsInChildren<Destination>();             //builds a list of access points
 
         //create the positions dictionary
         for (int i = 0; i < CapCount; i++)
         {
-            _caps.Add(caplist[i].transform.GetChild(i).gameObject, i); // replaced with caplist
+            tempcaps.Add(caplist[i].transform.GetChild(i).gameObject, i);   // replaced with caplist
             _positions.Add(caplist[i].transform.position);
             _capRiders.Add(caplist[i], null);
         }
@@ -88,6 +90,7 @@ public class PeopleMover : Conveyance
     // Start is called before the first frame update
     void Start()
     {
+
         //Debug.Log("1");
         _destinations = GetComponentsInChildren<Destination>();
 
@@ -232,46 +235,167 @@ public class PeopleMover : Conveyance
         if (_guests.ContainsKey(guest)) return;
 
         Destination destination = guest.GetUltimateDestination();
-        destination = GetDestination(destination.transform.position);
+        destination = GetDestination(guest.GetComponent<NavMeshAgent>() , destination.transform.position);
         _guests.Add(guest, destination.transform.position);
     }
 
-    public override Destination GetDestination(Vector3 vec)
+    public override Destination GetDestination(NavMeshAgent agent, Vector3 vec)
     {
         Destination[] tempDestinations = _destinations;
-        tempDestinations = tempDestinations.OrderBy(go => Mathf.Abs(go.transform.position.y - vec.y)).ToArray();
-        //tempDestinations = tempDestinations.OrderBy(x => x.name).ToArray();
-        //tempDestinations = tempDestinations.OrderBy(x => Vector3.Distance(x.transform.position, Vector3.zero)).ToArray();
-        return tempDestinations[0];
+        Destination chosen = _destinations[0];
+        List <NavMeshPath> tempnavpaths = new List<NavMeshPath>();
+        float destdist = Mathf.Infinity;
+        //NavMeshPath temppath;
+        //temppath = new NavMeshPath();
+        
+        foreach (Destination d in tempDestinations)
+        {
+
+            GameObject go = Instantiate(GuestManager.Instance.GuestPrefab, GuestManager.Instance.transform.position, agent.transform.rotation);
+            NavMeshAgent a = go.GetComponent<NavMeshAgent>();
+            Guest g = go.GetComponent<Guest>();
+            a.enabled = false;
+            g.Destination = agent.GetComponent<Guest>().Destination;
+            agent.enabled = true;
+            agent.SetDestination(vec);
+            float temppathlength = Guest.AgentWalkDistance(a , a.transform, d.transform.position, vec, Color.white);
+            Destroy(go);
+
+            //Debug.Log("temppathlenth: " + temppathlength);
+            //Debug.Break();
+            
+            if (temppathlength < destdist)
+            {
+                //Debug.Log("UpdatedDest");
+                //Debug.DrawLine(vec, d.transform.position);
+                destdist = temppathlength;
+                chosen = d;
+                //Debug.Break();
+            }
+        }
+        
+        //Debug.Log("chosen: " + chosen);
+        //Debug.Log("destdist: " + destdist);
+        //Debug.DrawLine(chosen.transform.position, vec);
+        //Debug.Break();
+        return chosen;
     }
 
-    public override Vector3 StartPosition(Vector3 vec)
+    public override Vector3 StartPosition(NavMeshAgent agent, Vector3 vec)
     {
-        if (_destinations.Length == 0) { return Vector3.zero; }
-        Destination destination = GetDestination(vec);
+        if (_destinations.Length == 0) { Debug.Log("NoConveyanceDest"); return Vector3.zero; }
+        Destination destination = GetDestination(agent, vec);
         return destination.transform.position;
     }
 
-    public override Vector3 EndPosition(Vector3 vec)
+    public override Vector3 EndPosition(NavMeshAgent agent, Vector3 vec)
     {
-        if (_destinations.Length == 0) { return Vector3.zero; }
-        Destination destination = GetDestination(vec);
+        if (_destinations.Length == 0) { Debug.Log("NoConveyanceDest"); return Vector3.zero; }
+        Destination destination = GetDestination(agent, vec);
         return destination.transform.position;
     }
 
-    public override float WeightedTravelDistance(Vector3 start, Vector3 end)
+    public override float WeightedTravelDistance(NavMeshAgent agent, Vector3 start, Vector3 end)
     {
         float distance = 0;
         //guard statement
         if (_destinations.Length < 2) return distance;
 
         //get the total path distance
-        Destination go1 = GetDestination(start);
-        Destination go2 = GetDestination(end);
+        Destination go1 = GetDestination(agent, start);
+        Destination go2 = GetDestination(agent, end);
         distance = Vector3.Distance(go1.transform.position, go2.transform.position);
 
         //we scale the distance by the weight factor
         distance /= Weight;
         return distance;
     }
+    public static float GetPathLength(NavMeshPath path)
+    {
+        float lng = 0.0f;
+        for (int i = 1; i < path.corners.Length; ++i)
+        {
+            lng += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+        }
+
+        return lng;
+    }
+
+    /*/public static float NavMeshLength(Vector3 start, Vector3 end)
+    {
+        NavMeshPath path = new NavMeshPath();
+       
+        Vector3[] allWayPoints = new Vector3[path.corners.Length + 2];
+
+        allWayPoints[0] = start;
+
+        // The last point is the target position.
+        allWayPoints[allWayPoints.Length - 1] = end;
+
+        for (int i = 0; i < path.corners.Length; i++)
+        {
+            allWayPoints[i + 1] = path.corners[i];
+        }
+
+        float pathLength = 0;
+
+        for (int i = 0; i < allWayPoints.Length - 1; i++)
+        {
+            pathLength += Vector3.Distance(allWayPoints[i], allWayPoints[i + 1]);
+        }
+        return pathLength;
+    }/*/
+
+    /*/public static float NavMeshDistance(NavMeshAgent agent, Transform trans, Vector3 start, Vector3 end, Color color)
+    {
+        //in case they are the same position
+        if (Vector3.Distance(start, end) < 0.01f) { Debug.Log("SmallDistanceError"); return 0; }
+
+        //move agent to the start position
+        Vector3 initialPosition = trans.position;           //remembers where he was
+        agent.enabled = false;
+        trans.position = start;//_agent.Move(start - initialPosition);
+        agent.enabled = true;
+
+        //test to see if agent has path or not
+        float distance = Mathf.Infinity;
+        NavMeshPath navMeshPath = agent.path;
+        if (!agent.CalculatePath(end, navMeshPath))
+        {
+            //reset agent to original position
+            agent.enabled = false;
+            trans.position = initialPosition;//_agent.Move(initialPosition - start);
+            agent.enabled = true;
+            //Debug.Log("Infinity1: " + distance);
+            return distance;
+        }
+
+        //check to see if there is a path
+        Vector3[] path = navMeshPath.corners;
+        if (path.Length < 2 || Vector3.Distance(path[path.Length - 1], end) > 2) //2
+        {
+            //reset agent to original position
+            agent.enabled = false;
+            trans.position = initialPosition;//_agent.Move(initialPosition - start);
+            agent.enabled = true;
+            //Debug.Log("Infinity2: " + distance);
+            return distance;
+        }
+
+        //get walking path distance
+        distance = 0;
+        for (int i = 1; i < path.Length; i++)
+        {
+            distance += Vector3.Distance(path[i - 1], path[i]);
+            Debug.DrawLine(path[i - 1], path[i], color); //visualizing the path, not necessary to return
+
+        }
+
+        //reset agent to original position
+        agent.enabled = false;
+        trans.position = initialPosition;//_agent.Move(initialPosition - start);
+        agent.enabled = true;
+
+        return distance;
+    }/*/
 }

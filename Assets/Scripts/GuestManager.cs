@@ -24,6 +24,7 @@ public class GuestManager : MonoBehaviour
 
     public List<Guest> _guest = new List<Guest>(); //list of guests
     private List<Destination> _destinations = new List<Destination>(); //list of destinations
+    private List<Destination> _partydests = new List<Destination>();
     private List<Guest> _exitedGuests = new List<Guest>(); //guests that will exit
     private GuestEntrance[] _guestEntrances;
 
@@ -52,6 +53,7 @@ public class GuestManager : MonoBehaviour
         fpCamObject = GameObject.FindGameObjectWithTag("First Person Camera");
         fpCamScript = fpCamObject.GetComponent<Fpcam>();
 
+        GameObject[] partygos = GameObject.FindGameObjectsWithTag("Party");
         GameObject[] destinations = GameObject.FindGameObjectsWithTag("Bath");
         destinations = Shuffle(destinations);
 
@@ -60,6 +62,12 @@ public class GuestManager : MonoBehaviour
             Destination destination = go.GetComponent<Destination>(); //getting the destination script from game object
             _destinations.Add(destination); //adding the destination script to the list
             _occupancyLimit += destination.OccupancyLimit; //increasing the occupancy limit maximum
+        }
+
+        foreach (GameObject go in partygos)
+        {
+            Destination partydest = go.GetComponent<Destination>();
+            _partydests.Add(partydest);
         }
 
         _guestEntrances = GameObject.FindObjectsOfType<GuestEntrance>();
@@ -117,6 +125,28 @@ public class GuestManager : MonoBehaviour
             //assign destination;
             guest.Destination = bath;
             bath.AddGuest(guest);
+            break;
+        }
+    }
+    public virtual void AssignParty(Guest guest, List<Destination> visited = null)
+    {
+        foreach (Destination party in _partydests)
+        {
+            //if bath is full guard statement
+            
+
+            //make sure bath hasn't already been visited
+            if (visited != null)
+            {
+                if (visited.Contains(party))
+                {
+                    continue;
+                }
+            }
+
+            //assign destination;
+            guest.Destination = party;
+            party.AddGuest(guest);
             break;
         }
     }
