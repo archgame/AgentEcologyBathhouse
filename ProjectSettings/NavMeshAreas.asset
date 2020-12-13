@@ -15,13 +15,13 @@ NavMeshProjectSettings:
     cost: 1
   - name: slopes
     cost: 1
-  - name: helix
+  - name: helix_L
     cost: 4
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
-  - name: 
+  - name: helix_M
+    cost: 3
+  - name: helix_S
+    cost: 2
+  - name: helix_Center
     cost: 1
   - name: 
     cost: 1
@@ -73,8 +73,8 @@ NavMeshProjectSettings:
   m_Settings:
   - serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
+    agentRadius: 0.29
+    agentHeight: 5.67
     agentSlope: 54.7
     agentClimb: 2
     ledgeDropHeight: 0
