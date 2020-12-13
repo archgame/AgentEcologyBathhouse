@@ -195,6 +195,8 @@ public class PeopleMover : Conveyance
 
     private IEnumerator LoadPassenger(GameObject car, Guest guest)
     {
+        guest.SocialVal += 20f;
+
         //Debug.Log("passenger loading!");
         bool loading = true;
         while (loading)
@@ -212,12 +214,12 @@ public class PeopleMover : Conveyance
 
     private IEnumerator UnloadPassenger(GameObject car, Guest guest)
     {
+        guest.SocialVal += 20f;
+        
         bool unloading = true;
         while (unloading)
         {
-            guest.transform.position = Vector3.MoveTowards(guest.transform.position,
-                _guests[guest],
-                Time.deltaTime * Speed * 8);
+            guest.transform.position = Vector3.MoveTowards(guest.transform.position, _guests[guest], Time.deltaTime * Speed * 8);
 
             if (Vector3.Distance(guest.transform.position, _guests[guest]) < 0.01f) { unloading = false; }
             yield return new WaitForEndOfFrame();
@@ -228,6 +230,22 @@ public class PeopleMover : Conveyance
         guest.transform.parent = null;
         guest.NextDestination();
         yield break;
+    }
+
+    public override void EjectGuest(Guest guest)
+    {
+        _riders.Remove(guest);
+        _guests.Remove(guest);
+        guest.transform.parent = null;
+        for (int i = 0; i < CapCount; i += 1)
+        {
+            GameObject c = caplist[i];
+
+            if (_capRiders[c] == guest)
+            {
+                _capRiders[c] = null;
+            }
+        }
     }
 
     public override void ConveyanceUpdate(Guest guest)
@@ -288,7 +306,7 @@ public class PeopleMover : Conveyance
     {
         if (_destinations.Length == 0) { Debug.Log("NoConveyanceDest"); return Vector3.zero; }
         Destination destination = GetDestination(agent, vec);
-        Debug.Log(destination.name);
+        //Debug.Log(destination.name);
         return destination.transform.position;
     }
 
@@ -324,6 +342,7 @@ public class PeopleMover : Conveyance
 
         return lng;
     }
+
 
     /*/public static float NavMeshLength(Vector3 start, Vector3 end)
     {

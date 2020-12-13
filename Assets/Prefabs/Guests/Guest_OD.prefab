@@ -125,8 +125,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassglow: {fileID: 0}
   socialcol: 100
-  glow: 1
+  colortoggle: 1
   colorhappy: {r: 255, g: 66, b: 128, a: 1}
+  parent: {fileID: 0}
 --- !u!1 &3195382997371946575
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ MonoBehaviour:
   - {fileID: 5998420953180830194}
   - {fileID: 2960648490209997672}
   - {fileID: 7937418057845723103}
-  SocialVal: 100
+  SocialVal: 10
   _socialtimer: 0
   socialtime: 20
   _destinations: []
@@ -407,8 +408,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassglow: {fileID: 0}
   socialcol: 100
-  glow: 1
+  colortoggle: 1
   colorhappy: {r: 255, g: 66, b: 128, a: 1}
+  parent: {fileID: 0}
 --- !u!1 &7049892599343934182
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,8 +536,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassglow: {fileID: 0}
   socialcol: 100
-  glow: 1
+  colortoggle: 1
   colorhappy: {r: 255, g: 66, b: 128, a: 1}
+  parent: {fileID: 0}
 --- !u!1 &8356001352064421266
 GameObject:
   m_ObjectHideFlags: 0

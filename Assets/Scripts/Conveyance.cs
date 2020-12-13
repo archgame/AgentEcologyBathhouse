@@ -97,4 +97,9 @@ public class Conveyance : MonoBehaviour
     {
         return false;
     }
+
+    public virtual void EjectGuest(Guest guest)
+    {
+        _guests.Remove(guest);
+    }
 }

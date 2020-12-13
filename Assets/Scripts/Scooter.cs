@@ -30,7 +30,7 @@ public class Scooter : Conveyance
         _dest = GetComponent<Destination>();
         _agent = GetComponent<NavMeshAgent>();
         Status = Action.WAITING;
-        Vector3 newPos = Guest.RandomNavSphere(transform.position, 100, -1);
+        Vector3 newPos = GuestManager.RandomNavSphere(transform.position, 100, -1);
         UpdateDestination(newPos);
         if (Path.Length == 0) return;
 

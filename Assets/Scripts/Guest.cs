@@ -25,6 +25,7 @@ public class Guest : MonoBehaviour
     public float BathTime = 2.0f;               //how long the agent stays in
     public Action Status;                       //our agent's current status
     public Feeling Health;                      //the current state of guest's health
+    public bool iamsad = false;
 
     public GameObject[] glasses;
     private Renderer[] glassglow;
@@ -34,8 +35,6 @@ public class Guest : MonoBehaviour
     public float socialtime = 20f;
     private Vector3 dancebase;
     
-
-
     //private global variables
     private float _bathTime = 0;                //how long the agent has been in the bath
 
@@ -91,6 +90,11 @@ public class Guest : MonoBehaviour
     // Update is called once per frame
     public void GuestUpdate()
     {
+        if (GuestManager.Instance._sadguest.Contains(this))
+        { iamsad = true; }
+        else
+        { iamsad = false; }
+
         if(SocialVal > 100)
         {
             SocialVal = 100;
@@ -99,9 +103,15 @@ public class Guest : MonoBehaviour
         {
             SocialVal -= SocialSub;
         }
-        else
+        else if (Status != Action.DANCING)
         {
             SocialVal = 0;
+            if (!GuestManager.Instance._sadguest.Contains(this))
+            {
+                GuestManager.Instance._sadguest.Add(this);
+                //Debug.Log(":( SAAAAD");
+                //Debug.Log(GuestManager.Instance._sadguest.Count);
+            }
         }
 
         //updates guest color
@@ -196,7 +206,7 @@ public class Guest : MonoBehaviour
                 _agent.isStopped = false;
 
                 SetText("Walking");
-
+                                
                 _destinations[0].RemoveGuest(this); //remove guest from current bath
                 _destinations.RemoveAt(0); //remove current bath from destination list
                 _socialtimer = 0; //reseting social time
@@ -226,7 +236,7 @@ public class Guest : MonoBehaviour
                 _tempDestination = Destination;
                 Destination = null;
 
-                if (SocialVal <= 0)
+                if ((SocialVal <= 0) && (GuestManager.Instance._partydests != null))
                 {
                     GuestManager.Instance.AssignParty(this);
                 }
@@ -282,11 +292,10 @@ public class Guest : MonoBehaviour
 
     private void DestinationDistance()      //tests destination proximity for arrival
     {
-        if (Vector3.Distance(transform.position, Destination.transform.position) < 6.0f)
+        if (Vector3.Distance(transform.position, Destination.transform.position) < 4.0f)
         {
             if (Destination.tag == "Party")
             {
-                dancebase = transform.position;
                 PartyTime();
                 return;
             }
@@ -396,7 +405,7 @@ public class Guest : MonoBehaviour
 
     public virtual void FindPath(ref Conveyance currentConveyance, ref List<Destination> destinations)
     {
-        Debug.Break();
+        //Debug.Break();
 
         //get walking path distance
         Vector3 guestPosition = transform.position;
@@ -419,7 +428,7 @@ public class Guest : MonoBehaviour
             //Debug.Log("TripStart: " + c.GetDestination(_agent, guestPosition));
             //Debug.Log("TripEnd: " + c.GetDestination(_agent, destinationPosition));
             //Debug.Log("Bath: " + Destination);
-            Debug.Log("distToC: " + distToC);
+            //Debug.Log("distToC: " + distToC);
             //Debug.Log("distC: " + distC);
             //Debug.Log("distFromC: " + distFromC);
 
@@ -475,11 +484,16 @@ public class Guest : MonoBehaviour
         SetText("Bathing");
     }
 
-    private void PartyTime()
+    public void PartyTime()
     {
+        dancebase = transform.position;
         Status = Action.DANCING;
-        _agent.isStopped = true;
-        _agent.enabled = false;
+        GuestManager.Instance._sadguest.Remove(this);
+        if (_agent.enabled == true)
+        {
+            _agent.isStopped = true;
+            _agent.enabled = false;
+        }
         SetText("Dancing");
     }
 
@@ -518,15 +532,23 @@ public class Guest : MonoBehaviour
         return _visitedBaths;
     }
 
-    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    public void EndConveyance()
+    {
+        if (_currentConveyance != null)
+        {
+            _currentConveyance.EjectGuest(this);
+        }
+    }
+
+    /*/public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
         //Debug.Break();
         Vector3 randDirection = Random.insideUnitSphere * dist;
         randDirection += origin;
         NavMeshHit navHit;
         NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
-        Debug.DrawLine(origin, randDirection, Color.blue);
-        Debug.DrawRay(navHit.position, Vector3.up * 3, Color.cyan);
+        //Debug.DrawLine(origin, randDirection, Color.blue);
+        //Debug.DrawRay(navHit.position, Vector3.up * 3, Color.cyan);
         return navHit.position;
-    }
+    }/*/
 }
