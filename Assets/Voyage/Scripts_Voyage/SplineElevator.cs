@@ -192,6 +192,7 @@ public class SplineElevator : Conveyance
         //we are assuming the guests that are unloading are children of the Car GameObject
         if (guest.transform.parent == Car.transform) //if a guest is inside (aka a child of) the Car
         {
+            //Debug.Log(Carp.tran)
             if (Car.transform.position.y != _guests[guest].y) return; //is the guest at the correct floor
             if (!UnloadingGuest(guest))
             {
