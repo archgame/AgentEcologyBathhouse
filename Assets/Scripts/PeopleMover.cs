@@ -163,6 +163,7 @@ public class PeopleMover : Conveyance
                 Guest guest = _capRiders[car];
                 Vector3 UnloadPosition = _guests[guest];
                 // if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y) < 0.2f)
+                //Debug.Log(Vector3.Distance(UnloadPosition, guest.transform.position));
                 if (Vector3.Distance(UnloadPosition, guest.transform.position) < 4.1f)
                 {
                     //unload guest
@@ -237,6 +238,7 @@ public class PeopleMover : Conveyance
         Destination destination = guest.GetUltimateDestination();
         destination = GetDestination(guest.GetComponent<NavMeshAgent>() , destination.transform.position);
         _guests.Add(guest, destination.transform.position);
+        //Debug.Log(destnation.name);
     }
 
     public override Destination GetDestination(NavMeshAgent agent, Vector3 vec)
@@ -252,13 +254,14 @@ public class PeopleMover : Conveyance
         {
 
             GameObject go = Instantiate(GuestManager.Instance.GuestPrefab, GuestManager.Instance.transform.position, agent.transform.rotation);
+            //GameObject go = agent.gameObject;
             NavMeshAgent a = go.GetComponent<NavMeshAgent>();
             Guest g = go.GetComponent<Guest>();
             a.enabled = false;
             g.Destination = agent.GetComponent<Guest>().Destination;
-            agent.enabled = true;
-            agent.SetDestination(vec);
-            float temppathlength = Guest.AgentWalkDistance(a , a.transform, d.transform.position, vec, Color.white);
+            a.enabled = true;
+            a.SetDestination(vec);
+            float temppathlength = Guest.AgentWalkDistance(a , a.transform, d.transform.position, vec, Color.black);
             Destroy(go);
 
             //Debug.Log("temppathlenth: " + temppathlength);
@@ -285,6 +288,7 @@ public class PeopleMover : Conveyance
     {
         if (_destinations.Length == 0) { Debug.Log("NoConveyanceDest"); return Vector3.zero; }
         Destination destination = GetDestination(agent, vec);
+        Debug.Log(destination.name);
         return destination.transform.position;
     }
 

@@ -34,6 +34,9 @@ public class GuestManager : MonoBehaviour
     private GameObject fpCamObject;
     private Fpcam fpCamScript;
 
+    public float dancetimer = 0.0f;
+    public float dancespeed = 0.1f;
+
     private void Awake()
     {
         //Singleton Pattern
@@ -154,7 +157,12 @@ public class GuestManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
+        dancetimer += dancespeed;
+
+        if (dancetimer >= 100f)
+        {
+            dancetimer = 0.0f;
+        }
 
         //call guest update on each guest, the manager controls the guests
         foreach (Guest guest in _guest)
@@ -228,5 +236,14 @@ public class GuestManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, _guestEntrances.Length);
         return _guestEntrances[randomIndex];
+    }
+
+    public Vector3 DanceVector()
+    {
+        float x = 0; // 0.25f * (Mathf.Sin((360.00f / 100) * dancetimer));
+        float y = 0.25f * (Mathf.Sin((360.00f / 100) * dancetimer));
+        float z = 0; // 0.25f * (Mathf.Sin((360.00f / 100) * dancetimer));
+        Vector3 relpos = new Vector3(x, y, z);
+        return relpos;
     }
 }
