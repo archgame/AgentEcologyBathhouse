@@ -14,7 +14,7 @@ public class Guest : MonoBehaviour
     public List<Guest> guestEncounters = new List<Guest>();
     public List<Guest> totalGuests = new List<Guest>();
 
-    public enum Action { BATHING, WALKING, FOLLOWING, RIDING }
+    public enum Action { BATHING, WALKING, RIDING, DANCING }
     public enum Feeling { Healthy, Sick, Contaminated }
 
     [Header("Destination")]
@@ -30,6 +30,10 @@ public class Guest : MonoBehaviour
     private Renderer[] glassglow;
     public float SocialVal = 100.0f;
     private float SocialSub = 0.1f;
+    public float _socialtimer = 0;
+    public float socialtime = 20f;
+    private Vector3 dancebase;
+    
 
 
     //private global variables
@@ -100,6 +104,20 @@ public class Guest : MonoBehaviour
             SocialVal = 0;
         }
 
+        //updates guest color
+        if (Health == Feeling.Healthy)
+        {
+            GuestCol.material.color = Color.green;
+        }
+        if (Health == Feeling.Sick)
+        {
+            GuestCol.material.color = Color.red;
+        }
+        if (Health == Feeling.Contaminated)
+        {
+            GuestCol.material.color = Color.yellow;
+        }
+
         foreach (Glasses g in glassesscript)
         {
             g.socialcol = SocialVal;
@@ -149,6 +167,52 @@ public class Guest : MonoBehaviour
 
         }/*/
 
+        if (Status == Action.DANCING)
+        {
+            _socialtimer += Time.deltaTime;
+            if (_socialtimer > socialtime)
+            {
+                SocialVal = 100f;
+                _tempDestination = Destination;
+                Destination = null;
+                transform.position = dancebase;
+
+                if (Baths == 0)
+                {
+                    Destination = GuestManager.Instance.RandomEntrance();
+                }
+                else
+                {
+                    GuestManager.Instance.AssignOpenBath(this, _visitedBaths); //Destination is assigned inside method
+                }
+
+                if (Destination == null)
+                {
+                    Debug.Log("NO DESTINATION");
+                    return;
+                }
+
+                _agent.enabled = true;
+                _agent.isStopped = false;
+
+                SetText("Walking");
+
+                _destinations[0].RemoveGuest(this); //remove guest from current bath
+                _destinations.RemoveAt(0); //remove current bath from destination list
+                _socialtimer = 0; //reseting social time
+                Status = Action.WALKING;  //start walking
+                UpdateDestination(); //update new destination
+                FindPath(ref _currentConveyance, ref _destinations); //finding best path
+                return;
+            }
+            else
+            {
+                Vector3 dancechange = GuestManager.Instance.DanceVector();
+                transform.position = dancebase + dancechange;
+                return;
+            }
+        }
+
         if (Status == Action.RIDING)
         {
             _currentConveyance.ConveyanceUpdate(this);
@@ -189,20 +253,6 @@ public class Guest : MonoBehaviour
             return;
         }
 
-        //updates guest color
-        if (Health == Feeling.Healthy)
-        {
-            GuestCol.material.color = Color.green;
-        }
-        if (Health == Feeling.Sick)
-        {
-            GuestCol.material.color = Color.red;
-        }
-        if (Health == Feeling.Contaminated)
-        {
-            GuestCol.material.color = Color.yellow;
-        }
-
         //guard statement
         if (Destination == null) return; //return stops the update here until next frame
 
@@ -232,6 +282,16 @@ public class Guest : MonoBehaviour
 
     private void DestinationDistance()      //tests destination proximity for arrival
     {
+        if (Vector3.Distance(transform.position, Destination.transform.position) < 6.0f)
+        {
+            if (Destination.tag == "Party")
+            {
+                dancebase = transform.position;
+                PartyTime();
+                return;
+            }
+        }
+        
         //test agent distance from destination
         if (Vector3.Distance(transform.position, Destination.transform.position) < 1.1f)
         {
@@ -252,29 +312,6 @@ public class Guest : MonoBehaviour
                 GuestManager.Instance.GuestExit(this);
                 //GuestManager manager = Destination.gameObject.GetComponent<GuestManager>();
                 //manager.GuestExit(this);
-                return;
-            }
-            else if (Destination.tag == "Party")
-            {
-                SocialVal = 100;
-                if (Baths == 0)
-                {
-                    Destination = GuestManager.Instance.RandomEntrance();
-                }
-                else
-                {
-                    GuestManager.Instance.AssignOpenBath(this, _visitedBaths); //Destination is assigned inside method
-                }
-                if (Destination == null) return;
-                SetText("Walking");
-
-                //_tempDestination.RemoveGuest(this); //remove guest from current bath
-                _destinations[0].RemoveGuest(this); //remove guest from current bath
-                _destinations.RemoveAt(0); //remove current bath from destination list
-                _bathTime = 0; //reseting bath time
-                Status = Action.WALKING;  //start walking
-                UpdateDestination(); //update new destination
-                FindPath(ref _currentConveyance, ref _destinations); //finding best path
                 return;
             }
         }
@@ -345,7 +382,7 @@ public class Guest : MonoBehaviour
         for (int i = 1; i < path.Length; i++)
         {
             distance += Vector3.Distance(path[i - 1], path[i]);
-            Debug.DrawLine(path[i - 1], path[i], color); //visualizing the path, not necessary to return
+            if (color != Color.black) { Debug.DrawLine(path[i - 1], path[i], color); } //visualizing the path, not necessary to return
             //Debug.Log("calculated");
         }
 
@@ -359,7 +396,7 @@ public class Guest : MonoBehaviour
 
     public virtual void FindPath(ref Conveyance currentConveyance, ref List<Destination> destinations)
     {
-        //Debug.Break();
+        Debug.Break();
 
         //get walking path distance
         Vector3 guestPosition = transform.position;
@@ -382,11 +419,11 @@ public class Guest : MonoBehaviour
             //Debug.Log("TripStart: " + c.GetDestination(_agent, guestPosition));
             //Debug.Log("TripEnd: " + c.GetDestination(_agent, destinationPosition));
             //Debug.Log("Bath: " + Destination);
-            //Debug.Log("distToC: " + distToC);
+            Debug.Log("distToC: " + distToC);
             //Debug.Log("distC: " + distC);
             //Debug.Log("distFromC: " + distFromC);
 
-            //Debug.DrawLine(guestPosition, c.StartPosition(), Color.black);
+            Debug.DrawLine(guestPosition, c.StartPosition(_agent, guestPosition), Color.black);
             //Debug.DrawLine(c.StartPosition(_agent, guestPosition), c.EndPosition(_agent, destinationPosition), Color.cyan);
             //Debug.DrawLine(c.EndPosition(), destinationPosition, Color.white);
             //Debug.Log("ConveyanceDistance: " + (distToC + distC + distFromC));
@@ -436,6 +473,14 @@ public class Guest : MonoBehaviour
         Status = Action.BATHING;
         _agent.isStopped = true;
         SetText("Bathing");
+    }
+
+    private void PartyTime()
+    {
+        Status = Action.DANCING;
+        _agent.isStopped = true;
+        _agent.enabled = false;
+        SetText("Dancing");
     }
 
     public virtual Destination GetUltimateDestination()
