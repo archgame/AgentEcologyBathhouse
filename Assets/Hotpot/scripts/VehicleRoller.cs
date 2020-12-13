@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Destination))]
-public class Vehicle : Conveyance
+public class VehicleRoller : Conveyance
 {
     public enum Action { WALKING, RIDING, WAITING, SEARCHING }
 
@@ -16,6 +16,8 @@ public class Vehicle : Conveyance
     private int _currentPathIndex = 0;
     private Vector3 _guestDestination = Vector3.zero;
     private Guest _guest = null;
+
+
 
     [HideInInspector]
     public NavMeshAgent _agent; //our Nav Mesh Agent Component

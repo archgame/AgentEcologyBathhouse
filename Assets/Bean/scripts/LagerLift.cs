@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Paternoster : Conveyance
+public class LagerLift : Conveyance
 {
     public GameObject Cars;
 
@@ -93,7 +93,7 @@ public class Paternoster : Conveyance
             }
 
             //move car
-            //int j = _cars[car];
+            int j = _cars[car];
             Vector3 newPos = Vector3.MoveTowards(car.transform.position,
                 _positions[_cars[car]], //_positions[j]
                 Speed * Time.deltaTime);
@@ -162,6 +162,7 @@ public class Paternoster : Conveyance
         if (_destinations.Length == 0) { return Vector3.zero; }
         Destination destination = GetDestination(vec);
         return destination.transform.position;
+
     }
 
     public override Vector3 EndPosition(Vector3 vec)

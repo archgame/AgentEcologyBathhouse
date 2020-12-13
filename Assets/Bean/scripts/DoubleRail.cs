@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Paternoster : Conveyance
+public class DoubleRail : Conveyance
 {
-    public GameObject Cars;
+    public GameObject TCars;
 
     private Destination[] _destinations;
     private Dictionary<GameObject, int> _cars = new Dictionary<GameObject, int>();
@@ -19,11 +19,11 @@ public class Paternoster : Conveyance
         _destinations = GetComponentsInChildren<Destination>();
 
         //create the positions dictionary
-        for (int i = 0; i < Cars.transform.childCount; i++)
+        for (int i = 0; i < TCars.transform.childCount; i++)
         {
-            _cars.Add(Cars.transform.GetChild(i).gameObject, i);
-            _positions.Add(Cars.transform.GetChild(i).transform.position);
-            _carRiders.Add(Cars.transform.GetChild(i).gameObject, null);
+            _cars.Add(TCars.transform.GetChild(i).gameObject, i);
+            _positions.Add(TCars.transform.GetChild(i).transform.position);
+            _carRiders.Add(TCars.transform.GetChild(i).gameObject, null);
         }
 
         //set the occupnacy limit for each waiting lobby
@@ -40,9 +40,9 @@ public class Paternoster : Conveyance
 
     private void Update()
     {
-        for (int i = 0; i < Cars.transform.childCount; i++)
+        for (int i = 0; i < TCars.transform.childCount; i++)
         {
-            GameObject car = Cars.transform.GetChild(i).gameObject;
+            GameObject car = TCars.transform.GetChild(i).gameObject;
 
             //check if car is open
             if (_carRiders[car] == null)
@@ -93,7 +93,7 @@ public class Paternoster : Conveyance
             }
 
             //move car
-            //int j = _cars[car];
+            int j = _cars[car];
             Vector3 newPos = Vector3.MoveTowards(car.transform.position,
                 _positions[_cars[car]], //_positions[j]
                 Speed * Time.deltaTime);
@@ -162,6 +162,7 @@ public class Paternoster : Conveyance
         if (_destinations.Length == 0) { return Vector3.zero; }
         Destination destination = GetDestination(vec);
         return destination.transform.position;
+
     }
 
     public override Vector3 EndPosition(Vector3 vec)

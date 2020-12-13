@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Elevator : Conveyance
+public class ElevatorRunner : Conveyance
 {
     public GameObject Car;
     public GameObject Positions;
@@ -26,10 +26,10 @@ public class Elevator : Conveyance
 
     public override void SetDestination()
     {
-       
+
         _waitTime = _maxWait;
 
-        _destinations = GetComponentsInChildren<Destination>();
+        _destinations = GetComponentsInChildren<Destination>();//level x
 
         //create the positions dictionary
         for (int i = 0; i < Positions.transform.childCount; i++)
@@ -47,7 +47,7 @@ public class Elevator : Conveyance
     // Update is called once per frame
     private void Update()
     {
-       
+
         if (_guests.Count == 0) return;
         if (_buttonPressed.Count == 0) return;
 
@@ -146,7 +146,7 @@ public class Elevator : Conveyance
     {
         //at this point we assume the guest is unloading
         //switch out the point when begin the unloading process
-        if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) <0.2f)
+        if (Vector3.Distance(guest.transform.position, _riders[guest].transform.position) < 0.2f)
         {
             Debug.Log("unload");
             Destination destination = GetDestination(Car.transform.position);
@@ -213,7 +213,7 @@ public class Elevator : Conveyance
         //tempDestinations = tempDestinations.OrderBy(x => x.name).ToArray();
         //tempDestinations = tempDestinations.OrderBy(x => Vector3.Distance(x.transform.position, Vector3.zero)).ToArray();
         return tempDestinations[0];
-        
+
     }
 
     public override Vector3 StartPosition(Vector3 vec)

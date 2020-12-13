@@ -8,8 +8,6 @@ public class Conveyance : MonoBehaviour
     public float Weight = 3.0f;
     public float Speed = 4.0f;
 
-    public bool IsActive = true;
-
     private Destination _destination;
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
 
@@ -45,7 +43,7 @@ public class Conveyance : MonoBehaviour
         }
     }
 
-    public virtual float WeightedTravelDistance(Vector3 start, Vector3 end, Guest guest)
+    public virtual float WeightedTravelDistance(Vector3 start, Vector3 end)
     {
         float distance = 0;
         //guard statement
@@ -66,13 +64,13 @@ public class Conveyance : MonoBehaviour
         return distance;
     }
 
-    public virtual Vector3 StartPosition(Vector3 vec, Guest guest)
+    public virtual Vector3 StartPosition(Vector3 vec)
     {
         if (Path.Length == 0) { return Vector3.zero; }
         return Path[0].transform.position;
     }
 
-    public virtual Vector3 EndPosition(Vector3 vec, Guest guest)
+    public virtual Vector3 EndPosition(Vector3 vec)
     {
         if (Path.Length == 0) { return Vector3.zero; }
         return Path[Path.Length - 1].transform.position;
@@ -83,7 +81,7 @@ public class Conveyance : MonoBehaviour
         //doesn't go to this line
     }
 
-    public virtual Destination GetDestination(Vector3 vec, Guest guest)
+    public virtual Destination GetDestination(Vector3 vec)
     {
         return _destination;
     }
@@ -91,25 +89,5 @@ public class Conveyance : MonoBehaviour
     public virtual bool IsFull()
     {
         return false;
-    }
-
-    public void Deactivate()
-    {
-        IsActive = false;
-    }
-
-    public void Activate()
-    {
-        IsActive = true;
-    }
-
-    public bool IsConveyanceActive()
-    {
-        return IsActive;
-    }
-
-    public virtual int NumberOfGuests()
-    {
-        return _guests.Count;
     }
 }
