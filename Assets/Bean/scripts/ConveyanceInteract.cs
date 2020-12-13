@@ -33,10 +33,12 @@ public class ConveyanceInteract : MonoBehaviour
         if (conveyance.IsConveyanceActive())
         {
             conveyance.Deactivate();
+            
         }
         else
         {
             conveyance.Activate();
+           
         }
     }
 }

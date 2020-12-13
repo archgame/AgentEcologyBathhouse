@@ -254,8 +254,8 @@ public class Guest : MonoBehaviour
         {
             //guard statement, how many people are on the conveyance
             if (c.IsFull()) continue;
-            if (c.IsConveyanceActive()) continue;
-            if (!c.IsActive) continue;
+            if (!c.IsConveyanceActive()) continue;
+            //if (!c.IsActive) continue;
 
             float distToC = AgentWalkDistance(_agent, transform, guestPosition, c.StartPosition(guestPosition), Color.green);
             float distC = c.WeightedTravelDistance(guestPosition, destinationPosition);
