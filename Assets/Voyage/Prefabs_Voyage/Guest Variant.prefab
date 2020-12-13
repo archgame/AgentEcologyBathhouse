@@ -17,7 +17,7 @@ MonoBehaviour:
   Destination: {fileID: 0}
   Baths: 3
   BathTime: 2
-  Status: 0
+  Status: 1
   _agent: {fileID: 0}
   _currentConveyance: {fileID: 0}
   _destinations: []
@@ -33,7 +33,12 @@ PrefabInstance:
     - target: {fileID: 3195382997371946568, guid: e9d1e80099e8f3f48ab3b2f54c58806a,
         type: 3}
       propertyPath: m_WalkableMask
-      value: 31
+      value: 543
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195382997371946568, guid: e9d1e80099e8f3f48ab3b2f54c58806a,
+        type: 3}
+      propertyPath: m_Speed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3195382997371946571, guid: e9d1e80099e8f3f48ab3b2f54c58806a,
         type: 3}
