@@ -5,6 +5,10 @@ using UnityEngine;
 public class ConveyanceInteract : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public Material ActiveMaterial;
+    public Material InactiveMaterial;
+
     private void Start()
     {
     }
@@ -30,13 +34,14 @@ public class ConveyanceInteract : MonoBehaviour
         //if a layer was hit, set the camera follow and lookat
         Conveyance conveyance = hit.transform.gameObject.GetComponentInParent<Conveyance>();
         //if IsActive is public, you can do this, conveyance.IsActive = !conveyance.IsActive;
-        if (conveyance.IsConveyanceActive())
+        conveyance.IsActive = !conveyance.IsActive;
+        if (conveyance.IsActive)
         {
-            conveyance.Deactivate();
+            conveyance.GetComponent<MeshRenderer>().material = ActiveMaterial;
         }
         else
         {
-            conveyance.Activate();
+            conveyance.GetComponent<MeshRenderer>().material = InactiveMaterial;
         }
     }
 }
