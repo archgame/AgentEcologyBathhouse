@@ -11,7 +11,7 @@ public class Guest : MonoBehaviour
 
     public Slider Slider;
 
-    public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM, BATHRIDING }
+    public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
 
     [Header("Destination")]
     //public global variables
@@ -137,11 +137,17 @@ public class Guest : MonoBehaviour
 
     private void DestinationDistance()
     {
+        Debug.Log(Vector3.Distance(transform.position, Destination.transform.position));
+
         //test agent distance from destination
         if (Vector3.Distance(transform.position, Destination.transform.position) < 1.1f)
         {
+            //Debug.Log("desitnation found " + Destination.name);
+
             if (Destination.GetComponentInParent<Conveyance>())
+           
             {
+                //Debug.Log("Conveyance Reached");
                 Status = Action.RIDING;
                 _agent.enabled = false;
                 _currentConveyance = Destination.GetComponentInParent<Conveyance>();
@@ -173,7 +179,6 @@ public class Guest : MonoBehaviour
 
     private void UpdateDestination(Vector3 position)
     {
-        Debug.Log("Yes");
         _agent.SetDestination(position);
         _agent.isStopped = false;
     }
@@ -252,7 +257,7 @@ public class Guest : MonoBehaviour
         Conveyance[] conveyances = GameObject.FindObjectsOfType<Conveyance>();
         foreach (Conveyance c in conveyances)
         {
-            //guard statement, how many people are on the conveyance
+            //Debug.Log(c.name);//guard statement, how many people are on the conveyance
             if (c.IsFull()) continue;
 
             float distToC = AgentWalkDistance(_agent, transform, guestPosition, c.StartPosition(guestPosition), Color.green);
@@ -269,7 +274,7 @@ public class Guest : MonoBehaviour
                 distance = distToC + distC + distFromC;
             }
         }
-
+        
         //if there are no conveyances, we update the destination list with current destination
         if (currentConveyance == null)
         {
@@ -278,7 +283,7 @@ public class Guest : MonoBehaviour
             UpdateDestination();
             return;
         }
-
+        //Debug.Log(currentConveyance.name);
         //update destinations
         if (currentConveyance.GetType() == typeof(Vehicle))
         {

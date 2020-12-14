@@ -9,7 +9,7 @@ public class ChairLift : Conveyance
     public GameObject Car;
     public GameObject Positions;
     public GameObject[] Stops;
-    
+    public List<float> _buttonPressed = new List<float>();
 
 
     public enum State { MOVING, WAITING };
@@ -103,15 +103,18 @@ public class ChairLift : Conveyance
 
         
         //call if the car if it isn't on the guest level
-        if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 1.9f) 
-        //If car is not in the destination floor, Note:At least more than 0.2f than the 'potitions' Y
+        if (Mathf.Abs(_destinations[1].transform.position.y-guest.transform.position.y) > 8f) 
+        //If car is not in the destination floor
         {
-            if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 4f)// and if car is next to guest, then load
+            
+
+            if (Mathf.Abs(Car.transform.position.y - guest.transform.position.y) < 10f)// and if car is next to guest, then load
             {
                 if (!LoadingGuest(guest))
                 {
-                    //if the guest isn't done loading
+                    _waitTime = _maxWait; //if the guest isn't done loading
                 }
+                Debug.Log(Mathf.Abs(Car.transform.position.y - guest.transform.position.y));
             }
         }
        
@@ -120,7 +123,7 @@ public class ChairLift : Conveyance
             
             if (!UnloadingGuest(guest))
             {
-                 //if the guest isn't done loading
+                _waitTime = _maxWait; //if the guest isn't done loading
             }
         }
 

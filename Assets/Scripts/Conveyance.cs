@@ -7,7 +7,9 @@ public class Conveyance : MonoBehaviour
     public GameObject[] Path;
     public float Weight = 3.0f;
     public float Speed = 4.0f;
-
+    public float Test = 0;
+    public bool Active = true;
+    
     private Destination _destination;
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
 
@@ -64,6 +66,7 @@ public class Conveyance : MonoBehaviour
         return distance;
     }
 
+
     public virtual Vector3 StartPosition(Vector3 vec)
     {
         if (Path.Length == 0) { return Vector3.zero; }
@@ -90,4 +93,20 @@ public class Conveyance : MonoBehaviour
     {
         return false;
     }
+
+    public void Deactivate()
+    {
+        Active = false;
+    }
+
+    public void Activate()
+    {
+        Active = true;
+    }
+
+    public bool IsConveyanceActive()
+    {
+        return Active;
+    }
+
 }

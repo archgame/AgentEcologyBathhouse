@@ -25,14 +25,11 @@ public class EnergyCount : MonoBehaviour
     void Update()
     {
         MeshRenderer mr = this.GetComponent<MeshRenderer>();
-        
         List<Guest> guests = GuestManager.Instance.GuestList();
-        
         foreach (Guest guest in guests)
         {
             if (guest.Status == Guest.Action.BATHING)
             {
-               
                 Vector3 Floor = Height.transform.position;
                 if (!In.Contains(guest)  && Mathf.Abs(guest.transform.position.y - Floor.y) <1f )
                 {

@@ -13,7 +13,7 @@ public class Atrium : MonoBehaviour
         //mr.material = Alt;
 
         _collision++;
-        //Debug.Log(_collision);
+        Debug.Log(_collision);
        
 
     }

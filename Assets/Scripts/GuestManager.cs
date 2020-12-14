@@ -9,6 +9,7 @@ public class GuestManager : MonoBehaviour
 
     public GameObject GuestPrefab; //{get;set;}guest gameobject to be instantiated
     public GameObject EmployeePrefab;
+    
 
     public float EntranceRate = 0.5f; //the rate at which guests will enter
 
