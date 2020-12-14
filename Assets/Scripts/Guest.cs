@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class Guest : MonoBehaviour
 {
+    [Header("Material")]
+    public Material RailwayMaterial;
+    public Material VehicleMaterial;
+    public Material RampMaterial;
+    public Material LastCM;
+
     [Header("UI")]
     public Text Text;
 
@@ -290,8 +296,19 @@ public class Guest : MonoBehaviour
         //update destinations
         if (currentConveyance.GetType() == typeof(Vehicle))
         {
+            LastCM = VehicleMaterial;
             Vehicle vehicle = _currentConveyance as Vehicle;
             vehicle.SetWaiting(this);
+        }
+
+        if (currentConveyance.GetType() == typeof(SplineElevator))
+        {
+            LastCM = RailwayMaterial;
+        }
+
+        if (currentConveyance == null)
+        {
+            LastCM = RampMaterial;
         }
 
         destinations.Clear();
@@ -308,9 +325,19 @@ public class Guest : MonoBehaviour
     {
         Baths--;
         _visitedBaths.Add(Destination);
+        //Destination.GetComponent<MeshRenderer>().material = LastCM;
         Status = Action.BATHING;
         _agent.isStopped = true;
         SetText("Bathing");
+
+        /*if (_agent.isStopped = true)
+        {
+            Destination.GetComponent<MeshRenderer>().material = LastCM;
+        }*/
+        if (Destination.GetComponent<Guest>())
+        {
+            Destination.GetComponent<MeshRenderer>().material = LastCM;
+        }
     }
 
     public virtual Destination GetUltimateDestination()
