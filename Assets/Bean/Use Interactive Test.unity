@@ -17547,7 +17547,7 @@ MonoBehaviour:
   GuestPrefab: {fileID: 3195382997371946575, guid: bd721213fbbeae543ab74464e2c11839,
     type: 3}
   EmployeePrefab: {fileID: 0}
-  EntranceRate: 1
+  EntranceRate: 2
 --- !u!114 &1282169145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17561,6 +17561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupancyLimit: 1
+  EntranceOpen: 1
 --- !u!65 &1282169146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17743,6 +17744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupancyLimit: 1
+  EntranceOpen: 1
 --- !u!65 &1301513150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22971,6 +22973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupancyLimit: 1
+  EntranceOpen: 1
 --- !u!65 &1641127449
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GuestManager : MonoBehaviour
 {
@@ -67,13 +68,15 @@ public class GuestManager : MonoBehaviour
 
     private void AdmitGuest()
     {
+
         //guard statement, if bath house is full
         //if (_occupancyLimit <= _guest.Count) return;
         if (_guest.Count >= _occupancyLimit - 1) return;
 
         //instantiate guest
+        GuestEntrance[] guestEntrances = _guestEntrances.Where(x => x.EntranceOpen).ToArray();
         int randomIndex = Random.Range(0, _guestEntrances.Length);
-        Vector3 position = _guestEntrances[randomIndex].transform.position;
+        Vector3 position = guestEntrances[randomIndex].transform.position;
         GameObject guest = Instantiate(GuestPrefab, position, Quaternion.identity); //adding our gameobject to scene
         _guest.Add(guest.GetComponent<Guest>()); //adding our gameobject guest script to the guest list
         Guest guestScript = guest.GetComponent<Guest>();
@@ -107,6 +110,8 @@ public class GuestManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        EntranceOpen();
+
         //call guest update on each guest, the manager controls the guests
         foreach (Guest guest in _guest)
         {
@@ -157,7 +162,29 @@ public class GuestManager : MonoBehaviour
 
     public virtual Destination RandomEntrance()
     {
+        GuestEntrance[] guestEntrances = _guestEntrances.Where(x => x.EntranceOpen).ToArray();
         int randomIndex = Random.Range(0, _guestEntrances.Length);
         return _guestEntrances[randomIndex];
+    }
+
+    public void EntranceOpen()
+    {
+        //guard statement if no moust button clicked
+        if (!Input.GetMouseButtonDown(0)) return;
+
+        Vector3 screenPoint = Input.mousePosition; //mouse position on the screen
+        Ray ray = Camera.main.ScreenPointToRay(screenPoint); //converting the mouse position to ray from mouse position
+        RaycastHit hit;
+        if (!Physics.Raycast(ray.origin, ray.direction, out hit)) return; //was something hit?
+        if (!hit.transform.GetComponent<GuestEntrance>()) return; //does gameobject tagged bath have Destination script
+
+        //Debug.Log("Entrance Hit");
+        GuestEntrance[] guestEntrances = _guestEntrances.Where(x => x.EntranceOpen).ToArray();
+
+        //if this is the last open GuestEntrance and we are trying to close it, we don't let that happen
+        if (hit.transform.GetComponent<GuestEntrance>().EntranceOpen && guestEntrances.Length == 1) return;
+
+        hit.transform.GetComponent<GuestEntrance>().EntranceOpen = !hit.transform.GetComponent<GuestEntrance>().EntranceOpen;
+
     }
 }
