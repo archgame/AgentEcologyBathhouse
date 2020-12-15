@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,14 +36,6 @@ public class Destination : MonoBehaviour
         if (_occupants.Count == 0) { return true; }
         return false;
     }
-    public void DanceCheck()
-    {
-        for (int i = 0; i < _occupants.Count; i++)
-        {
-            if (_occupants[i].Status != Guest.Action.DANCING)
-            {
-                _occupants.Remove(_occupants[i]);
-            }
-        }
-    }
+
+
 }
