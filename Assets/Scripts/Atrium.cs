@@ -14,9 +14,11 @@ public class Atrium : MonoBehaviour
         MeshRenderer mr = other.GetComponent<MeshRenderer>();
         mr.material = Alt;
         Guest guest = other.GetComponent<Guest>();
+        /*/
         if (guest.Status == Guest.Action.RANDOM) { other.GetComponent<Guest>().GuestWalkDestination(); }
         guest.SetText("Inside Atrium");
         guest.SetSlider(1);
+        /*/
     }
 
     public void OnTriggerExit(Collider other)

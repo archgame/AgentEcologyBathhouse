@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Elevator : Conveyance
 {
+    /*/
     public GameObject Car;
     public GameObject Positions;
     public List<float> _buttonPressed = new List<float>();
@@ -202,7 +205,7 @@ public class Elevator : Conveyance
         return true;
     }
 
-    public override Destination GetDestination(Vector3 vec)
+    public override Destination GetDestination(NavMeshAgent agent, Vector3 vec)
     {
         Destination[] tempDestinations = _destinations;
         tempDestinations = tempDestinations.OrderBy(go => Mathf.Abs(go.transform.position.y - vec.y)).ToArray();
@@ -211,33 +214,33 @@ public class Elevator : Conveyance
         return tempDestinations[0];
     }
 
-    public override Vector3 StartPosition(Vector3 vec)
+    public override Vector3 StartPosition(NavMeshAgent agent, Vector3 vec)
     {
         if (_destinations.Length == 0) { return Vector3.zero; }
-        Destination destination = GetDestination(vec);
+        Destination destination = GetDestination(agent, vec);
         return destination.transform.position;
     }
 
-    public override Vector3 EndPosition(Vector3 vec)
+    public override Vector3 EndPosition(NavMeshAgent agent, Vector3 vec)
     {
         if (_destinations.Length == 0) { return Vector3.zero; }
-        Destination destination = GetDestination(vec);
+        Destination destination = GetDestination(agent, vec);
         return destination.transform.position;
     }
 
-    public override float WeightedTravelDistance(Vector3 start, Vector3 end)
+    public override float WeightedTravelDistance(NavMeshAgent agent, Vector3 start, Vector3 end)
     {
         float distance = 0;
         //guard statement
         if (_destinations.Length < 2) return distance;
 
         //get the total path distance
-        Destination go1 = GetDestination(start);
-        Destination go2 = GetDestination(end);
+        Destination go1 = GetDestination(agent, start);
+        Destination go2 = GetDestination(agent, end);
         distance = Vector3.Distance(go1.transform.position, go2.transform.position);
 
         //we scale the distance by the weight factor
         distance /= Weight;
         return distance;
-    }
+    }/*/
 }

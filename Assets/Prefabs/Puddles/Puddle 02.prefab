@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6896025906602411631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7430052344731770433}
+  m_Layer: 0
+  m_Name: Puddle 02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7430052344731770433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6896025906602411631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -52.341072, y: 34.318836, z: -51.265694}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_Children:
+  - {fileID: 900895764889065135}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5330620535254842805
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7430052344731770433}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.82
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1046677
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.217796
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2416733968201007103, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6db5e7707008ff48a06c6d20f8ff0bb, type: 2}
+    - target: {fileID: -927199367670048503, guid: afc625cc61e65784195a72e9499b9e9b,
+        type: 3}
+      propertyPath: m_Name
+      value: Puddle 02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: afc625cc61e65784195a72e9499b9e9b, type: 3}
+--- !u!4 &900895764889065135 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: afc625cc61e65784195a72e9499b9e9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5330620535254842805}
+  m_PrefabAsset: {fileID: 0}

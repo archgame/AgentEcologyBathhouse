@@ -136,6 +136,7 @@ public class HelixConveyance : Conveyance
         //add guest to dictionary
         if (!_guests.ContainsKey(guest))
         {
+            guest.GetComponent<CapsuleCollider>().enabled = false;
             _guests.Add(guest, 0);
             guest.transform.position = allPathPts[lvl][0].transform.position;
             return;
@@ -152,6 +153,7 @@ public class HelixConveyance : Conveyance
         if (nodeCount % 2 != 0) { nodeCount--; } //+++
         if (_guests[guest] >= nodeCount)
         {
+            guest.GetComponent<CapsuleCollider>().enabled = true;
             _guests.Remove(guest);
             guest.NextDestination();
         }

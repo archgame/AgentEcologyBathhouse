@@ -5,6 +5,7 @@ using System.Linq;
 
 public class Paternoster : Conveyance
 {
+    /*/
     public GameObject Cars;
 
     private Destination[] _destinations;
@@ -185,5 +186,5 @@ public class Paternoster : Conveyance
         //we scale the distance by the weight factor
         distance /= Weight;
         return distance;
-    }
+    }/*/
 }
