@@ -6,7 +6,8 @@ using System.Linq;
 public class EnergyCount : MonoBehaviour
 {
     public GameObject Height;
-    
+
+    public float Region;
     public Material Main;
     public Material Alt;
     public Material Alt1;
@@ -31,7 +32,7 @@ public class EnergyCount : MonoBehaviour
             if (guest.Status == Guest.Action.BATHING)
             {
                 Vector3 Floor = Height.transform.position;
-                if (!In.Contains(guest)  && Mathf.Abs(guest.transform.position.y - Floor.y) <1f )
+                if (!In.Contains(guest)  && Mathf.Abs(guest.transform.position.y - Floor.y) <1f && Vector3.Distance(Floor,guest.transform.position) < Region)
                 {
                     In.Add(guest);
                 }
