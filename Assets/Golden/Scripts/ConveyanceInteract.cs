@@ -13,14 +13,17 @@ public class ConveyanceInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("101");
         if (Input.GetMouseButtonDown(1))
         {
             ToggleConveyanceActivation();
         }
+        Debug.Log("102");
     }
 
     private void ToggleConveyanceActivation()
     {
+        Debug.Log("103");
         Vector3 screenPoint = Input.mousePosition; //mouse position on the screen
         Ray ray = Camera.main.ScreenPointToRay(screenPoint); //converting the mouse position to ray from mouse position
         RaycastHit hit;

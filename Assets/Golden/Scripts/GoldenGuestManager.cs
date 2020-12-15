@@ -93,11 +93,11 @@ public class GoldenGuestManager : MonoBehaviour
 
     private void AdmitGuest()
     {
-        Debug.Log("106.1");
+        //Debug.Log("106.1");
         //guard statement, if bath house is full
         //if (_occupancyLimit <= _guest.Count) return;
         if (_guest.Count >= _occupancyLimit - 1) return;
-        Debug.Log("106");
+        //Debug.Log("106");
 
         //instantiate guest
         int randomIndex = Random.Range(0, _guestEntrances.Length);
@@ -106,10 +106,10 @@ public class GoldenGuestManager : MonoBehaviour
         _guest.Add(guest.GetComponent<Guest>()); //adding our gameobject guest script to the guest list
         Guest guestScript = guest.GetComponent<Guest>();
 
-        Debug.Log("107");
+        //Debug.Log("107");
         //List<Destination> visitedBaths = guestScript.VisitedBaths();
         AssignOpenBath(guestScript, _destinations);
-        Debug.Log("108");
+        //Debug.Log("108");
     }
 
     private void AdmitEmployee()
@@ -138,15 +138,15 @@ public class GoldenGuestManager : MonoBehaviour
 
     public virtual void AssignOpenBath(Guest guest, List<Destination> destinations, List<Destination> visited = null)
     {
-        Debug.Log("113");
+        //Debug.Log("113");
         
         foreach (Destination bath in destinations)
         {
-            Debug.Log(bath.name);
-            Debug.Log("114 " + destinations.Count);
+           // Debug.Log(bath.name);
+            //Debug.Log("114 " + destinations.Count);
             //if bath is full guard statement
             if (bath.IsFull()) continue; //continue goes to the next line
-            Debug.Log("115");
+            //Debug.Log("115");
 
             //make sure bath hasn't already been visited
             if (visited != null)
@@ -156,13 +156,13 @@ public class GoldenGuestManager : MonoBehaviour
                     continue;
                 }
             }
-            Debug.Log("117 " + bath.name);
+           // Debug.Log("117 " + bath.name);
 
             //assign destination;
             guest.Destination = bath;
-            Debug.Log("118");
+            //Debug.Log("118");
             bath.AddGuest(guest);
-            Debug.Log("119");
+            //Debug.Log("119");
             break;
         }
         //Debug.Break();
