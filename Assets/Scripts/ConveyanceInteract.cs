@@ -6,8 +6,14 @@ public class ConveyanceInteract : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Material ActiveMaterial;
+    //public Material ActiveMaterial;
+    //public Material InactiveMaterial;
+
+    public Material ActiveHelixCenterMaterial;
     public Material InactiveMaterial;
+    public Material ActiveHelixLMaterial;
+    public Material ActiveHelixMMaterial;
+    public Material ActiveHelixSMaterial;
 
     private void Start()
     {
@@ -24,6 +30,7 @@ public class ConveyanceInteract : MonoBehaviour
 
     private void ToggleConveyanceActivation()
     {
+        Debug.Log("Check0");
         Vector3 screenPoint = Input.mousePosition; //mouse position on the screen
         Ray ray = Camera.main.ScreenPointToRay(screenPoint); //converting the mouse position to ray from mouse position
         RaycastHit hit;
@@ -35,12 +42,35 @@ public class ConveyanceInteract : MonoBehaviour
         Conveyance conveyance = hit.transform.gameObject.GetComponentInParent<Conveyance>();
         //if IsActive is public, you can do this, conveyance.IsActive = !conveyance.IsActive;
         conveyance.IsActive = !conveyance.IsActive;
+        Debug.Log("Check1");
         if (conveyance.IsActive)
         {
-            conveyance.GetComponent<MeshRenderer>().material = ActiveMaterial;
+            Debug.Log("Check2");
+            if (conveyance.name == "Helix_Center")
+            {
+                //conveyance.GetComponent<MeshRenderer>().material = ActiveMaterial;   //Helix Center Material
+                conveyance.GetComponent<MeshRenderer>().material = ActiveHelixCenterMaterial;
+            }
+            if (conveyance.name == "Helix_L")
+            {
+                //conveyance.GetComponent<MeshRenderer>().material = ActiveMaterial;   //Helix Center Material
+                conveyance.GetComponent<MeshRenderer>().material = ActiveHelixLMaterial;   
+            }
+            if (conveyance.name == "Helix_M")
+            {
+                //conveyance.GetComponent<MeshRenderer>().material = ActiveMaterial;   //Helix Center Material
+                conveyance.GetComponent<MeshRenderer>().material = ActiveHelixMMaterial;
+            }
+            if (conveyance.name == "Helix_S")
+            {
+                //conveyance.GetComponent<MeshRenderer>().material = ActiveMaterial;   //Helix Center Material
+                conveyance.GetComponent<MeshRenderer>().material = ActiveHelixSMaterial;
+            }
         }
         else
         {
+            Debug.Log("Check3");
+            //conveyance.GetComponent<MeshRenderer>().material = InactiveMaterial;
             conveyance.GetComponent<MeshRenderer>().material = InactiveMaterial;
         }
     }
