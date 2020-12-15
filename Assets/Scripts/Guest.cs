@@ -11,6 +11,7 @@ public class Guest : MonoBehaviour
     public Material VehicleMaterial;
     public Material RampMaterial;
     public Material LastCM;
+    public Material Main;
 
     [Header("UI")]
     public Text Text;
@@ -295,18 +296,41 @@ public class Guest : MonoBehaviour
 
         //update destinations
         if (currentConveyance.GetType() == typeof(Vehicle))
-        {
-            LastCM = VehicleMaterial;
+        {            
             Vehicle vehicle = _currentConveyance as Vehicle;
             vehicle.SetWaiting(this);
         }
 
-        if (currentConveyance.GetType() == typeof(SplineElevator))
+        /*if (currentConveyance.tag == "Untagged")
         {
-            LastCM = RailwayMaterial;
+            LastCM = RampMaterial;
         }
 
-        if (currentConveyance == null)
+        else if (currentConveyance.tag == "Vehicle")
+        {
+            LastCM = VehicleMaterial;
+        }
+
+        else if (currentConveyance.tag == "Railway")
+        {
+            LastCM = RailwayMaterial;
+        }*/
+        
+
+        if (currentConveyance.tag == "Vehicle")
+        {
+            LastCM = VehicleMaterial;
+        }
+        else if (currentConveyance.tag == "Railway")
+        {
+            LastCM = RailwayMaterial;
+        }        
+        else
+        {
+            LastCM = RampMaterial;
+        }
+
+        if(currentConveyance == null)
         {
             LastCM = RampMaterial;
         }
@@ -334,10 +358,17 @@ public class Guest : MonoBehaviour
         {
             Destination.GetComponent<MeshRenderer>().material = LastCM;
         }*/
-        if (Destination.GetComponent<Guest>())
+        if (!Destination.GetComponent<Guest>())
         {
             Destination.GetComponent<MeshRenderer>().material = LastCM;
         }
+        
+        
+        
+        /*else if(!Destination.GetComponent<Guest>())
+        {
+            Destination.GetComponent<MeshRenderer>().material = Main;
+        }*/
     }
 
     public virtual Destination GetUltimateDestination()
