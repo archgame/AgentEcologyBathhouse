@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,4 +36,6 @@ public class Destination : MonoBehaviour
         if (_occupants.Count == 0) { return true; }
         return false;
     }
+
+
 }
