@@ -6,7 +6,8 @@ using System.Linq;
 public class FinalChair2 : Conveyance
 {
     public GameObject Cars;
-    public GameObject InvisibleCars;    
+    public GameObject InvisibleCars;
+    public float RotateY;
     public float RotateSpeed = 2;
     private Destination[] _destinations;
     private Dictionary<GameObject, int> _cars = new Dictionary<GameObject, int>();
@@ -15,7 +16,6 @@ public class FinalChair2 : Conveyance
     private Dictionary<Guest, Vector3> _guests = new Dictionary<Guest, Vector3>();
     private Dictionary<GameObject, Guest> _carRiders = new Dictionary<GameObject, Guest>(); //keeps track of which cars have riders
     private List<Guest> _riders = new List<Guest>();
-    private float RotateY;
 
     public override void SetDestination()
     {
@@ -44,13 +44,10 @@ public class FinalChair2 : Conveyance
     private void Update()
     {
         RotateChairlift();
-        //SetDestination();
+
         for (int i = 0; i < Cars.transform.childCount; i++)
         {
-
             GameObject car = Cars.transform.GetChild(i).gameObject;
-
-
 
             //check if car is open
             if (_carRiders[car] == null)
@@ -63,7 +60,7 @@ public class FinalChair2 : Conveyance
 
                     //guard statements
                     if (_riders.Contains(guest)) continue; //make sure guest doesn't move between cars
-                    if (Vector3.Distance(car.transform.position,guest.transform.position) > 8f) continue;
+                    if (Mathf.Abs(car.transform.position.y - guest.transform.position.y) > 0.2f) continue;
 
                     //test guest direction
                     float guestDirection = kvp.Value.y - guest.transform.position.y;
@@ -82,7 +79,7 @@ public class FinalChair2 : Conveyance
             {
                 Guest guest = _carRiders[car];
                 Vector3 UnloadPosition = _guests[guest];
-                if (Vector3.Distance(UnloadPosition,guest.transform.position) < 5f)
+                if (Mathf.Abs(UnloadPosition.y - guest.transform.position.y) < 0.2f)
                 {
                     //unload guest
                     _carRiders[car] = null;
@@ -93,18 +90,6 @@ public class FinalChair2 : Conveyance
 
             //animate cars
             //when the car reaches the position, we increase the index to the next position
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!          
-
-            /*_positions.RemoveAt(_cars[car]);
-            _positions.Add(Cars.transform.GetChild(_cars[car]).transform.position);*/
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-            /* if (rotate.A > 0)
-             {
-                 Test = 2;
-                // _RotationP.Add(Cars.transform.GetChild(i).transform.position);
-             }*/
-
             if (car.transform.position == _positions[_cars[car]].position)
             {
                 int p = _cars[car] + 1;
@@ -112,23 +97,14 @@ public class FinalChair2 : Conveyance
                 _cars[car] = p;
             }
 
-
             //move car
             //int j = _cars[car];
-            //clear position
-            //add
             Vector3 newPos = Vector3.MoveTowards(car.transform.position,
                 _positions[_cars[car]].position, //_positions[j]
                 Speed * Time.deltaTime);
-            car.transform.position = newPos; //+ Rotation
+            car.transform.position = newPos;
             car.transform.rotation = this.transform.rotation;
-            //!!!!!!!!!!!!!!!!!!!!
-
         }
-
-
-
-
     }
 
     private IEnumerator LoadPassenger(GameObject car, Guest guest)
@@ -223,14 +199,12 @@ public class FinalChair2 : Conveyance
         if (Test == 1)
         {
             this.RotateY -= Time.deltaTime * RotateSpeed;
-            //Deactivate();
         }
 
         if (Test == 3)
         {
 
             this.RotateY += Time.deltaTime * RotateSpeed;
-            //Deactivate();
         }
 
         transform.rotation = Quaternion.Euler(0, RotateY, 0);
@@ -238,4 +212,6 @@ public class FinalChair2 : Conveyance
 
 
 
+
 }
+

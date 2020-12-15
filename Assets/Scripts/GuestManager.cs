@@ -10,7 +10,6 @@ public class GuestManager : MonoBehaviour
     public GameObject GuestPrefab; //{get;set;}guest gameobject to be instantiated
     public GameObject EmployeePrefab;
     
-
     public float EntranceRate = 0.5f; //the rate at which guests will enter
 
     private List<Guest> _guest = new List<Guest>(); //list of guests
@@ -98,6 +97,8 @@ public class GuestManager : MonoBehaviour
                 }
             }
 
+           // if (guest._agent.isStopped == true) continue;
+
             //assign destination;
             guest.Destination = bath;
             bath.AddGuest(guest);
@@ -140,6 +141,10 @@ public class GuestManager : MonoBehaviour
         }
         _exitedGuests.Clear();
     }
+
+
+    
+
 
     public virtual void GuestExit(Guest guest)
     {

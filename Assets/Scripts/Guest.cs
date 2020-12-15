@@ -10,7 +10,7 @@ public class Guest : MonoBehaviour
     public Text Text;
 
     public Slider Slider;
-
+    public float Stop = 0;
     public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
 
     [Header("Destination")]
@@ -55,6 +55,8 @@ public class Guest : MonoBehaviour
     // Update is called once per frame
     public virtual void GuestUpdate()
     {
+
+
         if (Status == Action.RANDOM)
         {
             _timer += Time.deltaTime;
@@ -67,7 +69,19 @@ public class Guest : MonoBehaviour
                     float distance = Vector3.Distance(bath.transform.position, transform.position);
                     Debug.Log(distance);
                     if (distance > 15) continue;
+                    if (Status == Action.WALKING)
+                    {
+                        if (_agent.enabled && _agent.velocity == Vector3.zero)
+                        {
+
+                            //Stop = 100;    <------This is Debug;
+                            GuestManager.Instance.AssignOpenBath(this, _visitedBaths);
+
+
+                        }
+                    }
                     GuestWalkDestination();
+
                     return;
                 }
                 //*/
@@ -112,6 +126,9 @@ public class Guest : MonoBehaviour
                 FindPath(ref _currentConveyance, ref _destinations); //finding best path
             }
 
+            
+
+
             return; //so it doesn't run any code below
         }
 
@@ -131,6 +148,7 @@ public class Guest : MonoBehaviour
     public virtual void GuestWalkDestination()
     {
         Status = Action.WALKING;
+
         UpdateDestination();
         FindPath(ref _currentConveyance, ref _destinations);
     }
@@ -175,6 +193,8 @@ public class Guest : MonoBehaviour
     {
         _agent.SetDestination(Destination.transform.position);
         _agent.isStopped = false;
+        //if (!_agent.isStopped == false)
+        
     }
 
     private void UpdateDestination(Vector3 position)
@@ -189,6 +209,7 @@ public class Guest : MonoBehaviour
         _destinations.RemoveAt(0);
         Destination = _destinations[0];
         Status = Action.WALKING;
+        
         FindPath(ref _currentConveyance, ref _destinations); //this allows multiple conveyances
     }
 

@@ -64,11 +64,11 @@ public class FinalChair : Conveyance
 
                     //guard statements
                     if (_riders.Contains(guest)) continue; //make sure guest doesn't move between cars
-                    if (Vector3.Distance(car.transform.position,guest.transform.position) > 8f) continue;
+                    if (Vector3.Distance(car.transform.position,guest.transform.position) > 15f) continue;
 
                     //test guest direction
                     float guestDirection = kvp.Value.y - guest.transform.position.y;
-                    if (!SameSign(carDirection, guestDirection)) continue; //continue to next guest
+                    //if (!SameSign(carDirection, guestDirection)) continue; //continue to next guest
 
                     //load guest
                     _riders.Add(guest);
