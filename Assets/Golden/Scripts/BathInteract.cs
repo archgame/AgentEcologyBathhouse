@@ -51,6 +51,10 @@ public class BathInteract : MonoBehaviour
         go.transform.tag = "BathV";
         Debug.Log("3");
 
+        Destination destination = go.GetComponent<Destination>();
+        GoldenGuestManager.Instance._destinations.Remove(destination);
+        GoldenGuestManager.Instance._vipDestinations.Add(destination);
+
         Renderer rend = go.GetComponent<MeshRenderer>();
         Debug.Log("4");
         rend.material = vipmaterial;

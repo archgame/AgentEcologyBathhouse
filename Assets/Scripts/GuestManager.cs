@@ -13,8 +13,9 @@ public class GuestManager : MonoBehaviour
     public float EntranceRate = 0.5f; //the rate at which guests will enter
 
     private List<Guest> _guest = new List<Guest>(); //list of guests
+    
     private List<Destination> _destinations = new List<Destination>(); //list of destinations
-    private List<Guest> _exitedGuests = new List<Guest>(); //guests that will exit
+        private List<Guest> _exitedGuests = new List<Guest>(); //guests that will exit
     private GuestEntrance[] _guestEntrances;
 
     private float _lastEntrance = 0; //time since last entrant
