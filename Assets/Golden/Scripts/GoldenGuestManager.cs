@@ -14,13 +14,17 @@ public class GoldenGuestManager : MonoBehaviour
 
     private List<Guest> _guest = new List<Guest>(); //list of guests
     private List<Guest> _employee = new List<Guest>(); //list of guests
-    private List<Destination> _destinations = new List<Destination>(); //list of destinations
+    [HideInInspector]
+    public List<Destination> _destinations = new List<Destination>(); //list of destinations
+    [HideInInspector]
+    public List<Destination> _vipDestinations = new List<Destination>(); //list of destinations
     private List<Guest> _exitedGuests = new List<Guest>(); //guests that will exit
     private GuestEntrance[] _guestEntrances;
     private EmployeeEntrance[] _employeeEntrances;
 
     private float _lastEntrance = 0; //time since last entrant
     private int _occupancyLimit = 0; //occupancy limit maximum
+    private int _occupancyLimitv = 0; //occupancy limit maximum
 
     private void Awake()
     {
@@ -39,8 +43,9 @@ public class GoldenGuestManager : MonoBehaviour
     private void Start()
     {
         GameObject[] destinations = GameObject.FindGameObjectsWithTag("Bath");
+        //Debug.Log("101");
         destinations = Shuffle(destinations);
-
+        //Debug.Log("102");
         foreach (GameObject go in destinations)
         {
             Destination destination = go.GetComponent<Destination>(); //getting the destination script from game object
@@ -48,10 +53,28 @@ public class GoldenGuestManager : MonoBehaviour
             _occupancyLimit += destination.OccupancyLimit; //increasing the occupancy limit maximum
         }
 
+       // Debug.Log("102.5");
+       GameObject[] destinationsv = GameObject.FindGameObjectsWithTag("BathV");
+        //Debug.Log("101.2");
+       destinationsv = Shuffle(destinationsv);
+       // Debug.Log("102.2");
+      foreach (GameObject gov in destinationsv)
+       {
+           Destination destinationv = gov.GetComponent<Destination>(); //getting the destination script from game object
+            _vipDestinations.Add(destinationv); //adding the destination script to the list
+        //    Debug.Log(_destinations.Count);
+        //    _occupancyLimitv += destinationv.OccupancyLimit; //increasing the occupancy limit maximum
+       }
+        //Debug.Log("vipe " + _vipDestinations.Count);
+
         _guestEntrances = GameObject.FindObjectsOfType<GuestEntrance>();
+        //Debug.Log("103 " + _guestEntrances.Length);
         _employeeEntrances = GameObject.FindObjectsOfType<EmployeeEntrance>();
+        //Debug.Log("104 " + _employeeEntrances.Length);
 
         AdmitGuest();
+        //Debug.Log("105");
+        //AdmitEmployee();
     }
 
     private GameObject[] Shuffle(GameObject[] objects)
@@ -70,9 +93,11 @@ public class GoldenGuestManager : MonoBehaviour
 
     private void AdmitGuest()
     {
+        Debug.Log("106.1");
         //guard statement, if bath house is full
         //if (_occupancyLimit <= _guest.Count) return;
         if (_guest.Count >= _occupancyLimit - 1) return;
+        Debug.Log("106");
 
         //instantiate guest
         int randomIndex = Random.Range(0, _guestEntrances.Length);
@@ -80,17 +105,24 @@ public class GoldenGuestManager : MonoBehaviour
         GameObject guest = Instantiate(GuestPrefab, position, Quaternion.identity); //adding our gameobject to scene
         _guest.Add(guest.GetComponent<Guest>()); //adding our gameobject guest script to the guest list
         Guest guestScript = guest.GetComponent<Guest>();
+
+        Debug.Log("107");
         //List<Destination> visitedBaths = guestScript.VisitedBaths();
-        AssignOpenBath(guestScript);
+        AssignOpenBath(guestScript, _destinations);
+        Debug.Log("108");
     }
 
     private void AdmitEmployee()
     {
-       // Debug.Log("1");
+        //Debug.Log("109.0");
         if (_guest.Count % 6 != 0) return;
-       // Debug.Log("2");
-        if (_guest.Count/6 <= _employee.Count) return;
-       // Debug.Log("3");
+        //Debug.Log("110");
+        //if (_guest.Count/6 <= _employee.Count) return;
+        //Debug.Log("111.0");
+
+       // Debug.Log("109");
+       // if (_employee.Count >= _occupancyLimitv - 1) return;
+       // Debug.Log("110");
 
         //instantiate guest
         int randomIndex = Random.Range(0, _employeeEntrances.Length);
@@ -99,17 +131,22 @@ public class GoldenGuestManager : MonoBehaviour
         _employee.Add(guest.GetComponent<VIPGuest>()); //adding our gameobject guest script to the guest list
         VIPGuest guestScript = guest.GetComponent<VIPGuest>();
         //List<Destination> visitedBaths = guestScript.VisitedBaths();
-        AssignOpenBath(guestScript, "VIP");
-
+        AssignOpenBath(guestScript, _vipDestinations);
+        //Debug.Log("112");
+        //Debug.Break();
     }
 
-    public virtual void AssignOpenBath(Guest guest, string type = "",List<Destination> visited = null)
+    public virtual void AssignOpenBath(Guest guest, List<Destination> destinations, List<Destination> visited = null)
     {
-        foreach (Destination bath in _destinations)
+        Debug.Log("113");
+        
+        foreach (Destination bath in destinations)
         {
+            Debug.Log(bath.name);
+            Debug.Log("114 " + destinations.Count);
             //if bath is full guard statement
             if (bath.IsFull()) continue; //continue goes to the next line
-            if(type == "VIP") { if(bath.tag != "BathV") { continue; } }
+            Debug.Log("115");
 
             //make sure bath hasn't already been visited
             if (visited != null)
@@ -119,13 +156,18 @@ public class GoldenGuestManager : MonoBehaviour
                     continue;
                 }
             }
+            Debug.Log("117 " + bath.name);
 
             //assign destination;
             guest.Destination = bath;
+            Debug.Log("118");
             bath.AddGuest(guest);
+            Debug.Log("119");
             break;
         }
+        //Debug.Break();
     }
+    
 
     // Update is called once per frame
     private void Update()

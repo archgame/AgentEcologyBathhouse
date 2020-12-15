@@ -98,7 +98,15 @@ public class Guest : MonoBehaviour
                 }
                 else //if guest needs new bath assigned
                 {
-                    GoldenGuestManager.Instance.AssignOpenBath(this); //Destination is assigned inside metho
+                    if(gameObject.name.Contains("vip"))
+                    {
+                        GoldenGuestManager.Instance.AssignOpenBath(this, GoldenGuestManager.Instance._vipDestinations); //Destination is assigned inside metho
+                    }
+                    else
+                    {
+                        GoldenGuestManager.Instance.AssignOpenBath(this, GoldenGuestManager.Instance._destinations); //Destination is assigned inside metho
+                    }
+                    
                 }
                 if (Destination == null) return;
 

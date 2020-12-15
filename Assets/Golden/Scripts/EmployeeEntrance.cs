@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class vipEntrance : Destination
+public class EmployeeEntrance : Destination
 {
     // Start is called before the first frame update
     void Start()
