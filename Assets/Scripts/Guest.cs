@@ -296,7 +296,7 @@ public class Guest : MonoBehaviour
 
         //update destinations
         if (currentConveyance.GetType() == typeof(Vehicle))
-        {            
+        {
             Vehicle vehicle = _currentConveyance as Vehicle;
             vehicle.SetWaiting(this);
         }
@@ -315,7 +315,7 @@ public class Guest : MonoBehaviour
         {
             LastCM = RailwayMaterial;
         }*/
-        
+
 
         if (currentConveyance.tag == "Vehicle")
         {
@@ -324,13 +324,13 @@ public class Guest : MonoBehaviour
         else if (currentConveyance.tag == "Railway")
         {
             LastCM = RailwayMaterial;
-        }        
+        }
         else
         {
             LastCM = RampMaterial;
         }
 
-        if(currentConveyance == null)
+        if (currentConveyance == null)
         {
             LastCM = RampMaterial;
         }
@@ -362,9 +362,9 @@ public class Guest : MonoBehaviour
         {
             Destination.GetComponent<MeshRenderer>().material = LastCM;
         }
-        
-        
-        
+
+
+
         /*else if(!Destination.GetComponent<Guest>())
         {
             Destination.GetComponent<MeshRenderer>().material = Main;
