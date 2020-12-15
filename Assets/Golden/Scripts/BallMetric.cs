@@ -23,7 +23,7 @@ public class BallMetric : MonoBehaviour
     List<GameObject> spheres = new List<GameObject>();
 
     [Header("Controls")]
-    [Range(0, 300)]
+    [Range(0, 1000)]
 
     public float ScreenSlider = 0;
 
