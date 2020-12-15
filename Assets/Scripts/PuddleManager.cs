@@ -17,16 +17,17 @@ public class PuddleManager : MonoBehaviour
         if (ClickObject("Floor", ref position))
         {
            // Debug.Log("Click Floor");
-
+           /*/
             if(_listofpuddles.Count >= ObstacleLimit)
             {
                 GameObject go = _listofpuddles[0];
                 _listofpuddles.RemoveAt(0);//removing old puddles if there are too many in the building
                 Destroy(go);
-            }
+            }/*/
+
             GameObject puddle = Instantiate(PuddlePrefab, position, Quaternion.identity); //adding our gameobject to scene
             _listofpuddles.Add(puddle);
-            Debug.Log(_listofpuddles.Count);
+            //Debug.Log(_listofpuddles.Count);
         }
         ClickRemovePuddle();
     }
@@ -54,6 +55,7 @@ public class PuddleManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(screenPoint);
         RaycastHit hit;
         if (!Physics.Raycast(ray.origin, ray.direction, out hit)) return;
+        Debug.Log("clicking");
         if (hit.transform.name.Replace("(Clone)","") != PuddlePrefab.name) return;
         Debug.Log("destroyclick");
         GameObject go = hit.transform.gameObject;

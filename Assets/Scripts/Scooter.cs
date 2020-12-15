@@ -44,7 +44,7 @@ public class Scooter : Conveyance
 
         if (Status == Action.RIDING)
         {
-           
+
             //make scooter face forward relative to velocity
             if (_agent.velocity.sqrMagnitude > Mathf.Epsilon)
             {
@@ -62,15 +62,15 @@ public class Scooter : Conveyance
             _guest.NextDestination();
             _guest = null;
             //_agent.enabled = false; //make scooters stop walking around
-                                    
+
             //scooter falls over when WAITING
             if (!fallen)
             {
-               Debug.Log("falling");
-               //transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
-               fallen = true;
+                Debug.Log("falling");
+                //transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
+                fallen = true;
             }
-            
+
 
             Status = Action.WAITING;
 
@@ -101,7 +101,7 @@ public class Scooter : Conveyance
 
         if (Vector3.Distance(transform.position, guest.transform.position)
             > transform.localScale.x + guest.transform.localScale.x + 1f) return;
-        
+
         // scooter stands up when ready to be used
         if (fallen)
         {
@@ -109,7 +109,7 @@ public class Scooter : Conveyance
             //transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
             fallen = false;
         }
-        
+
 
         Status = Action.RIDING;
         _agent.enabled = true;
@@ -117,7 +117,7 @@ public class Scooter : Conveyance
         // position scooter and guest at ground level
         guest.transform.position = transform.position + Vector3.up;
         guest.transform.parent = transform;
-        
+
 
         //guest.transform.rotation = Quaternion.Euler(0.0f, 0.0f, gameObject.transform.rotation.z * -1.0f);
         //guest.transform.position = transform.position + new Vector3 (1, 0, 0);
@@ -153,6 +153,7 @@ public class Scooter : Conveyance
 
         float distance = toGuest + withGuest;
         distance /= Weight;
+        //Debug.Log(distance);
         return distance;
     }
 

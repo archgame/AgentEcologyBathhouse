@@ -12,12 +12,17 @@ public class JanitorDestination : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        Debug.Log("close");
+        /*if (!PuddleManager.Instance._listofpuddles.Contains(this.gameObject))
+        {
+            Destroy(this);
+        }*/
+
+        //Debug.Log("close");
         Janitor = GameObject.Find("Janitor");
         if (Vector3.Distance(transform.position, Janitor.transform.position) < 3.0f)
 
         {
-            Debug.Log("closer");
+            //Debug.Log("closer");
             DestroyTimer += Time.deltaTime; //_bathTime = _bathTime + Time.deltaTime
             if (DestroyTimer > 1.0f)
             {

@@ -7,7 +7,8 @@ public class Janitor3 : MonoBehaviour
 {
     public GameObject JanitorsDestination;
     public float CleanTime = .9f;
-    public List<GameObject> _listofpuddles = new List<GameObject>();
+    //public List<GameObject> _listofpuddles = new List<GameObject>();
+    public int puddlecount = 0;
     
     public enum Action {  WAITING, WALKING, CLEANING }
     public Action JanitorStatus;
@@ -28,7 +29,7 @@ public class Janitor3 : MonoBehaviour
     {
         if (PuddleManager.Instance._listofpuddles.Count == 0)
         {
-            Debug.Log("debug1");
+            //Debug.Log("debug1");
             return;
         }
         _janitor.SetDestination(PuddleManager.Instance._listofpuddles[0].transform.position);
@@ -36,7 +37,10 @@ public class Janitor3 : MonoBehaviour
     }
     // Update is called once per frame
     private void Update()
+
     {
+        puddlecount = PuddleManager.Instance._listofpuddles.Count;
+
         /*if (JanitorStatus == Action.CLEANING)
         {
             Debug.Log("debug1debug1debug1");

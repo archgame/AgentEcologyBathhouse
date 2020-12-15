@@ -12,6 +12,7 @@ public class Party : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GuestManager.Instance.totalparties += 1;
         partyglow = GetComponent<Renderer>();
         partydest = GetComponent<Destination>();
         GuestManager.Instance._partydests.Add(partydest);

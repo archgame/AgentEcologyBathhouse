@@ -34,6 +34,7 @@ public class GuestManager : MonoBehaviour
 
     private float _lastEntrance = 0; //time since last entrant
     public int _occupancyLimit = 0; //occupancy limit maximum
+    public int totalparties = 0;
 
     private GameObject fpCamObject;
     private Fpcam fpCamScript;
@@ -70,6 +71,8 @@ public class GuestManager : MonoBehaviour
             _destinations.Add(destination); //adding the destination script to the list
             _occupancyLimit += destination.OccupancyLimit; //increasing the occupancy limit maximum
         }
+
+        _occupancyLimit /= 2;
 
         foreach (GameObject go in partygos)
         {
@@ -306,7 +309,7 @@ public class GuestManager : MonoBehaviour
             y += spot.y;
             z += spot.z;
             Debug.DrawLine(cluster[i].transform.position, spot, Color.red);
-            Debug.Break();
+            //Debug.Break();
             cluster[i].transform.position = (spot + Vector3.up);
             cluster[i].PartyTime();
         }
@@ -318,20 +321,23 @@ public class GuestManager : MonoBehaviour
         List<Guest> templist = _sadguest;
         List<Guest> clusterlist = new List<Guest>();
         int count = templist.Count;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < templist.Count; i++)
         {
+            if (templist[i] == null) { continue; }
             clusterlist.Add(templist[i]);
-            for (int j = i + 1; j < count; j++)
+            for (int j = i + 1; j < templist.Count; j++)
             {
+                if (templist[j] == null) { continue; }
                 float d = Vector3.Distance(templist[i].transform.position, templist[j].transform.position);
                 if (d <= 4)
                 {
                     clusterlist.Add(templist[j]);
                 }
             }
+
             if (clusterlist.Count >= 3)
             {
-                Debug.Log("partyidentified");
+                //Debug.Log("partyidentified");
                 CreateCluster(clusterlist);
                 clusterlist.Clear();
                 return;
@@ -350,7 +356,7 @@ public class GuestManager : MonoBehaviour
         Vector3 randDirection = Random.insideUnitSphere * dist;
         randDirection += origin;
         NavMeshHit navHit;
-        NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
+        NavMesh.SamplePosition(randDirection, out navHit, 2 * dist, layermask);
         //Debug.DrawLine(origin, randDirection, Color.blue);
         //Debug.DrawRay(navHit.position, Vector3.up * 3, Color.cyan);
         return navHit.position;

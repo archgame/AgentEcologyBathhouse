@@ -71,7 +71,7 @@ public class Guest : MonoBehaviour
             Health = Feeling.Healthy;
             GuestManager.Instance.healthycount += 1;
             //if healthy, assign susceptibility variable
-            _susceptibility = Random.Range(25, 200);
+            _susceptibility = Random.Range(25, 100);
         }
 
         glassesscript = GetComponentsInChildren<Glasses>();
@@ -90,6 +90,18 @@ public class Guest : MonoBehaviour
     // Update is called once per frame
     public void GuestUpdate()
     {
+        if (Destination == null)
+        {
+            if (Baths == 0)
+            {
+                Destination = GuestManager.Instance.RandomEntrance();
+            }
+            else
+            {
+                GuestManager.Instance.AssignOpenBath(this, _visitedBaths); //Destination is assigned inside method
+            }
+        }
+
         if (GuestManager.Instance._sadguest.Contains(this))
         { iamsad = true; }
         else
@@ -134,7 +146,7 @@ public class Guest : MonoBehaviour
         }
 
         //checks guets for contamination contact and updates
-        /*/for (int i = 0; i < GuestManager.Instance._guest.Count; i++)
+        for (int i = 0; i < GuestManager.Instance._guest.Count; i++)
         {
             Guest guesti = GuestManager.Instance._guest[i];
 
@@ -142,7 +154,7 @@ public class Guest : MonoBehaviour
             {
                 //Debug.Log("TooClose");
 
-                if (!guestEncounters.Contains(guesti))
+                if (true) //!guestEncounters.Contains(guesti))
                 {
                     //if (guesti.transform.position != transform.position)
                     if(guesti != this)
@@ -153,7 +165,7 @@ public class Guest : MonoBehaviour
                             {
                                 _interactioncounter += 1;
                                 guestEncounters.Add(guesti);
-
+                                
                                 if (_interactioncounter >= _susceptibility)
                                 {
                                     Health = Feeling.Contaminated;
@@ -175,7 +187,7 @@ public class Guest : MonoBehaviour
                 }
             }
 
-        }/*/
+        }
 
         if (Status == Action.DANCING)
         {
@@ -236,11 +248,16 @@ public class Guest : MonoBehaviour
                 _tempDestination = Destination;
                 Destination = null;
 
-                if ((SocialVal <= 0) && (GuestManager.Instance._partydests != null))
+                /*/if (SocialVal <= 0)
                 {
-                    GuestManager.Instance.AssignParty(this);
-                }
-                else if (Baths == 0)
+                    if (GuestManager.Instance._partydests != null)
+                    {
+                        Debug.Log("wherestheparty");
+                        GuestManager.Instance.AssignParty(this);
+                        return;
+                    }
+                }/*/
+                if (Baths == 0)
                 {
                     Destination = GuestManager.Instance.RandomEntrance();
                 }
@@ -248,7 +265,7 @@ public class Guest : MonoBehaviour
                 {
                     GuestManager.Instance.AssignOpenBath(this, _visitedBaths); //Destination is assigned inside method
                 }
-                if (Destination == null) return;
+                if (Destination == null) { Debug.Log("error"); return; }
 
                 SetText("Walking");
                 //_tempDestination.RemoveGuest(this); //remove guest from current bath
@@ -391,7 +408,7 @@ public class Guest : MonoBehaviour
         for (int i = 1; i < path.Length; i++)
         {
             distance += Vector3.Distance(path[i - 1], path[i]);
-            if (color != Color.black) { Debug.DrawLine(path[i - 1], path[i], color); } //visualizing the path, not necessary to return
+            if (color != Color.black) { /*/Debug.DrawLine(path[i - 1], path[i], color);/*/ } //visualizing the path, not necessary to return
             //Debug.Log("calculated");
         }
 
@@ -432,7 +449,7 @@ public class Guest : MonoBehaviour
             //Debug.Log("distC: " + distC);
             //Debug.Log("distFromC: " + distFromC);
 
-            Debug.DrawLine(guestPosition, c.StartPosition(_agent, guestPosition), Color.black);
+            //Debug.DrawLine(guestPosition, c.StartPosition(_agent, guestPosition), Color.black);
             //Debug.DrawLine(c.StartPosition(_agent, guestPosition), c.EndPosition(_agent, destinationPosition), Color.cyan);
             //Debug.DrawLine(c.EndPosition(), destinationPosition, Color.white);
             //Debug.Log("ConveyanceDistance: " + (distToC + distC + distFromC));
