@@ -10,7 +10,7 @@ public class Guest : MonoBehaviour
     public Text Text;
 
     public Slider Slider;
-    public float Stop = 0;
+    public float Stop = 10;
     public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
 
     [Header("Destination")]
@@ -55,7 +55,27 @@ public class Guest : MonoBehaviour
     // Update is called once per frame
     public virtual void GuestUpdate()
     {
+        if (Status == Action.WALKING)
+        {
+            if (_agent.enabled && _agent.velocity == Vector3.zero)
+            {
 
+                   //<------This is Debug;
+                Stop -= Time.deltaTime*2;
+
+                if(Stop < 0)
+                {
+                    GuestManager.Instance.FindNewBath(this, _visitedBaths);
+                    UpdateDestination();
+                    FindPath(ref _currentConveyance, ref _destinations);
+                    
+                    Stop = 10; 
+                }
+
+                
+
+            }
+        }
 
         if (Status == Action.RANDOM)
         {
@@ -69,17 +89,7 @@ public class Guest : MonoBehaviour
                     float distance = Vector3.Distance(bath.transform.position, transform.position);
                     Debug.Log(distance);
                     if (distance > 15) continue;
-                    if (Status == Action.WALKING)
-                    {
-                        if (_agent.enabled && _agent.velocity == Vector3.zero)
-                        {
-
-                            //Stop = 100;    <------This is Debug;
-                            GuestManager.Instance.AssignOpenBath(this, _visitedBaths);
-
-
-                        }
-                    }
+               
                     GuestWalkDestination();
 
                     return;

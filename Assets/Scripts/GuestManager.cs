@@ -106,6 +106,32 @@ public class GuestManager : MonoBehaviour
         }
     }
 
+
+    public virtual void FindNewBath(Guest guest, List<Destination> visited = null)
+    {
+        foreach (Destination bath in _destinations)
+        {
+            //if bath is full guard statement
+            if (bath.IsFull()) continue; //continue goes to the next line
+
+            //make sure bath hasn't already been visited
+            if (visited != null)
+            {
+                if (visited.Contains(bath))
+                {
+                    continue;
+                }
+            }
+
+            // if (guest._agent.isStopped == true) continue;
+
+            //assign destination;
+            guest.Destination = bath;
+            bath.AddGuest(guest);
+            break;
+        }
+    }
+
     // Update is called once per frame
     private void Update()
     {
