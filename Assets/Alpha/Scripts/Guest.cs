@@ -12,7 +12,7 @@ public class Guest : MonoBehaviour
     public Slider Slider;
     public float Stop = 10;
     public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
-
+    public float Happyness = 0;
     [Header("Destination")]
     //public global variables
     public Destination Destination; //where the agent is going
@@ -113,6 +113,8 @@ public class Guest : MonoBehaviour
         if (Status == Action.BATHING)
         {
             _bathTime += Time.deltaTime; //_bathTime = _bathTime + Time.deltaTime
+           
+
             if (_bathTime > BathTime)
             {
                 

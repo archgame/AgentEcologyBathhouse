@@ -46,17 +46,17 @@ public class EnergyCount : MonoBehaviour
                 mr.material = Main;
             }
 
-            else if (Score == 8)
+            else if (Score == 6)
             {
                 mr.material = Alt;
             }
 
-            else if (Score == 15)
+            else if (Score == 10)
             {
                 mr.material = Alt1;
             }
 
-            else if (Score == 20)
+            else if (Score == 15)
             {
                 mr.material = Alt2;
             }
