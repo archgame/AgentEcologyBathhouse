@@ -43,10 +43,10 @@ public class TimeMetric : MonoBehaviour
         // }
 
 
-        time += Time.deltaTime;
+        time += 1;
         float time_round = Mathf.Round(time * 10.0f) * 0.1f;
        
-        GuestText.text = ("Time Elapsed: " + (time_round) + " s");
+        //GuestText.text = ("Time Elapsed: " + (time_round) + " s");
         Slider.value = time_round;
 
 

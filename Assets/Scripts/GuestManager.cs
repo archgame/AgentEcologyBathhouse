@@ -69,7 +69,7 @@ public class GuestManager : MonoBehaviour
     {
         //guard statement, if bath house is full
         //if (_occupancyLimit <= _guest.Count) return;
-        if (_guest.Count >= _occupancyLimit - 1) return;
+        if (_guest.Count >= 1000) return;
 
         //instantiate guest
         int randomIndex = Random.Range(0, _guestEntrances.Length);

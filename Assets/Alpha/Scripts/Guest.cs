@@ -8,7 +8,7 @@ public class Guest : MonoBehaviour
 {
     [Header("UI")]
     public Text Text;
-
+    public GameObject Export;
     public Slider Slider;
     public float Stop = 10;
     public enum Action { BATHING, WALKING, FOLLOWING, RIDING, RANDOM }
@@ -42,6 +42,7 @@ public class Guest : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        Export.active = false;
         _agent = GetComponent<NavMeshAgent>();
         //Status = Action.RANDOM;
         //Vector3 newPos = RandomNavSphere(transform.position, 100, -1);
@@ -65,6 +66,7 @@ public class Guest : MonoBehaviour
 
                 if(Stop < 0)
                 {
+                    Export.active = true;
                     GuestManager.Instance.FindNewBath(this, _visitedBaths);
                     UpdateDestination();
                     FindPath(ref _currentConveyance, ref _destinations);

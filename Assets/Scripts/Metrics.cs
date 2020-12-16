@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Metrics : MonoBehaviour
 {
     [Header("Controls")]
-    [Range(0, 1)]
+    [Range(0, 100)]
     public float ScreenSlider = 0;
 
     [Range(0, 1)]
@@ -44,5 +44,8 @@ public class Metrics : MonoBehaviour
             Slider.value = ScreenSlider;
         if (Text.text != ScreenText)
             Text.text = ScreenText;
+
+        Slider.value += 1;
+
     }
 }
