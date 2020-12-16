@@ -22,8 +22,8 @@ public class Guest : MonoBehaviour
     public Action Status; //our agent's current status
 
     //private global variables
-    private float _bathTime = 0; //how long the agent has been in the bath
-
+    public float _bathTime = 0; //how long the agent has been in the bath
+    public float Test1 = 0;
     [HideInInspector]
     public NavMeshAgent _agent; //our Nav Mesh Agent Component
 
@@ -61,13 +61,13 @@ public class Guest : MonoBehaviour
             if (_agent.enabled && _agent.velocity == Vector3.zero)
             {
 
-                   //<------This is Debug;
+                   //<This is Debug;
                 Stop -= Time.deltaTime*2;
 
                 if(Stop < 0)
                 {
                     Export.active = true;
-                    GuestManager.Instance.FindNewBath(this, _visitedBaths);
+                    GuestManager.Instance.AssignOpenBath(this, _visitedBaths);
                     UpdateDestination();
                     FindPath(ref _currentConveyance, ref _destinations);
                     
@@ -115,6 +115,7 @@ public class Guest : MonoBehaviour
             _bathTime += Time.deltaTime; //_bathTime = _bathTime + Time.deltaTime
             if (_bathTime > BathTime)
             {
+                
                 _tempDestination = Destination;
                 Destination = null;
 
@@ -124,7 +125,9 @@ public class Guest : MonoBehaviour
                 }
                 else //if guest needs new bath assigned
                 {
+                   
                     GuestManager.Instance.AssignOpenBath(this, _visitedBaths); //Destination is assigned inside metho
+                    Test1 = 1;
                 }
                 if (Destination == null) return;
 

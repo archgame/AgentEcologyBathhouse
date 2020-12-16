@@ -107,7 +107,7 @@ public class GuestManager : MonoBehaviour
     }
 
 
-    public virtual void FindNewBath(Guest guest, List<Destination> visited = null)
+    /*public virtual void FindNewBath(Guest guest, List<Destination> visited = null)
     {
         foreach (Destination bath in _destinations)
         {
@@ -130,7 +130,7 @@ public class GuestManager : MonoBehaviour
             bath.AddGuest(guest);
             break;
         }
-    }
+    }*/
 
     // Update is called once per frame
     private void Update()
