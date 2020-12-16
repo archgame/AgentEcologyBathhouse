@@ -12,11 +12,11 @@ public class iMovingCamera : MonoBehaviour
     void Update()
     {
         //Look around with Right Mouse
-        if (Input.GetMouseButton(1))
-        {
-            yaw += lookSpeed * Input.GetAxis("Mouse X");
-            transform.eulerAngles = new Vector3(0f, yaw, 0f);
-        }
+        //if (Input.GetMouseButton(1))
+        //{
+            //yaw += lookSpeed * Input.GetAxis("Mouse X");
+            //transform.eulerAngles = new Vector3(0f, yaw, 0f);
+        //}
         
         if (Input.GetKey("a"))
         {
