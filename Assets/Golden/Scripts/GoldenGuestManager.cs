@@ -115,7 +115,7 @@ public class GoldenGuestManager : MonoBehaviour
     private void AdmitEmployee()
     {
         //Debug.Log("109.0");
-        if (_guest.Count % 6 != 0) return;
+        if (_guest.Count % 3 != 0) return;
         //Debug.Log("110");
         //if (_guest.Count/6 <= _employee.Count) return;
         //Debug.Log("111.0");
