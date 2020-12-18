@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4785804100986198273}
   m_Layer: 0
   m_Name: BathV
-  m_TagString: Bath
+  m_TagString: BathV
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0b094af3fea6834d86f3899896214c7, type: 2}
+  - {fileID: 2100000, guid: e48de5c9ad40a8a489d6bda626baf53f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,4 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd37aa79a51dec4b84e620646d00c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OccupancyLimit: 2
+  OccupancyLimit: 3

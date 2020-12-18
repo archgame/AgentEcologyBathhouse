@@ -98,7 +98,15 @@ public class Guest : MonoBehaviour
                 }
                 else //if guest needs new bath assigned
                 {
-                    GuestManager.Instance.AssignOpenBath(this, _visitedBaths); //Destination is assigned inside metho
+                    if(gameObject.name.Contains("vip"))
+                    {
+                        GoldenGuestManager.Instance.AssignOpenBath(this, GoldenGuestManager.Instance._vipDestinations); //Destination is assigned inside metho
+                    }
+                    else
+                    {
+                        GoldenGuestManager.Instance.AssignOpenBath(this, GoldenGuestManager.Instance._destinations); //Destination is assigned inside metho
+                    }
+                    
                 }
                 if (Destination == null) return;
 
@@ -135,7 +143,7 @@ public class Guest : MonoBehaviour
         FindPath(ref _currentConveyance, ref _destinations);
     }
 
-    private void DestinationDistance()
+    public virtual void DestinationDistance()
     {
         //test agent distance from destination
         if (Vector3.Distance(transform.position, Destination.transform.position) < 1.1f)
@@ -255,6 +263,8 @@ public class Guest : MonoBehaviour
             //guard statement, how many people are on the conveyance
             if (c.IsFull()) continue;
 
+            if (!c.IsConveyanceActive()) continue;
+
             float distToC = AgentWalkDistance(_agent, transform, guestPosition, c.StartPosition(guestPosition), Color.green);
             float distC = c.WeightedTravelDistance(guestPosition, destinationPosition);
             float distFromC = AgentWalkDistance(_agent, transform, c.EndPosition(destinationPosition), destinationPosition, Color.red);
@@ -296,7 +306,7 @@ public class Guest : MonoBehaviour
     /// <summary>
     /// Start bath by changing agent status and stopping the agent
     /// </summary>
-    private void StartBath()
+    public void StartBath()
     {
         Baths--;
         _visitedBaths.Add(Destination);

@@ -262,6 +262,53 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3005172908118562390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2248059610541900206}
+  - component: {fileID: 4985622313085428372}
+  m_Layer: 0
+  m_Name: timemetric
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2248059610541900206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005172908118562390}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5294462847634489350}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4985622313085428372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005172908118562390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f98050d63c26bb4c9a9c4bae0aa6f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreenSlider: 0
+  ScreenText: 
+  GuestText: {fileID: 9075325930689148523}
+  Slider: {fileID: 325074318660764154}
 --- !u!1 &5831199024063688801
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +509,7 @@ GameObject:
   - component: {fileID: 5681764449451464632}
   - component: {fileID: -5327651404393659552}
   - component: {fileID: 4081008891541069390}
+  - component: {fileID: -1300601493790158664}
   m_Layer: 0
   m_Name: Guest
   m_TagString: Untagged
@@ -481,6 +529,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2673714812259191049}
+  - {fileID: 2248059610541900206}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -555,7 +604,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 20
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -565,7 +614,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 23
   m_ObstacleAvoidanceType: 4
 --- !u!114 &4081008891541069390
 MonoBehaviour:
@@ -583,13 +632,25 @@ MonoBehaviour:
   Slider: {fileID: 325074318660764154}
   Destination: {fileID: 0}
   Baths: 3
-  BathTime: 5
+  BathTime: 3
   Status: 0
   _agent: {fileID: 0}
   _currentConveyance: {fileID: 0}
   _destinations: []
   _tempDestination: {fileID: 0}
   WanderTimer: {x: 2, y: 5}
+--- !u!114 &-1300601493790158664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044475979695905302}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e1437e8a4e5c74aa70ca44abcf2f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8323917581829293449
 GameObject:
   m_ObjectHideFlags: 0
