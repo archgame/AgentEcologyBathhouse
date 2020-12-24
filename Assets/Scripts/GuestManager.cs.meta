@@ -3,8 +3,12 @@ guid: 217ed7fb89d5f7444913966ac2900e74
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
+  defaultReferences:
+  - GuestPrefab: {fileID: 3195382997371946575, guid: d82088452a5d5bb4b8bb33e5dea5ff99,
+      type: 3}
+  - PartyPrefab: {fileID: 6916400546113555184, guid: f286ad0574fb1154da27cfa15437196f,
+      type: 3}
+  executionOrder: -12100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

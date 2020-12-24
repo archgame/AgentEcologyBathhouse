@@ -8,6 +8,10 @@ public class GuestManager : MonoBehaviour
 {
     [HideInInspector]
     public static GuestManager Instance { get; private set; }
+
+    public GameObject GuestPrefab; //guest gameobject to be instantiated
+    public GameObject PartyPrefab;
+
     public int risk = 0;
     public float PercentSick = 0;
 
@@ -18,10 +22,7 @@ public class GuestManager : MonoBehaviour
     public int safeExit = 0;
     public int exitCount = 0;
     public int neutralExit = 0;
-
-    public GameObject GuestPrefab; //guest gameobject to be instantiated
-    public GameObject EmployeePrefab;
-    public GameObject PartyPrefab;
+     
 
     public float EntranceRate = 0.5f; //the rate at which guests will enter
 
@@ -36,7 +37,7 @@ public class GuestManager : MonoBehaviour
     public int _occupancyLimit = 0; //occupancy limit maximum
     public int totalparties = 0;
 
-    private GameObject fpCamObject;
+    public GameObject fpCamObject;
     private Fpcam fpCamScript;
 
     public float dancetimer = 0.0f;
@@ -45,6 +46,8 @@ public class GuestManager : MonoBehaviour
     private void Awake()
     {
         //Singleton Pattern
+        Debug.Log("awake1");
+        
         if (Instance != null && Instance != this)
         {
             Destroy(this.gameObject);
@@ -55,11 +58,26 @@ public class GuestManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+        // Start is called before the first frame update
     private void Start()
-    {
-        fpCamObject = GameObject.FindGameObjectWithTag("First Person Camera");
+        {
+
+        //Instance = this;
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        //Debug.Log("awake2");
+        //fpCamObject = GameObject.FindGameObjectWithTag("First Person Camera");
         fpCamScript = fpCamObject.GetComponent<Fpcam>();
+
+        //fpCamScript = Fpcam.Instance;
 
         GameObject[] partygos = GameObject.FindGameObjectsWithTag("Party");
         GameObject[] destinations = GameObject.FindGameObjectsWithTag("Bath");
@@ -74,6 +92,8 @@ public class GuestManager : MonoBehaviour
 
         _occupancyLimit /= 2;
 
+        //Debug.Log("Occupancy Limit" + _occupancyLimit);
+
         foreach (GameObject go in partygos)
         {
             Destination partydest = go.GetComponent<Destination>();
@@ -82,7 +102,7 @@ public class GuestManager : MonoBehaviour
 
         _guestEntrances = GameObject.FindObjectsOfType<GuestEntrance>();
 
-        AdmitGuest();
+        //AdmitGuest();
     }
 
     private GameObject[] Shuffle(GameObject[] objects)
@@ -103,12 +123,13 @@ public class GuestManager : MonoBehaviour
     {
         //guard statement, if bath house is full
         //if (_occupancyLimit <= _guest.Count) return;
-        if (_guest.Count >= _occupancyLimit - 1) return;
+        if (_guest.Count >= _occupancyLimit - 1) { Debug.Log("TooFull"); return; }
 
         //instantiate guest
         int randomIndex = Random.Range(0, _guestEntrances.Length);
         Vector3 position = _guestEntrances[randomIndex].transform.position;
         GameObject guest = Instantiate(GuestPrefab, position, Quaternion.identity); //adding our gameobject to scene
+        Debug.Log("Instantiation" + guest.name);
         _guest.Add(guest.GetComponent<Guest>()); //adding our gameobject guest script to the guest list
         Guest guestScript = guest.GetComponent<Guest>();
         fpCamScript.FollowMe(guestScript);
@@ -179,9 +200,11 @@ public class GuestManager : MonoBehaviour
             guest.GuestUpdate();
         }
 
-        fpCamScript.CamUpdate();
+
 
         if (_exitedGuests.Count >= 0) { ExitGuests(); }
+
+        fpCamScript.CamUpdate();
 
         //admit guests after entrance rate
         if (EntranceRate <= _lastEntrance)

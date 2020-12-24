@@ -67,7 +67,7 @@ public class PuddleManager : MonoBehaviour
      {
          return _listofpuddles[i];
      }*/
-    private void Awake()
+    private void Start() //Awake()
     {
         //Singleton Pattern
         if (Instance != null && Instance != this)
